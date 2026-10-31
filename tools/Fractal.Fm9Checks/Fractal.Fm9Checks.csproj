@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
+    <OutputType>Exe</OutputType><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable>
+    <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild><EnableNETAnalyzers>false</EnableNETAnalyzers>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../src/Fractal.Core/Fractal.Core.csproj" />
+    <Compile Include="../../dependencies/test-lab/Fm9ReadOnly.cs" Link="Fm9ReadOnly.cs" />
+    <Compile Include="../../dependencies/test-lab/Fm9ToolkitTransport.cs" Link="Fm9ToolkitTransport.cs" />
+  </ItemGroup>
+</Project>

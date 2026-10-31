@@ -1,0 +1,88 @@
+AI Toolkit for Fractal
+
+The initial technical knowledge was collected through the PresetMaestro project:
+https://github.com/PaulAngus/PresetMaestro
+PresetMaestro is distributed under the Apache License, Version 2.0.
+See docs/provenance.json for technical source revisions and hashes.
+
+The toolkit contains generalized Fractal/MIDI procedures and qualified hardware
+observations. Application documentation copies, chat histories, personal preset
+backups, credentials and private device names are not distributed.
+
+The FM9 12.00 amp roster contains recorded numeric ID/name pairs with source
+provenance. Manufacturer manuals and third-party implementations are linked;
+their manuals have not been vendored. The contained C# framing, assembly,
+stored decoder and fixture technique are modified Apache-2.0 PresetMaestro
+source. See docs/protocol-release.json for origin revision, file hashes and
+modifications.
+
+The reviewed amplifier catalogue generalizes PresetMaestro's Apache-2.0 factual
+identities, explicit family groups and original qualifications. Source file
+hashes and research locators accompany the dataset. Only factual identities,
+review notes and reading links are distributed; community guide prose, images
+and user-supplied research tables are not redistributed. Ampdex and the Fractal
+Wiki share source lineage and are not independent confirmations. Exact revision
+claims retain their uncertainty. The recorded device roster superseded an older
+candidate table derived from MCP MIDI Control / fractal-syx-codec; that candidate
+table and upstream runtime code are not included here.
+
+Fractal Audio and its product names are trademarks of their respective owners.
+Their use here does not imply endorsement or affiliation.
+
+Gen-3 body/model layout and editor-envelope research derives from MCP MIDI Control
+Copyright 2026 Stephen Staker
+https://github.com/TheAndrewStaker/mcp-midi-control
+Licensed under Apache-2.0. Its credited underlying format research is:
+fractal-syx-codec, Copyright 2026 Andrew Mercurio ("BoodieTraps"), Apache-2.0
+https://github.com/drewmerc302/fractal-syx-codec
+The toolkit uses format and editor-envelope research and adapted C# source; it does not include
+upstream MIDI transports, MCP dependencies or unrelated software.
+
+Temporary-buffer upload addressing was researched from ForgeFX and forgefx-midi:
+https://github.com/sKuhLight/ForgeFX
+https://github.com/sKuhLight/forgefx-midi
+Pinned revisions and source hashes are retained in docs/protocol-release.json.
+The toolkit independently implements the transfer facts and does not vendor
+those projects' source, application policy or dependencies. External FM3 audition
+claims and toolkit hardware qualification are recorded separately.
+
+The block identity catalogue retains factual enum IDs, display names and dated
+model instance counts researched from Fractal Audio MIDI revision 1.4, Blocks
+Guide June 2023 and the pinned Apache-2.0 Gen-3 implementation credited above.
+Source revisions, SHA-256 and authority/model limits accompany the JSON data.
+Manufacturer prose, full manuals and unrelated upstream source are not bundled.
+
+The contained audio parameter catalogue derives factual editor IDs, symbols and
+qualified display hints from each model's params.ts at MCP MIDI Control revision
+59047175cfc4f23e092931b54a7c54f2bffde3ea (Apache-2.0, Stephen Staker, credited above).
+Saved audio field and grid-mask facts derive from that revision's presetBody.ts
+and corroborating gridLayout.ts commentary. Dataset entries retain inference
+qualifications; source hashes and model scopes accompany the catalogue and
+protocol release. These facts do not establish new hardware compatibility.
+
+The saved-image edit writer is an inverse of the contained Huffman/container
+decoder. General scene-state and channel-row offsets use the pinned presetBody.ts
+format research credited above; docs/preset-editing-validation.json retains its
+source hash and synthetic validation boundary. No normal build fetch is required.
+
+The saved-value-scales catalogue adapts selected factual parameter laws, word
+counts and modifier fields from Big Saurus, Axe-Fx III SysEx & Parameter Maps,
+revision 4463ae9b7e388d2fe98e24fdd7068b1c35865277:
+https://github.com/BigSaurus/axefx-sysex-maps
+Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/
+The original licence/notice is retained in docs/big-saurus-license.txt. Changes
+include field selection, alias deduplication, neutral provenance summaries and
+explicit model/firmware/shape constraints. Source hashes and limitations accompany
+the catalogue. Upstream-reported hardware observations are not toolkit validation.
+
+Native MIDI now uses the independently versioned MightBeUseful.Midi and
+MightBeUseful.Midi.Windows 0.3.4 packages from MIDIHelperLibrary.
+See dependencies/midi/manifest.json for exact package hashes and source revision,
+and dependencies/midi/README.md for third-party package provenance and licences.
+These binary dependencies do not replace the contained Fractal protocol sources.
+
+Native macOS MIDI uses MightBeUseful.Midi.CoreMidi 0.3.4 and its standard
+DryWetMIDI 8.0.3 backend. The contained package preserves upstream native assets
+and licence notices; see dependencies/midi/licenses and the dependency manifest.
+No native Mac hardware qualification is implied by portable offline checks.

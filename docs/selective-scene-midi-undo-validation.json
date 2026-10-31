@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "release": "0.28.0",
+  "date": "2026-10-12",
+  "status": "offline-software-validation-passed",
+  "models_checked": [
+    "FM9/512",
+    "FM3/512",
+    "Axe-Fx III/512",
+    "Axe-Fx III/1024"
+  ],
+  "fixture_provenance": {
+    "source": "tests/Fractal.Checks/SelectiveUndoChecks.cs",
+    "kind": "synthetic-only",
+    "firmware_label": "99.07 is synthetic context, not a compatibility claim. Prior-release tests relabel current-schema records; no archived historical record was tested."
+  },
+  "checks": [
+    "Canonical schema-1 recovery release labels from 0.8.0 through 0.27.0 revalidate completed originals, plans and saved/reloaded results before read-only selective planning",
+    "Prior-release read-only stores refuse lifecycle mutations; ordinary mutable import refuses a prior release",
+    "Pre-schema, noncanonical and future labels are refused",
+    "A hash-consistent but changed saved/reloaded result is refused when it differs from the freshly rebuilt plan",
+    "Owned raw Scene MIDI words restore exactly while later unrelated saved settings remain unchanged; conflicting owned rows are refused"
+  ],
+  "results": {
+    "python_tests": 158,
+    "dotnet_checks": 236,
+    "cli_pipeline": "passed across four model/capacity definitions",
+    "relocated_mcp_pipeline": "passed across four model/capacity definitions",
+    "knowledge_validation": "passed",
+    "distribution_source_privacy": "passed",
+    "protocol_release_hashes": "verified",
+    "hardware_tests_performed": false
+  },
+  "limits": [
+    "Actual archived records may differ from current schema or semantics and are refused if they cannot be revalidated",
+    "Older mutable resume/undo, unfinished recovery items and partial saved/unsaved work are not migrated",
+    "Offline planning does not prove the age or freshness of a caller-supplied current saved capture or authorize device execution"
+  ]
+}

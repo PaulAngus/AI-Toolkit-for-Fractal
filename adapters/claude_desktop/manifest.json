@@ -1,0 +1,94 @@
+{
+  "manifest_version": "0.4",
+  "name": "ai-toolkit-for-fractal",
+  "display_name": "AI Toolkit for Fractal",
+  "version": "0.9.0",
+  "description": "Fractal Audio knowledge, preset planning and controlled MIDI access for FM9, FM3 and Axe-Fx III.",
+  "long_description": "Contains the provider-independent toolkit, complete source, helpers and retained references. Configure the device; its USB MIDI connection is found automatically by name, and enable live reads and write execution independently. Claude tool permissions control calls; hardware execution additionally requires one exact locally approved review. Enabling access never opens ports at startup. Claude manages Python through UV; .NET 10 is required for the contained helpers. No AI SDK, API key or other repository is required. Setup errors are reported through fractal_status while knowledge tools stay available and device access stays disabled.",
+  "author": {
+    "name": "AI Toolkit for Fractal contributors"
+  },
+  "server": {
+    "type": "uv",
+    "entry_point": "adapters/claude_desktop/server.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "${__dirname}",
+        "adapters/claude_desktop/server.py",
+        "--allow-live-reads",
+        "${user_config.allow_live_reads}",
+        "--allow-writes",
+        "${user_config.allow_writes}",
+        "--model",
+        "${user_config.device_model}",
+        "--capacity",
+        "${user_config.preset_capacity}",
+        "--firmware",
+        "${user_config.firmware}",
+        "--connection",
+        "${user_config.midi_connection}"
+      ]
+    }
+  },
+  "tools_generated": true,
+  "compatibility": {
+    "platforms": [
+      "win32",
+      "darwin",
+      "linux"
+    ],
+    "runtimes": {
+      "python": ">=3.10,<4"
+    }
+  },
+  "keywords": [
+    "fractal-audio",
+    "midi",
+    "presets"
+  ],
+  "license": "Apache-2.0",
+  "user_config": {
+    "allow_live_reads": {
+      "type": "boolean",
+      "title": "Enable live MIDI reads",
+      "description": "Allows read tools for the configured device. Claude tool permissions still apply. Startup opens no ports.",
+      "default": true
+    },
+    "allow_writes": {
+      "type": "boolean",
+      "title": "Enable MIDI write execution",
+      "description": "Requires live reads and an exact operator-approved review. Claude Allow does not create that approval. Turn this off for read-only use.",
+      "default": true
+    },
+    "device_model": {
+      "type": "string",
+      "title": "Device model",
+      "description": "Enter FM9, FM3 or Axe-Fx III. Uppercase and lowercase both work.",
+      "required": true
+    },
+    "preset_capacity": {
+      "type": "number",
+      "title": "Preset capacity",
+      "description": "512 for FM9/FM3; actual 512 or 1024 capacity for Axe-Fx III.",
+      "required": true,
+      "min": 512,
+      "max": 1024
+    },
+    "firmware": {
+      "type": "string",
+      "title": "Recorded firmware version",
+      "description": "Enter the version shown on your device, such as 12.0 or 12.00. Both formats work; no firmware version is assumed.",
+      "required": true
+    },
+    "midi_connection": {
+      "type": "string",
+      "title": "MIDI connection (optional)",
+      "description": "Leave Automatic when connecting your Fractal device by USB. The toolkit finds the connection by name. For a separate MIDI interface or several devices, enter its connection name. You do not need port numbers.",
+      "default": "Automatic",
+      "required": false
+    }
+  }
+}

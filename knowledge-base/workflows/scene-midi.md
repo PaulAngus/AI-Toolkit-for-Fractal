@@ -1,0 +1,40 @@
+# Configure outgoing Scene MIDI messages
+
+General task: apply a specified outgoing MIDI message to selected saved presets and scenes while preserving existing sound settings, routing and other MIDI messages.
+
+**One Scene MIDI block belongs to the preset grid.** Its message settings vary by scene. Configuring all eight scenes does not require eight grid blocks.
+
+The manufacturer [Blocks Guide](https://www.fractalaudio.com/downloads/manuals/fas-guides/Fractal-Audio-Blocks-Guide.pdf#page=89) describes the block and PC/CC table. The [reading map](../reference-map.md) connects that description to the recovered FM9 editor fields and evidence limits.
+
+## Find, clear or remove messages later
+
+Inspect each saved preset structurally for the Scene MIDI effect and its per-scene table. Identify exact messages by type/channel/value and requested scope; a grid position alone does not establish who added a block. Keep a change manifest with original/result hashes and before-values when performing an edit.
+
+To undo an owned message, first compare the current saved state with the manifest. Restore only its previous fields when they have not subsequently changed. Retain other rows and scenes. Remove the block only when its complete table and ownership evidence establish that no unrelated messages would be lost. A block that existed before the operation should normally remain. Report ambiguous ownership as a conflict.
+
+Clearing a row and removing a block are different operations. Backup, preserve the default scene/routing and verify saved readback for either. Release 0.4.0's [empty-preset pilot](../../docs/editing-pilot.md) qualifies action 30 followed by action 33 for removal of its newly inserted Scene MIDI block on FM9 12.00. General removal of pre-existing blocks remains pending. Release 0.7.0 separately supports explicit whole-backup undo of a completed existing-block message edit while its full saved result remains unchanged. [Selective row restoration](../../docs/selective-scene-midi-undo.md) now accepts completed saved general-edit receipts and completed persistent recovery-store items, preserving later unrelated settings when exact row ownership passes.
+
+1. Specify device/firmware, preset slots, scenes, message slot, type, channel, value, grid placement and persistence. Keep displayed preset/PC numbers separate from encoded values. Establish the receiving equipment's intended response.
+2. Read and back up the saved presets with integrity checks and content hashes. Inventory empty presets, occupied grid cells, existing Scene MIDI blocks and existing messages.
+3. Produce a plan bound to the original saved content. Preserve other message slots; report occupied placements and conflicting messages. Already-correct targets need no mutation.
+4. Pilot on one suitable preset through verified model-specific editor operations. Read the block's actual defaults and write only the desired fields.
+5. Preserve the original saved default scene before saving. Reread the saved preset, verify every intended scene entry and compare unrelated decoded content independently.
+6. Extend to a bounded batch after the pilot passes. Stop on unexplained changes or uncertain persistence. Resume only against verified original/result hashes; do not blindly resend mutations.
+
+The [detailed field reference](../../skills/fractal-fm9/references/scene-midi.md) retains observed FM9 editor fields and their limits. The [offline planner](../../skills/fractal-fm9/scripts/plan_scene_midi.py) supports PC/CC messages on normalized FM9, FM3 and Axe-Fx III snapshots; it does not author preset bytes or execute MIDI writes. The [read-only runtime](../../docs/runtime.md) exports snapshots. Complete version-3 tables include all Off/PC/CC slots and raw inactive fields; unsupported tables still produce conflicts. Existing blocks are used at their current grid position. Missing blocks use the [general block insertion operation](block-insertion.md) at caller-chosen coordinates or with the explicit `first-isolated-empty` policy. See [saved/live reading and commands](../../docs/scene-midi-reading.md) for qualified offsets, the controller bank and actual idempotent inventory results.
+
+Historical hardware evidence covered one PC channel/value combination across eight scenes. The toolkit's [0.4.0 physical pilot](../../docs/editor-pilot-validation.json) adds PC and CC, channels 1/16, controller/value variations, chosen-cell insertion, saving/reloading, original default-scene preservation and exact empty-preset recovery on FM9 12.00. New insertions exposed active retained settings; always read actual defaults. The saved first body word followed the selected scene minus one in this test. Existing-block relocation, replacement on real presets, other firmware/models and downstream receiver behavior remain unqualified.
+
+For removal, identify the intended block and any unrelated messages before proposing deletion. Pilot-owned empty-preset recovery does not establish arbitrary full-preset restore or general message undo. See [backups and verification](backups-verification.md).
+
+## Existing-block execution and exact-result undo
+
+The [0.7.0 executor](../../docs/scene-midi-execution.md) consumes complete schema-3 backups and schema-2 plans under separate authorization. This message-edit operation requires an existing block and rejects occupied rows. If a block is absent, use the separate general insertion operation, verify its result and capture fresh backups before replanning messages; new-block settings cannot be assumed empty. The message editor preserves inactive fields, writes prepared row values before activating the type, then checks the entire body and independent live table before Save and after Reload. Already-matching rows need no mutation. Its explicit multi-target checker stops on failure and retains completed results.
+
+Only a fully verified saved/reloaded result produces an undo receipt. Explicit backup-based undo requires that exact saved result and no unrelated unsaved work, then verifies complete restoration before Save and after Reload. Later saved edits are conflicts rather than merged or overwritten. Physical PC/CC/model scope remains in [the separate record](../../docs/scene-midi-execution-validation.json); automatic rollback and pre-existing block removal remain outside this operation. Persistent receipt import and explicit resume/undo are implemented separately in [0.8.0](../../docs/scene-midi-recovery.md).
+
+## Persistent records and deliberate continuation
+
+[Release 0.8.0](../../docs/scene-midi-recovery.md) retains original/request/result bytes and hashes before execution and at verified completion. Reopen with the exact current record hash, explicitly select resume or undo, and reconcile every target before writes. A complete intended saved result is verified without repeating fields or Save. Pending exact originals can enter a fresh guarded execution; partial/unrelated saved contents and any unsaved differences stop. Undo uses imported completed receipts and restores whole originals only while exact result guards pass. Terminal undone entries never reapply. Compatible earlier schema-1 records containing settled and never-attempted pending items can be [migrated into a new current-release record](../../docs/scene-midi-recovery.md) after exact offline revalidation; interrupted items remain in their original record. Consult [physical and synthetic scope](../../docs/scene-midi-recovery-validation.json).
+
+The [general preset editor](../../docs/preset-editing.md) also supports combined template insertion and PC/CC configuration, explicit occupied-slot replacement and selective clearing using exact expected raw message words. It verifies the complete image and independent live table. Plan against a fresh complete capture. Completed saved Scene MIDI-only general-edit receipts and completed persistent recovery-store items can be [selectively undone](../../docs/selective-scene-midi-undo.md) against a later saved capture; unfinished recovery items still require exact-state reconciliation.

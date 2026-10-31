@@ -1,0 +1,6 @@
+{
+  "mode": "built-in image_gen edit",
+  "source": "04-toolkit-v2.png",
+  "output": "04-toolkit-v3-flat-blocks.png",
+  "prompt": "Use case: precise-object-edit. Edit supplied logo concept 4. Change only the effect-block tiles in the open case grid: remove all 3D appearance from highlighted blue, amber and purple blocks and neutral active/empty blocks. Each block must be a perfectly flat 2D charcoal rectangle with a single thin uniform solid-colour outline, identical stroke thickness, no bevel, extrusion, raised button shape, inner rim, gradients, gloss, directional lighting, shadow or glow. Make them feel like flat printed schematic symbols flush on the panel. Retain exact positions, sizes, subtle rounded corners, empty cells and split/merge connecting signal routes. Keep the toolkit case silhouette, lid circuit, handle, clasps, typography, exact text \"AI Toolkit\" and \"for Fractal\", spacing, white background and overall composition unchanged. The correction is strictly the block rendering, preserve everything else."
+}

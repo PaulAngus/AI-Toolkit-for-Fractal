@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType></PropertyGroup>
+  <ItemGroup><ProjectReference Include="../../src/Fractal.Core/Fractal.Core.csproj" /></ItemGroup>
+  <PropertyGroup Condition="('$(TestLabProfile)' == 'OfflineWindows' or '$(TestLabProfile)' == 'PhysicalWindowsReadOnly')"><EnableDefaultCompileItems>false</EnableDefaultCompileItems></PropertyGroup>
+  <ItemGroup Condition="('$(TestLabProfile)' == 'OfflineWindows' or '$(TestLabProfile)' == 'PhysicalWindowsReadOnly')">
+    <Compile Include="AudioRoutingChecks.cs" />
+    <Compile Include="BatchAndMidiChecks.cs" />
+    <Compile Include="BuiltinScaleChecks.cs" />
+    <Compile Include="CalibrationModifierChecks.cs" />
+    <Compile Include="CompoundMidiChecks.cs" />
+    <Compile Include="EditReadChecks.cs" />
+    <Compile Include="FakeEditorMidi.cs" />
+    <Compile Include="Fixtures.cs" />
+    <Compile Include="GridIsolationChecks.cs" />
+    <Compile Include="InsertionFixture.cs" />
+    <Compile Include="InventoryAnalysisChecks.cs" />
+    <Compile Include="InventoryChecks.cs" />
+    <Compile Include="InventoryFileChecks.cs" />
+    <Compile Include="LiveToolsChecks.cs" />
+    <Compile Include="PathAndListenerChecks.cs" />
+    <Compile Include="PerformanceControlChecks.cs" />
+    <Compile Include="PresetEditChecks.cs" />
+    <Compile Include="PresetOrganizationChecks.cs" />
+    <Compile Include="PrivateParameterChecks.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="RestoreFixture.cs" />
+    <Compile Include="RestoreDeadlineChecks.cs" />
+    <Compile Include="WindowsInputSelectionChecks.cs" />
+    <Compile Include="SceneMidiEditChecks.cs" />
+    <Compile Include="SceneMidiEditFixture.cs" />
+    <Compile Include="SceneMidiRecoveryChecks.cs" />
+    <Compile Include="SelectiveUndoChecks.cs" />
+    <Compile Include="SetlistSongChecks.cs" />
+    <Compile Include="SharedMidiTransportChecks.cs" />
+    <Compile Include="SpecialRoutingChecks.cs" />
+    <Compile Include="TemplateLibraryChecks.cs" />
+  </ItemGroup>
+</Project>

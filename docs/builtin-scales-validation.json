@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "release": "0.24.0",
+  "date": "2026-10-12",
+  "scope": "Synthetic all-model regression; new built-in profile Axe-Fx III 32.02 at both capacities; no hardware access",
+  "source_ids": ["axe32-word-laws", "axe32-map", "axe32-modifiers", "gen3-body"],
+  "coverage": [
+    "57 descriptors, exact firmware/model/shape matching and no cross-model imports",
+    "Independent literal linear/log/bipolar saved words, quantization, units, bounds, unknown raw sentinel",
+    "Named modifier points and target-unit endpoints, reversed Min/Max, exact ownership and opaque-field preservation",
+    "Conflicting requests, repeat no-ops, canonical order and catalogue mutation isolation",
+    "Shared Save/Reload, reopened bundle, independent full-image comparison and exact receipt undo",
+    "CLI and relocated MCP discovery, signed physical values and exact offline execution review"
+  ],
+  "limits": [
+    "Upstream physical observations are reported, not repeated; original upstream hardware captures are not retained",
+    "Other-model/firmware scales and unresolved sentinel/integer/damping/Scale/Offset semantics remain open",
+    "Stored scale values do not establish type/tempo/controller-dependent effective audio behavior"
+  ],
+  "results": {
+    "status": "passed",
+    "python_tests": 158,
+    "dotnet_checks": 232,
+    "cli_pipeline": "passed across all four device definitions; new scale/curve plans at both Axe-Fx III capacities",
+    "relocated_mcp_pipeline": "passed across all four device definitions; source-scoped discovery, signed values, modifier curves and exact review at both Axe-Fx III capacities",
+    "knowledge_validation": "passed",
+    "distribution_privacy": "passed",
+    "protocol_release_hashes": "verified",
+    "hardware_tests_performed": false
+  },
+  "followup_2026_10_13": {
+    "scope": "Exact Axe-Fx III 32.02 modifier word-position extension; no MIDI or hardware qualification",
+    "new_fields": "Saved-normalized Attack, Scale, Offset and Release words 7, 13, 14 and 15; read-only unlabelled Damping Type raw selector word 24; one-word same-binding donor copy",
+    "independent_checks": "Literal expected whole-body words, unrelated modifier/binding/grid preservation, no-op repeat, wrong unit/range/firmware/key/binding/hash refusals, catalogue copy isolation, decoded raw selector and complete-image Save/Reload/undo with synthetic transport",
+    "python_unittest": "passed: 158 tests",
+    "dotnet_focus": "passed across FM9, FM3 and both Axe-Fx III capacities",
+    "cli_pipeline": "passed across four model/capacity definitions; no MIDI ports opened",
+    "mcp_pipeline": "passed: relocated bundle and real stdio adapter across four model/capacity definitions, including donor artifact planning for both Axe-Fx III capacities; no MIDI ports opened",
+    "knowledge_validation": "passed: 43 capabilities and 106 sources",
+    "distribution_source_privacy": "passed: public source only; private research copies excluded",
+    "protocol_release": "contained 0.29.0 source hashes verified",
+    "limits": [
+      "A saved-normalized fraction is not an editor display value, percentage or damping time.",
+      "Damping Type index-to-label mapping is unknown; numeric selector authoring is not offered. A complete same-binding donor is required for one-word copy.",
+      "The source reports Axe-Fx III 32.02 observations; original upstream hardware captures are not retained and this follow-up performed no device test. FM9/FM3 and other firmware retain their existing operations without borrowing these fields."
+    ]
+  },
+  "positive_integer_followup_2026_10_13": {
+    "release": "0.34.0",
+    "scope": "Exact Axe-Fx III 32.02 source profile; no hardware access or cross-model transfer",
+    "source_review": "Pinned word-law file has 68 entries: 59 distinct mapped fields, two duplicate Delay aliases and seven unresolved ratio, signed-word or other-firmware entries",
+    "new_fields": [
+      "Drive Bit Reduce: word index 16, four-channel width 44, whole 0–24 bits saved as the same positive integer",
+      "Megatap Number of Taps: word index 3, four-channel width 35, whole 1–128 taps saved as the same positive integer"
+    ],
+    "independent_checks": "Literal complete-body words, unrelated field/routing/modifier preservation, repeated-plan no-op, fractional/out-of-range/wrong-unit/firmware refusal, unknown sentinel decoding and integer-target modifier endpoint exclusion",
+    "results": {
+      "python_unittest": "passed: 158 tests",
+      "dotnet_checks": "passed: 236 checks across all four model/capacity definitions",
+      "cli_pipeline": "passed across all four definitions; no MIDI ports opened",
+      "relocated_mcp_pipeline": "passed across all four definitions; no MIDI ports opened",
+      "knowledge_validation": "passed: 43 capabilities and 104 sources",
+      "distribution_source_privacy": "passed: 259 public source files checked",
+      "protocol_release": "contained 0.34.0 hashes verified"
+    },
+    "limits": [
+      "Upstream reports physical observations; original upstream captures are not retained and this follow-up did not test an Axe-Fx III",
+      "Integer target modifier Min/Max storage, signed integer words, ratio INFINITE sentinel and other firmware remain unqualified"
+    ]
+  }
+}

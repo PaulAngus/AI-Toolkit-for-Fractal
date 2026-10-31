@@ -1,0 +1,17 @@
+# Add a block to a preset grid
+
+General task: ensure a requested block instance is present in selected presets, at a chosen empty cell when insertion is necessary. Keep instance identity, placement, parameter configuration, routing and persistence as distinct task inputs. Supply coordinates or explicitly choose the [automatic isolated placement policy](../../docs/automatic-placement.md); the toolkit has no implicit default cell.
+
+For explicit undo of a verified insertion, use [block removal](block-removal.md); the removal result must match the complete original preset before Save. This is distinct from full-preset upload restoration.
+
+1. Establish model, firmware, preset scope and saved hashes. Resolve the exact effect instance ID from that model's documentation/catalogue and check device availability; matching effect families do not establish matching parameters across models.
+2. Read the complete saved grid. Reuse an existing instance at its current location unless the task explicitly requests a separately qualified relocation operation.
+3. Choose a row and column suitable for the task. Generate a placement plan; report occupied cells or incomplete evidence. Preserve existing cells and opaque route flags.
+4. For audio blocks, also resolve intended signal flow, channels, per-scene bypass/channel state and parameter defaults. Adding a grid cell alone does not configure an audio path. Scene MIDI does not need an audio connection; its separate planner configures outgoing messages across scenes.
+5. Before hardware editing, qualify insertion/defaults and target-specific persistence/restore operations, verify current saved state and unsaved edits, then pilot and compare saved readback against intended changes and preserved content.
+
+The [offline block planner and contract](../../skills/fractal-fm9/references/block-insertion.md) implement grid placement across FM9, FM3 and Axe-Fx III. The CLI is [plan_block_insertion.py](../../scripts/plan_block_insertion.py). Scene MIDI uses that same operation; see [Scene MIDI editing](scene-midi.md). The [0.4.0 scoped pilot](../../docs/editing-pilot.md) physically qualified insertion/parameter editing for Scene MIDI on an empty FM9 12.00 preset. Release 0.6.0 separately qualified isolated insertion of one audio block type on FM9 12.00. Other families, DSP/availability catalogues and other-model hardware remain unqualified.
+
+Use the [documentation reading map](../reference-map.md) for the effect-ID appendix, block behavior and grid decoding locators. The [Blocks Guide](https://www.fractalaudio.com/downloads/manuals/fas-guides/Fractal-Audio-Blocks-Guide.pdf) covers block behavior; it does not establish private editor insertion encoding. Historical FM9 Scene MIDI insertion is limited evidence for that tested block/model/firmware, not universal proof of arbitrary block authoring.
+
+The common [isolated insertion executor](../../docs/block-insertion-execution.md) adds an absent caller-resolved instance to a chosen isolated cell in an existing preset. It requires a hash-bound addressed baseline, protects unsaved work before navigation, verifies every existing body byte before Save, then repeats saved reads and verifies Reload. Its multi-target checker stops on the first failure and does not automatically retry, undo or resume. Consult [current physical evidence](../../docs/block-insertion-validation.json); other block families, audio routing, parameter configuration and other-model hardware remain separate qualifications.

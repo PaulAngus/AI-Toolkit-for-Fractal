@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "release": "0.14.0",
+  "date": "2026-10-11",
+  "status": "offline-software-validation-passed",
+  "models_checked": [
+    "FM9/512",
+    "FM3/512",
+    "Axe-Fx III/512",
+    "Axe-Fx III/1024"
+  ],
+  "catalogues": [
+    "knowledge-base/catalog/edit-read-profiles.json",
+    "knowledge-base/catalog/audio-parameter-mappings.json"
+  ],
+  "checks": {
+    "dotnet_synthetic_checks": 180,
+    "new_audio_routing_checks": 20,
+    "python_unit_tests": 138,
+    "python_skipped_tests": 0,
+    "cli_pipeline": "passed; all four model/capacity definitions, no MIDI ports opened",
+    "offline_audio_cli_model_groups": 4,
+    "knowledge_validation": "passed; 37 capabilities, 91 sources, portable links and scope checked",
+    "distribution_source_files_checked": 184,
+    "contained_release_source_build_files": 61,
+    "contained_release_manifest": "0.14.0 recorded and verified through scripts/protocol_release.py"
+  },
+  "fixture_provenance": {
+    "source": "tests/Fractal.Checks/AudioRoutingChecks.cs",
+    "kind": "synthetic-only",
+    "construction": "Literal per-model record shapes, offsets, known values and expected directed edges. No production profile resolver assembles the fixture. Existing packer adds integrity framing only.",
+    "independence_limit": "Shares upstream format research; independently assembled software expectations are not hardware observations.",
+    "firmware_label": "99.07 is synthetic context, not a compatibility claim.",
+    "private_device_data_included": false
+  },
+  "software_scope": [
+    "Own-model editor addresses, complete catalogue counts, duplicate numeric aliases, unverified display hints and nonaddressable IDs retained",
+    "Exact saved-field identity/shape matching, per-channel FM9/FM3 Amp knob range endpoints and midpoint",
+    "Cab mode conditions on every channel, FM3 alternate Cab shapes and null semantic values outside DynaCab mode",
+    "Reverb/Delay/Drive/Chorus numeric type IDs across channels and device-specific offsets",
+    "No imported Axe-Fx III Amp knob offsets or automatic editor-hint conversions",
+    "Destination-owned incoming masks, one-based endpoints, fan-in, fan-out, cross-row and shunt paths",
+    "Unknown bits, empty sources/destinations and first-column masks retain issues and valid edge subsets",
+    "Empty graph distinguished from unknown topology; lossless body/grid bytes, hashes and repeat determinism",
+    "Offline CLI catalogue and projection on all model definitions, capture preservation and existing snapshot/planner contracts"
+  ],
+  "midi_ports_opened": false,
+  "hardware_commands_sent": false,
+  "new_hardware_qualification": false,
+  "limits": [
+    "Open implementation candidates; firmware supplied by caller, applicability not established by synthetic tests.",
+    "General editor mappings are not saved offsets. Display hints include inference and unverified units; no value encoder provided.",
+    "Saved reads cover nine FM9/FM3 Amp knobs, selected Cab fields and four effect type families. Other saved parameters remain opaque.",
+    "Axe-Fx III Amp knob layouts, Amp output level and broad effect value calibration remain unsupported.",
+    "Grid edges do not establish Send/Return, feedback, USB/multiport paths, audible behavior or legal write endpoints.",
+    "No new writers, connected edit planner/executor, MCP tools or device qualification."
+  ]
+}

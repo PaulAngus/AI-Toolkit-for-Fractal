@@ -1,0 +1,62 @@
+{
+  "shared_midi_version": "0.3.12",
+  "source_snapshot": "source-manifest.json",
+  "packages": [
+    {
+      "file": "melanchall.drywetmidi.8.0.3.nupkg",
+      "sha256": "3fa0d89ace3f59183d19c94b69df78d8920053c13a455eba7af0290f140bd311"
+    },
+    {
+      "file": "microsoft.windows.sdk.net.ref.10.0.19041.57.nupkg",
+      "sha256": "90b18f2cf7d7a23f5b0bfe2b86d8dda45881481f677ce36eccaf6e9ab50b6b4b"
+    },
+    {
+      "file": "mightbeuseful.midi.0.3.12.nupkg",
+      "sha256": "1bbe3a86f264545dc3e3c64aab831f099e7e2ad5195a9bb136392f1517d9b469"
+    },
+    {
+      "file": "mightbeuseful.midi.0.3.6.nupkg",
+      "sha256": "6e5ce52d5192975b066d2637d1e2ac8cd027685f9fa0385b65ad41932694c66d"
+    },
+    {
+      "file": "mightbeuseful.midi.coremidi.0.3.12.nupkg",
+      "sha256": "40cf23cff2a93c3bb2841784683a7802cf94e704bfac32d1d5b2372ea22a0411"
+    },
+    {
+      "file": "mightbeuseful.midi.coremidi.0.3.6.nupkg",
+      "sha256": "f9a2fe37163776d6e1679da539e1749122752b70634e75e10fa3bbc7494c4c24"
+    },
+    {
+      "file": "mightbeuseful.midi.rtp.0.3.12.nupkg",
+      "sha256": "1d1a7278c1fb4237fa2c20ab7a205427009db1fc187a7e060fd277145c796510"
+    },
+    {
+      "file": "mightbeuseful.midi.rtp.0.3.6.nupkg",
+      "sha256": "027f7e7d5dae60b66d2404ddfb15657da30eea0a25fdee53cc592e4c4c88259b"
+    },
+    {
+      "file": "mightbeuseful.midi.windows.0.3.12.nupkg",
+      "sha256": "472e7d462718a83f0d7bebbdf14334be7480b01375b645915d892ecff3f7c1c2"
+    },
+    {
+      "file": "mightbeuseful.midi.windows.0.3.6.nupkg",
+      "sha256": "99f52cc4586ec2f71aac680c06ce24228f0516cd4dab1f2b80be55a9e1715c06"
+    },
+    {
+      "file": "naudio.core.3.0.1.nupkg",
+      "sha256": "09b5c77698885dcf8fc3a4a9edaf61d2b382a2d2d17db9cb8ca8f381117ae870"
+    },
+    {
+      "file": "naudio.midi.3.0.1.nupkg",
+      "sha256": "495c23acc6d3de742a017618a48afe4dc33780dfd3b56a3b2894689c7c85b8c8"
+    },
+    {
+      "file": "naudio.winmm.3.0.1.nupkg",
+      "sha256": "10e13ddd465e48bd843041e6b5bf54e5476a462971b5eb6c057455b448b3e6da"
+    },
+    {
+      "file": "system.numerics.tensors.9.0.0.nupkg",
+      "sha256": "b750243c36002a62b28b1ac5d3fbc284ad340ba1494cc36aca110611a0b1f959"
+    }
+  ]
+}

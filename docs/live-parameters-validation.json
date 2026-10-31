@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "release": "0.22.0",
+  "date": "2026-10-12",
+  "scope": "All four model/capacity definitions have synthetic coverage; later FM9 12.00 read-only physical trials are separately scoped below",
+  "source_ids": [
+    "toolkit-private-parameters",
+    "gen3-editor-actions-pinned",
+    "gen3-fm9-audio-parameters",
+    "gen3-fm3-audio-parameters",
+    "gen3-axe-fx-iii-audio-parameters"
+  ],
+  "coverage": [
+    "Own-model Amp type addresses and broader mapped block families, preserving aliases and unknown raw fields",
+    "Exact advertised and per-page field counts, arrival-order assembly, checksum, optional header metadata, 16-bit bounds and completion",
+    "Float32 raw values, MSB-packed display padding, unknown subaction and raw private result codes",
+    "Fragmented live read, absent-instance refusal, endpoint drift, timeout, retained partial bytes and no replay",
+    "Passive private burst capture without MIDI sends, orphan/interrupted transfer and incomplete boundary",
+    "MCP configured access and transport, argument bounds, retained failure artifact and port-free CLI validation"
+  ],
+  "limits": [
+    "Physical reads cover only the stated FM9 12.00 block-table instances; notification emission remains unqualified",
+    "Raw word/float values have no inferred physical scale or saved offset",
+    "No complete notification semantics, exact request-token correlation or atomic snapshot guarantee",
+    "Unresolved block IDs remain unmapped; unknown frames retained",
+    "Calibrated wider saved setters, modifier authoring and type defaults remain separate evidence gaps"
+  ],
+  "results": {
+    "scope": "Initial 0.22.0 software validation; later physical trials appear separately below",
+    "python_tests": 156,
+    "dotnet_checks": 224,
+    "cli_pipeline": "passed across all four model/capacity definitions",
+    "relocated_mcp_pipeline": "passed across all four model/capacity definitions",
+    "additional_real_stdio_loopback": "MCP to CLI to synthetic RTP-MIDI peer passed both a mapped Reverb block read (one parameter query) and passive private burst capture (zero MIDI sends) for all four definitions; no hardware or external peer",
+    "knowledge_validation": "passed",
+    "distribution_privacy": "passed",
+    "protocol_release_hashes": "verified",
+    "hardware_tests_performed": false
+  },
+  "physical_trial_2026_10_12": {
+    "model": "FM9",
+    "firmware": "12.00",
+    "authority": "new recorded hardware observation; private complete transfer retained outside distribution",
+    "result": "Amp instance block read completed with 588 positional fields in pages of 256, 256 and 76; selected preset and scene stayed unchanged",
+    "initial_negative_result": "The first decoder treated the page-count bytes as section ordinals and stopped after retaining partial frames; no edit was sent",
+    "correction": "Validate each page's 14-bit field count against its frame length and the declared table count; retain positional arrival order and strict checksum/terminal checks",
+    "limits": [
+      "A repeated full-size page is not uniquely detectable from page counts alone",
+      "One Amp instance on one FM9 firmware does not qualify every block family or other models",
+      "No parameter edit, saved-field scale or notification emission was established"
+    ]
+  },
+  "physical_trial_2026_10_13": {
+    "model": "FM9",
+    "firmware": "12.00",
+    "authority": "recorded read-only hardware observation; complete private transfers retained outside distribution",
+    "operation": "Seven sequential explicit block-table reads through the contained USB MIDI runtime; no parameter edits or Save commands",
+    "observations": [
+      { "artifact": "table-01", "family": "Compressor", "fields": 148, "page_field_counts": [148], "capture_sha256": "804bfd4bdc6174ce698f1bdaf2c34efab078129cb69c66ce11bf7890519fc4ab" },
+      { "artifact": "table-02", "family": "Cab", "fields": 424, "page_field_counts": [256, 168], "capture_sha256": "366805baa4db0e81d9d8a0969294a35a1919a2078f23b10879e24ca4a451dbee" },
+      { "artifact": "table-03", "family": "Reverb", "fields": 292, "page_field_counts": [256, 36], "capture_sha256": "a9b059a86baa682c88590aa3ae7551784ba71c814e8ff19bf30bab35e7f83207" },
+      { "artifact": "table-04", "family": "Delay", "fields": 364, "page_field_counts": [256, 108], "capture_sha256": "265d26ab8ae41fcf385002799a657f40aa42fa59c1b629b4d83dc67fa219c0e4" },
+      { "artifact": "table-05", "family": "Chorus", "fields": 128, "page_field_counts": [128], "capture_sha256": "4ff795ec23b14ad6f80875b6ecfed1e88bca7db4e7d4513610a0dd0c74834e2f" },
+      { "artifact": "table-06", "family": "Wah", "fields": 100, "page_field_counts": [100], "capture_sha256": "eb07fae1b5590067c157b064a48f6d39c8307cfc5e1055475a416ac8ef2f7d08" },
+      { "artifact": "table-07", "family": "Drive", "fields": 176, "page_field_counts": [176], "capture_sha256": "d9666a1fa66bc929f1932d833d44fd140fe585e49652921283a3f05a5dcacab6" }
+    ],
+    "verification": "Every transfer completed with a valid ending and matching before/after current-selection and block-status samples. Integrity-checked saved-image reads immediately before and after the series matched in complete content and decoded body bytes.",
+    "limits": [
+      "One instance per family on one FM9 firmware; no claim about all instances, channels, types, other firmware or other models",
+      "The saved-image equality checks compare endpoints and do not rule out a transient intervening change",
+      "No live write, physical display-scale, audible response or unsolicited notification was established"
+    ]
+  }
+}

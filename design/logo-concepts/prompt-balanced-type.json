@@ -1,0 +1,6 @@
+{
+  "mode": "built-in image_gen edit",
+  "source": "assets/branding/ai-toolkit-for-fractal-logo-tight.png",
+  "output": "assets/branding/ai-toolkit-for-fractal-logo-balanced.png",
+  "prompt": "Precise typography-only edit of supplied approved logo. Reduce ONLY the large dark words \"AI Toolkit\" to approximately 70 percent of their current width and height, maintaining the exact same typeface, weight, colour, spelling, letter proportions and horizontal centring. Currently headline wider than toolkit case; revised headline should be slightly narrower than case, approximately 740 px wide compared with about 820 px case width on this 1254 canvas. Keep headline top at roughly same distance below case, and move subtitle \"for Fractal\" upward just enough to maintain a tidy two-line lockup beneath the smaller headline; preserve subtitle font size, colour, tracking and text. Preserve toolkit illustration EXACTLY, especially all grid block positions, perspectives, four parallel routing wires, lid circuit, clasps, case geometry and colours. Do not redesign artwork or typography. Keep white background and compact framing; avoid adding extra outer whitespace when headline becomes smaller. Goal: toolkit symbol is primary visual focus, balanced smaller brand text."
+}

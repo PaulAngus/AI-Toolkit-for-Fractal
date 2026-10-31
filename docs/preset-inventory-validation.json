@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "release": "0.15.0",
+  "date": "2026-10-11",
+  "status": "offline-software-validation-passed",
+  "models_checked": [
+    "FM9/512",
+    "FM3/512",
+    "Axe-Fx III/512",
+    "Axe-Fx III/1024"
+  ],
+  "implementation": "src/Fractal.Core/PresetInventory.cs",
+  "fixture_provenance": {
+    "source": "tests/Fractal.Checks/InventoryChecks.cs",
+    "kind": "synthetic-only",
+    "construction": "Contained integrity-framed synthetic captures and read-only fake MIDI transport; no private device captures.",
+    "scope": "First and last addressed slots plus full-capacity scope construction; not physical full-device scans.",
+    "firmware_label": "99.07 is synthetic context, not a compatibility claim."
+  },
+  "software_scope": [
+    "Model/firmware/capacity binding, explicit selected/full-capacity scope and bounds",
+    "Immutable per-slot captures, exact wire/raw/body integrity and offline completed snapshot export",
+    "Exclusive journal ownership, corrupt checkpoint/hash refusal and bounded local input",
+    "Timeout stop without retry, cancellation, unattempted slots and retained negative attempt history",
+    "Fresh complete retained-raw-image equality before missing reads; changed baseline refusal",
+    "Selection drift prevents completion; fresh stable reconciliation can finish retained captures",
+    "Started-attempt interruption and orphan-file simulation require a fresh read before adoption",
+    "Capture completion is separate from body-decoder coverage; unknown body bytes retained",
+    "Completed journals cannot be resumed; partial inventories cannot export as complete",
+    "Port-free CLI inspect/export and pre-transport refusal guards on every model definition"
+  ],
+  "checks": {
+    "python_unit_tests": 138,
+    "python_skipped_tests": 0,
+    "cli_pipeline": "passed; all four model/capacity definitions, no MIDI ports opened",
+    "knowledge_validation": "passed; 37 capabilities, 91 sources, portable links and scope checked",
+    "contained_release_manifest": "0.15.0 recorded and verified through scripts/protocol_release.py",
+    "dotnet_synthetic_checks": 184,
+    "new_inventory_model_groups": 4,
+    "distribution_source_files_checked": 188,
+    "contained_release_source_build_files": 63
+  },
+  "midi_ports_opened": false,
+  "hardware_commands_sent": false,
+  "new_hardware_qualification": false,
+  "limits": [
+    "No new physical inventory/resume validation; existing read-operation observations retain their separate scope.",
+    "Independent saved reads are not atomic; state bracketing cannot detect a change and return.",
+    "Model, firmware and byte equality do not establish unique physical device identity.",
+    "Power-loss durability, native driver failure and actual process termination are not physically qualified; interruption is simulated.",
+    "The original 0.15.0 validation excluded migration, comparison, amp usage and MCP inventory tools; these have separate 0.17.0 software coverage below."
+  ],
+  "extensions": {
+    "release": "0.17.0",
+    "date": "2026-10-11",
+    "status": "offline-software-validation-passed",
+    "models_checked": [
+      "FM9/512",
+      "FM3/512",
+      "Axe-Fx III/512",
+      "Axe-Fx III/1024"
+    ],
+    "python_unit_tests": 143,
+    "dotnet_synthetic_checks": 200,
+    "cli_pipeline": "passed",
+    "relocated_mcp_pipeline": "passed",
+    "software_scope": [
+      "Exact raw inventory comparison, name-independent full-body matching, possible moves and duplicate ambiguity",
+      "Saved Amp instance/channel/scene usage, full synthetic capacity and exact roster absence; partial evidence stays unknown",
+      "Paged inspection/usage preserve whole-inventory completeness and absence calculations",
+      "Explicit source-preserving schema-1 migration from 0.15.0/0.16.0/current with hashes and original timestamps",
+      "MCP capture/resume through one device owner, offline inspect/export/compare/amp usage/migration"
+    ],
+    "hardware_qualified": false,
+    "midi_ports_opened": false,
+    "physical_identity": "not-established"
+  },
+  "physical_trial_2026_10_12": {
+    "model": "FM9",
+    "firmware": "12.00",
+    "authority": "new recorded hardware observation; private captures retained outside distribution",
+    "result": "Selected two-slot inventory and offline export completed with no decode errors; later independent reads of the same slots matched their initial wire, raw and body hashes exactly",
+    "limits": [
+      "This initial trial covered selected slots only; a later full-capacity repeatability trial is recorded separately",
+      "Independent reads are not an atomic device snapshot",
+      "No physical device identity or other-model qualification established"
+    ]
+  },
+  "physical_full_capacity_repeatability_2026_10_12": {
+    "model": "FM9",
+    "firmware": "12.00",
+    "authority": "new recorded read-only hardware observation; private captures retained outside distribution",
+    "scope": "Two independent completed full-capacity saved inventories, each covering 512 of 512 slots, after verified restoration of the edited targets",
+    "result": "Offline comparison reported 512 identical raw saved images and complete all-saved equality; independent per-capture wire SHA-256 comparison agreed for every slot. A separately retained full-capacity saved snapshot from before this test series was integrity-checked against its manifest and matched both final scans in all 512 wire, raw and decoded-body hashes. A fresh final context read exactly matched the recorded starting selection, scene, saved and loaded buffers, and block status.",
+    "limits": [
+      "The prior full-capacity backup and both final scans prove endpoint saved-byte equality, not that no slot changed transiently during the trials",
+      "Independent sequential reads are not an atomic device snapshot",
+      "Physical selected-slot resume after deliberate process termination is recorded separately; full-capacity resume and power-loss durability remain untested",
+      "No physical scene permutation or move trial; no physical identity or other-model qualification established"
+    ]
+  },
+  "prior_full_capacity_backup_reconciliation_2026_10_12": {
+    "model": "FM9",
+    "firmware": "12.00",
+    "authority": "integrity-checked earlier hardware snapshot retained privately; no new device access for reconciliation",
+    "scope": "Complete 512-slot saved snapshot acquired before the later editing and restoration trials",
+    "integrity": "Snapshot SHA-256 and all 512 retained capture-file SHA-256 values recomputed and matched the manifest",
+    "result": "Every slot's wire, raw and decoded-body SHA-256 matched each of two independent final full-capacity inventories, 512 of 512 in every comparison",
+    "limits": [
+      "This establishes equal saved endpoints, not an atomic scan or absence of transient changes",
+      "Physical device identity is not proven by equal model, firmware and bytes"
+    ]
+  },
+  "physical_resume_trial_2026_10_12": {
+    "model": "FM9",
+    "firmware": "12.00",
+    "authority": "new recorded read-only hardware observation; private captures retained outside distribution",
+    "scope": "A selected-slot scan was deliberately terminated after three committed saved captures; its journal retained a started capture attempt. A separate resume process used the original journal and device connection.",
+    "result": "Resume revalidated all three retained raw images, acquired the other 29 and completed all 32 requested captures. Every resumed wire, raw and decoded-body hash matched both independent full-capacity scans; a fresh final live context matched the recorded starting state exactly.",
+    "negative_observation": "An earlier observer read the checkpoint concurrently without taking the inventory lock. On Windows this collided with atomic checkpoint replacement and the first scan failed before any captures; the subsequent trial observed capture files instead and did not read the live checkpoint.",
+    "limits": [
+      "The deliberate termination was during a saved-read scan, not during an upload or Save",
+      "Selected-slot resume only; no full-capacity resume, device power-loss or driver-failure qualification",
+      "External direct checkpoint readers can interfere with Windows replacement; supported inspection takes exclusive journal ownership",
+      "No physical identity or other-model qualification established"
+    ]
+  }
+}

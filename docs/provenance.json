@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "imported_on": "2026-10-07",
+  "source_repository": "https://github.com/PaulAngus/Preset-Maestro",
+  "source_head": "078a1226559751030884aad4d95384dee37c969c",
+  "source_type": "local-working-tree",
+  "files": [
+    {
+      "path": "SCENE-NAMES.md",
+      "sha256": "e0d43e595b2e3d4c9ed3f97d0a11ff94631889714ec88d54e8a67ef3e8f8268a",
+      "git_state": "tracked-clean"
+    },
+    {
+      "path": "FRACTAL-DEVICE-INFORMATION.md",
+      "sha256": "3e274540d757eb51bdfa0d7196ec17828244d3f39d29000db5e8d73fd1e2bf7c",
+      "git_state": "tracked-clean"
+    },
+    {
+      "path": "docs/hardware-tests.md",
+      "sha256": "2559484842c9b5330c093b39f081af4fb62ecc07768105dc47b796161df65b21",
+      "git_state": "tracked-clean"
+    },
+    {
+      "path": "docs/midi-query-reliability.md",
+      "sha256": "ec0ec28980641477a40c831d3fa7c19eab3fa386a06a66b7608489bcdf241ea7",
+      "git_state": "?? docs/midi-query-reliability.md"
+    },
+    {
+      "path": "docs/fractal-protocol-research.md",
+      "sha256": "77072a827f5ab3633cc0cc3c2353d504201f0402e979b9dec38b4e2edfa4d0da",
+      "git_state": "tracked-clean"
+    },
+    {
+      "path": "PresetNameSync.Core/README.md",
+      "sha256": "4303569cc87681c15db520648b0e5d65141d305e538fc76930182f84c81d3710",
+      "git_state": "tracked-clean"
+    },
+    {
+      "path": "PresetMaestro.Tests/Fixtures/Fractal/README.md",
+      "sha256": "ec9d6879c5205882150b7dd4c7713d3d7cd8e3604fb8d397ab30365f5d1c8bba",
+      "git_state": "tracked-clean"
+    }
+  ],
+  "scene_midi_observation": {
+    "date": "2026-10-02",
+    "evidence_type": "historical-device-results",
+    "scope": "FM9 12.00 new-block PC across eight scenes on limited presets",
+    "raw_artifacts_imported": false
+  },
+  "curation_scope": "Technical source attribution only; application documentation and chat histories are not distributed."
+}

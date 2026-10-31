@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-12",
+  "release": "0.21.0",
+  "authority": "synthetic-software-validation; loopback UDP only; no hardware ports or external peers",
+  "models": [
+    "FM9/512",
+    "FM3/512",
+    "Axe-Fx III/512",
+    "Axe-Fx III/1024"
+  ],
+  "synthetic_firmware": "99.07",
+  "implementation": [
+    "src/Fractal.Core/RtpMidiCodec.cs",
+    "src/Fractal.Core/RtpMidiTransport.cs",
+    "src/Fractal.Core/TransportConnection.cs",
+    "src/Fractal.Core/MidiSendAuthority.cs",
+    "src/Fractal.Core/DeviceNotifications.cs"
+  ],
+  "checks": [
+    "tests/Fractal.Checks/NetworkNotificationChecks.cs",
+    "tests/test_mcp.py",
+    "scripts/check_cli_pipeline.py",
+    "scripts/check_mcp_pipeline.py"
+  ],
+  "sources": [
+    {
+      "source_id": "apple-network-midi",
+      "authority": "platform-manufacturer-documentation",
+      "locator": "Session initiation/termination, timestamp synchronization, MIDI packets, receiver feedback",
+      "scope": "Archived Apple RTP-MIDI session profile; no claim of current peer interoperability."
+    },
+    {
+      "source_id": "rtp-midi-rfc6295",
+      "authority": "protocol-standard",
+      "locator": "Sections 3, 3.1 and 3.2",
+      "scope": "Command lengths, delta times, running status and segmented SysEx."
+    },
+    {
+      "source_id": "fractal-midi-spec",
+      "authority": "manufacturer-documentation",
+      "locator": "Revision 1.4, commands 0AH\u201314H and Push Data",
+      "scope": "Published Axe-Fx III formats. Model-qualified interpretation does not establish other-model emission or complete change coverage."
+    },
+    {
+      "source_id": "wireshark-apple-feedback",
+      "authority": "open-implementation",
+      "locator": "v4.4.0 receiver feedback command branch",
+      "scope": "Leading 16-bit RTP sequence placement in the four-byte feedback field."
+    }
+  ],
+  "coverage": [
+    "Independent RTP wire vectors and outbound typed CC packet",
+    "Sequence rollover, loss, invalid source, invalid status, truncation and SysEx cancellation",
+    "Running status, initial delta time and journal boundary",
+    "Complete segmented SysEx assembly",
+    "Real loopback invitations, clock exchange, endpoint ownership and read roundtrip",
+    "Ordinary live-control execution with complete preservation over UDP",
+    "Complete-image upload, independent readback, Save and Reload over UDP",
+    "Loss and peer exit prevent further sends without reconnect/replay",
+    "Checksumless push exceptions, known state decoders, corrupt/unknown frames and absent scene-name preset identity",
+    "Passive fragmented capture, zero MIDI sends, incomplete trailing bytes and durable partial source failure",
+    "CLI notification validation and network edit-helper validation without connections",
+    "MCP fixed endpoint configuration, review binding, passive access guards and relocated discovery"
+  ],
+  "limits": [
+    "No hardware, native driver, external peer or actual Apple/third-party interoperability tests",
+    "Apple RTP-MIDI initiator only; no discovery or server",
+    "No journal-based command recovery; discontinuity aborts",
+    "Endpoint/source matching is not authentication",
+    "Remote physical-port ownership must be coordinated by its host",
+    "Missing first packet or silent downstream delivery cannot be established solely by RTP",
+    "Passive context is caller-supplied, not hardware identity",
+    "Complete collection is not complete internal-change coverage or saved persistence",
+    "Unrecognized private messages remain raw; exact model/firmware/output emission requires separate evidence"
+  ],
+  "results": {
+    "python_tests": 155,
+    "dotnet_checks": 220,
+    "cli_pipeline": "passed across all four model/capacity definitions",
+    "relocated_mcp_pipeline": "passed across all four model/capacity definitions",
+    "additional_packaged_mcp_smoke": "Real stdio to CLI to synthetic loopback RTP peer captured three tempo observations per model/capacity definition with zero MIDI sends; source inputs supplied by the test, no external peer",
+    "knowledge_validation": "passed",
+    "distribution_privacy": "passed",
+    "protocol_release_hashes": "verified",
+    "hardware_tests_performed": false
+  }
+}

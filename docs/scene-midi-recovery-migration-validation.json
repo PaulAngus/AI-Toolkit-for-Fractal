@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "release": "0.30.0",
+  "date": "2026-10-13",
+  "status": "offline-software-validation-passed",
+  "models_checked": [
+    "FM9/512",
+    "FM3/512",
+    "Axe-Fx III/512",
+    "Axe-Fx III/1024"
+  ],
+  "fixture_provenance": {
+    "source": "tests/Fractal.Checks/SelectiveUndoChecks.cs",
+    "kind": "synthetic generated fixtures; separate private historical-byte trial",
+    "firmware_label": "99.07 is synthetic context, not a compatibility claim. Earlier-release automated tests relabel current-schema records. Four locally retained 0.11.0 pending synthetic records and one actual 0.8.0 FM9 12.00 terminal record were also validated offline."
+  },
+  "checks": [
+    "A settled schema-1 record with an earlier release label revalidates complete originals, plans, saved results and Reloads before migration",
+    "The new current-release head preserves item status, generation, original bytes and result evidence, and records source and target state hashes",
+    "A never-attempted pending item migrates alone or beside a completed item with its status and original baseline intact; the new head still requires fresh-state reconciliation before application",
+    "The prior source head remains byte-identical; a stale source hash, altered saved result or interrupted editing item is refused before a destination is created",
+    "The migrated completed item opens through ordinary current-release import and still needs exact fresh-state undo reconciliation",
+    "One privately retained actual schema-1 release 0.8.0 FM9 12.00 record with two terminal undone items migrated to 0.30.0. Independent hash and payload comparison found the source unchanged, every item identical and generation preserved; offline inspect reopened the target without MIDI ports",
+    "Four locally retained release 0.11.0 pending records, one per model/capacity definition, migrated to 0.30.0. Each original hash remained unchanged, item evidence and generation were preserved, and offline inspect reopened the pending item with zero MIDI ports",
+    "Offline CLI and relocated MCP migration produce new private artifacts; MCP recovery inspection and undo-review preparation open no ports and still require separate execution approval"
+  ],
+  "results": {
+    "python_tests": 158,
+    "dotnet_checks": 236,
+    "cli_pipeline": "passed across four model/capacity definitions",
+    "relocated_mcp_pipeline": "passed across four model/capacity definitions",
+    "knowledge_validation": "passed",
+    "distribution_source_privacy": "passed",
+    "protocol_release_hashes": "verified",
+    "hardware_tests_performed": false
+  },
+  "historical_byte_trial": {
+    "evidence_id": "historical-recovery-01",
+    "source_release": "0.8.0",
+    "target_release": "0.30.0",
+    "model": "FM9",
+    "firmware": "12.00",
+    "item_count": 2,
+    "item_statuses": ["undone", "undone"],
+    "source_preserved": true,
+    "item_evidence_identical": true,
+    "target_reopened_offline": true,
+    "private_hashes_retained": true,
+    "ports_opened": false
+  },
+  "retained_prior_release_pending_trials": {
+    "source_release": "0.11.0",
+    "target_release": "0.30.0",
+    "provenance": "Locally retained synthetic schema-1 bytes, not relabelled in the current trial",
+    "models_checked": ["FM9/512", "FM3/512", "Axe-Fx III/512", "Axe-Fx III/1024"],
+    "item_status": "pending",
+    "last_attempt": "none",
+    "source_preserved": true,
+    "item_evidence_identical": true,
+    "target_reopened_offline": true,
+    "private_hashes_retained": true,
+    "ports_opened": false
+  },
+  "limits": [
+    "One actual hardware-origin archived schema-1 record was validated: FM9 12.00, release 0.8.0, two terminal undone items. Four older pending records are synthetic. Other releases, interrupted item states and model/firmware combinations remain untested and are refused when incompatible with current semantics",
+    "Only pending items with no recorded attempt or result are eligible. Editing and undoing records are not migrated; uncertain live or saved state still requires the original exact-state recovery procedure",
+    "Migration neither reads current device state nor authorizes or performs resume or undo"
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "release": "0.12.0",
+  "date": "2026-10-11",
+  "status": "software-and-scoped-client-hardware-validation-passed",
+  "transport": "local-stdio",
+  "supported_protocol_versions": [
+    "2025-11-25",
+    "2025-06-18",
+    "2025-03-26"
+  ],
+  "tools": 26,
+  "models_checked": [
+    "FM9/512",
+    "FM3/512",
+    "Axe-Fx III/512",
+    "Axe-Fx III/1024"
+  ],
+  "software_scope": [
+    "Negotiation, initialize/initialized, tools/resources discovery, static reference reads and compatible text/structured results",
+    "Real relocated stdio-to-contained-dotnet backup integrity, decode, PC/CC plan validation, isolated insertion validation and recovery import across all model/capacity definitions",
+    "Closed argument schemas, malformed UTF-8/JSON/batch/oversize inputs, cancellation while working and client EOF",
+    "Default live/write refusal, operator-only approval, exact review/config/source binding, once-only consumption and uncertain-write replay refusal with a synthetic runtime",
+    "Confined artifact paths, paged text reads, private/public resource separation and cooperating native port ownership leases",
+    "Synthetic child cancellation, bounded output and separation of progress logs from structured results",
+    "General operation scope and public capability/device-support references in status, independent of caller model; physical qualification is distinct from implementation",
+    "Source-attributed 162-ID block catalogue, shared CLI/MCP resolver, model-qualified names and dated limits; relocated named grid export and lookup cover all four model definitions",
+    "Accepted execution jobs, bounded polling, cancellation of polling without stopping accepted work, explicit job stop, server shutdown, real synthetic child completion and interrupted recovery head discovery",
+    "All-model isolated removal plan/review validation, exact insertion-receipt undo, damaged/partial receipt refusal and no-op execution refusal through relocated real stdio/contained helpers"
+  ],
+  "midi_ports_opened": true,
+  "hardware_commands_sent": true,
+  "new_hardware_qualification": true,
+  "automatic_retry": false,
+  "automatic_rollback": false,
+  "limits": [
+    "Local stdio only; no HTTP endpoint, cloud tunnel, remote authentication, sampling, prompts, elicitation or tasks",
+    "Scoped Claude FM9 12.00 client tests cover existing-block single PC and two-target PC/CC editing/undo, unsaved-state refusal, deliberate cancellation after restoration during final inventory with fresh reconciliation, and one isolated Volume/Pan insertion. Core host restoration after insertion is separate from MCP execution; see the linked client record.",
+    "Other-model hardware, in-flight write interruption, arbitrary block families and broader batches retain their unqualified boundaries",
+    "Child termination can interrupt an in-flight device operation; retained evidence requires fresh reconciliation",
+    "File hashes detect changes and stale inputs, not malicious local rewriting or independent user authorization",
+    "Cooperating port-pair leases do not lock other applications or alternative aliases of the same device",
+    "General block insertion and supported parameter edits use separate reviews and fresh backups; no combined insertion/configuration transaction, arbitrary routing/parameters, selective later-edit merge or generic raw SysEx tool",
+    "Removal has direct stdio and actual host-guided Claude client hardware qualifications on FM9 12.00; connected block execution, other families and other-model hardware remain unqualified."
+  ],
+  "official_python_sdk_interoperability": {
+    "version": "1.30.0",
+    "status": "passed",
+    "scope": "Initialization, all 21 input schemas, typed discovery, structured status/knowledge calls, public resources and disabled-live refusal; offline-only configuration",
+    "runtime_dependency": false,
+    "release": "0.9.0"
+  },
+  "checks": {
+    "python_unit_tests": 134,
+    "python_skipped_tests": 0,
+    "dotnet_synthetic_checks": 132,
+    "cli_pipeline_groups": 5,
+    "relocated_mcp_model_groups": 4,
+    "contained_source_build_files": 48,
+    "contained_planner_files": 4,
+    "contained_adapter_check_files": 19,
+    "relocated_package_own_source_release_build": "passed with cleared NuGet feeds",
+    "knowledge_validator": "passed; 35 capabilities, 85 sources; block identities, portable links and scope checked",
+    "contained_desktop_packaging_files": 6
+  },
+  "desktop_extension": {
+    "packaging_revision": 10,
+    "status": "software-packaging-and-scoped-claude-hardware-validation-passed",
+    "public_record": "docs/claude-desktop-validation.json",
+    "offline_only": false,
+    "midi_ports_opened": true,
+    "claude_desktop_ui_installation_tested": true,
+    "independent_claude_model_task_tested": true,
+    "configured_access_modes": [
+      "offline",
+      "read-only",
+      "read-write"
+    ],
+    "extension_version": "0.11.0",
+    "automatic_named_connections": true,
+    "recoverable_setup_errors": true,
+    "distinct_extension_core_versions": true,
+    "normalized_operator_model_names": true
+  },
+  "prior_physical_operation_records": [
+    "docs/block-insertion-validation.json",
+    "docs/preset-restore-validation.json",
+    "docs/scene-midi-execution-validation.json",
+    "docs/scene-midi-recovery-validation.json"
+  ],
+  "block_catalogue_validation": "docs/block-catalogue-validation.json",
+  "hardware_client_validation_record": "docs/claude-desktop-validation.json",
+  "hardware_block_removal_evidence": "docs/block-removal-validation.json",
+  "latest_software_extensions": {
+    "release": "0.17.0",
+    "date": "2026-10-11",
+    "status": "offline-software-validation-passed",
+    "models_checked": [
+      "FM9/512",
+      "FM3/512",
+      "Axe-Fx III/512",
+      "Axe-Fx III/1024"
+    ],
+    "python_unit_tests": 143,
+    "dotnet_synthetic_checks": 200,
+    "cli_pipeline": "passed",
+    "relocated_mcp_pipeline": "passed",
+    "software_scope": [
+      "Exact raw inventory comparison, name-independent full-body matching, possible moves and duplicate ambiguity",
+      "Saved Amp instance/channel/scene usage, full synthetic capacity and exact roster absence; partial evidence stays unknown",
+      "Paged inspection/usage preserve whole-inventory completeness and absence calculations",
+      "Explicit source-preserving schema-1 migration from 0.15.0/0.16.0/current with hashes and original timestamps",
+      "MCP capture/resume through one device owner, offline inspect/export/compare/amp usage/migration"
+    ],
+    "hardware_qualified": false,
+    "midi_ports_opened": false,
+    "physical_identity": "not-established",
+    "scope": "General editing and inventory extensions; prior hardware/SDK/desktop records above retain their original releases and scopes.",
+    "general_editing_validation": "docs/preset-editing-validation.json"
+  }
+}

@@ -1,0 +1,2036 @@
+{
+  "schema_version": 1,
+  "revision": 3,
+  "reference_date": "2026-10-11",
+  "scope": "Offline source-derived saved read candidates; no writes or new hardware qualification. General editor IDs and display hints are separate from saved-field offsets.",
+  "sources": [
+    {
+      "id": "gen3-body",
+      "kind": "open-implementation",
+      "revision": "59047175cfc4f23e092931b54a7c54f2bffde3ea",
+      "sha256": "4619a595b9bf336e7f49b6efe4fbe07c8951a8ca7fedf581bdb42baa6a7c559d",
+      "locator": "presetBody.ts; DEVICE_PROFILES, AMP_PARAM_OFFSETS, walkBlocks, parseGrid",
+      "retention": "Pinned bytes retrieved and hash rechecked 2026-10-11; contained factual offsets and masks, no runtime fetch."
+    },
+    {
+      "id": "toolkit-read-runtime",
+      "kind": "contained-implementation",
+      "revision": "0.12.0",
+      "sha256": "ed0f49a557e7109e2b78c59c98be2e81c80d6c12a5abe9f3e43ce2e80a16e54e",
+      "locator": "src/Fractal.Core/PresetBody.cs; prior model-specific saved Amp fields",
+      "retention": "Historical source hash; see docs/protocol-release.json for the current source release."
+    },
+    {
+      "id": "toolkit-editor-pilot",
+      "kind": "recorded-hardware-observation",
+      "locator": "docs/editing-pilot.md; actual instance prefix 12 bytes before shape and record interval",
+      "model": "FM9",
+      "firmware": "12.00",
+      "date": "2026-10-10",
+      "retention": "Public report of retained private evidence; these are not new physical tests. Other-model prefix checks are synthetic only."
+    },
+    {
+      "id": "gen3-grid-layout",
+      "kind": "open-implementation",
+      "revision": "59047175cfc4f23e092931b54a7c54f2bffde3ea",
+      "sha256": "847ba8f83f14e88685ba7bd6634d988e81117fd224bd12315974cfad8235e205",
+      "locator": "gridLayout.ts incomingCableMask: bit n from row n of the previous column",
+      "retention": "Corroborating live-grid interpretation only; no saved routing write encoding inferred."
+    }
+  ],
+  "models": [
+    {
+      "model": "FM9",
+      "profile_id": "fm9-saved-read-v3",
+      "firmware_scope": "Structural candidate at any caller-recorded firmware; historical layout evidence only at 12.00.",
+      "historical_layout_firmware": [
+        "12.00"
+      ],
+      "instance_prefix_delta": -12,
+      "scene_names": {
+        "offset": 4,
+        "count": 8,
+        "bytes_per_name": 32,
+        "encoding": "ascii",
+        "write_supported": false
+      },
+      "amp": {
+        "effect_ids": [
+          58,
+          59
+        ],
+        "columns": 147,
+        "rows": 4,
+        "type_offsets": [
+          54,
+          348,
+          642,
+          936
+        ],
+        "channel_offsets": [
+          -2,
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12
+        ],
+        "bypass_offsets": [
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28
+        ]
+      },
+      "routing": {
+        "encoding": "previous-column-source-row-mask",
+        "known_mask": 63,
+        "edge_decode_supported": true,
+        "write_supported": false,
+        "source_id": "gen3-body",
+        "locator": "parseGrid from_rows; per-model grid geometry. Previous-column interpretation corroborated by gen3 live gridLayout.ts commentary; synthetic only in toolkit."
+      },
+      "audio_fields": [
+        {
+          "family": "Amp",
+          "key": "amp.drive",
+          "effect_ids": [
+            58,
+            59
+          ],
+          "columns": [
+            147
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "147": [
+              56,
+              350,
+              644,
+              938
+            ]
+          },
+          "scale": "u16-to-0-10",
+          "unit": "knob-0-10",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Amp",
+          "key": "amp.bass",
+          "effect_ids": [
+            58,
+            59
+          ],
+          "columns": [
+            147
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "147": [
+              58,
+              352,
+              646,
+              940
+            ]
+          },
+          "scale": "u16-to-0-10",
+          "unit": "knob-0-10",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Amp",
+          "key": "amp.mid",
+          "effect_ids": [
+            58,
+            59
+          ],
+          "columns": [
+            147
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "147": [
+              60,
+              354,
+              648,
+              942
+            ]
+          },
+          "scale": "u16-to-0-10",
+          "unit": "knob-0-10",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Amp",
+          "key": "amp.treble",
+          "effect_ids": [
+            58,
+            59
+          ],
+          "columns": [
+            147
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "147": [
+              62,
+              356,
+              650,
+              944
+            ]
+          },
+          "scale": "u16-to-0-10",
+          "unit": "knob-0-10",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Amp",
+          "key": "amp.master_volume",
+          "effect_ids": [
+            58,
+            59
+          ],
+          "columns": [
+            147
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "147": [
+              64,
+              358,
+              652,
+              946
+            ]
+          },
+          "scale": "u16-to-0-10",
+          "unit": "knob-0-10",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Amp",
+          "key": "amp.depth",
+          "effect_ids": [
+            58,
+            59
+          ],
+          "columns": [
+            147
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "147": [
+              86,
+              380,
+              674,
+              968
+            ]
+          },
+          "scale": "u16-to-0-10",
+          "unit": "knob-0-10",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Amp",
+          "key": "amp.sag",
+          "effect_ids": [
+            58,
+            59
+          ],
+          "columns": [
+            147
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "147": [
+              92,
+              386,
+              680,
+              974
+            ]
+          },
+          "scale": "u16-to-0-10",
+          "unit": "knob-0-10",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Amp",
+          "key": "amp.presence",
+          "effect_ids": [
+            58,
+            59
+          ],
+          "columns": [
+            147
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "147": [
+              94,
+              388,
+              682,
+              976
+            ]
+          },
+          "scale": "u16-to-0-10",
+          "unit": "knob-0-10",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Amp",
+          "key": "amp.negative_feedback",
+          "effect_ids": [
+            58,
+            59
+          ],
+          "columns": [
+            147
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "147": [
+              96,
+              390,
+              684,
+              978
+            ]
+          },
+          "scale": "u16-to-0-10",
+          "unit": "knob-0-10",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Cab",
+          "key": "cab.mode",
+          "effect_ids": [
+            62,
+            63
+          ],
+          "columns": [
+            101
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "101": [
+              96,
+              298,
+              500,
+              702
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Cab",
+          "key": "cab.dynacab1_id",
+          "effect_ids": [
+            62,
+            63
+          ],
+          "columns": [
+            101
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "101": [
+              204,
+              406,
+              608,
+              810
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false,
+          "condition": {
+            "key": "cab.mode",
+            "equals": 1
+          }
+        },
+        {
+          "family": "Cab",
+          "key": "cab.dynacab2_id",
+          "effect_ids": [
+            62,
+            63
+          ],
+          "columns": [
+            101
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "101": [
+              206,
+              408,
+              610,
+              812
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false,
+          "condition": {
+            "key": "cab.mode",
+            "equals": 1
+          }
+        },
+        {
+          "family": "Cab",
+          "key": "cab.mic_id",
+          "effect_ids": [
+            62,
+            63
+          ],
+          "columns": [
+            101
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "101": [
+              212,
+              414,
+              616,
+              818
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false,
+          "condition": {
+            "key": "cab.mode",
+            "equals": 1
+          }
+        },
+        {
+          "family": "Reverb",
+          "key": "reverb.type",
+          "effect_ids": [
+            66,
+            67
+          ],
+          "columns": [
+            73
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "73": [
+              54,
+              200,
+              346,
+              492
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Delay",
+          "key": "delay.type",
+          "effect_ids": [
+            70,
+            71,
+            72,
+            73
+          ],
+          "columns": [
+            90
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "90": [
+              54,
+              234,
+              414,
+              594
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Drive",
+          "key": "drive.type",
+          "effect_ids": [
+            118,
+            119
+          ],
+          "columns": [
+            42
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "42": [
+              34,
+              118,
+              202,
+              286
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Chorus",
+          "key": "chorus.type",
+          "effect_ids": [
+            78,
+            79
+          ],
+          "columns": [
+            29
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "29": [
+              34,
+              92,
+              150,
+              208
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Compressor",
+          "key": "compressor.type",
+          "effect_ids": [
+            46,
+            47
+          ],
+          "columns": [
+            37
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "37": [
+              58,
+              132,
+              206,
+              280
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Filter",
+          "key": "filter.type",
+          "effect_ids": [
+            114,
+            115,
+            116,
+            117
+          ],
+          "columns": [
+            37
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "37": [
+              34,
+              108,
+              182,
+              256
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Flanger",
+          "key": "flanger.type",
+          "effect_ids": [
+            82,
+            83
+          ],
+          "columns": [
+            33
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "33": [
+              34,
+              100,
+              166,
+              232
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Phaser",
+          "key": "phaser.type",
+          "effect_ids": [
+            90,
+            91
+          ],
+          "columns": [
+            35
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "35": [
+              34,
+              104,
+              174,
+              244
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Tremolo/Panner",
+          "key": "tremolo.type",
+          "effect_ids": [
+            106,
+            107
+          ],
+          "columns": [
+            22
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "22": [
+              34,
+              78,
+              122,
+              166
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Wah",
+          "key": "wah.type",
+          "effect_ids": [
+            94,
+            95
+          ],
+          "columns": [
+            25
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "25": [
+              34,
+              84,
+              134,
+              184
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Enhancer",
+          "key": "enhancer.type",
+          "effect_ids": [
+            122,
+            123
+          ],
+          "columns": [
+            11,
+            12
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "11": [
+              34,
+              56,
+              78,
+              100
+            ],
+            "12": [
+              34,
+              58,
+              82,
+              106
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Rotary",
+          "key": "rotary.type",
+          "effect_ids": [
+            86,
+            87
+          ],
+          "columns": [
+            21
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "21": [
+              34,
+              76,
+              118,
+              160
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        }
+      ]
+    },
+    {
+      "model": "FM3",
+      "profile_id": "fm3-saved-read-v3",
+      "firmware_scope": "Provisional model-specific saved layout; exact-firmware and hardware qualification unavailable.",
+      "historical_layout_firmware": [],
+      "instance_prefix_delta": -12,
+      "scene_names": {
+        "offset": 4,
+        "count": 8,
+        "bytes_per_name": 32,
+        "encoding": "ascii",
+        "write_supported": false
+      },
+      "amp": {
+        "effect_ids": [
+          58
+        ],
+        "columns": 144,
+        "rows": 4,
+        "type_offsets": [
+          46,
+          334,
+          622,
+          910
+        ],
+        "channel_offsets": [
+          -2,
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12
+        ],
+        "bypass_offsets": [
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28
+        ]
+      },
+      "routing": {
+        "encoding": "previous-column-source-row-mask",
+        "known_mask": 15,
+        "edge_decode_supported": true,
+        "write_supported": false,
+        "source_id": "gen3-body",
+        "locator": "parseGrid from_rows; per-model grid geometry. Previous-column interpretation corroborated by gen3 live gridLayout.ts commentary; synthetic only in toolkit."
+      },
+      "audio_fields": [
+        {
+          "family": "Amp",
+          "key": "amp.drive",
+          "effect_ids": [
+            58
+          ],
+          "columns": [
+            144
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "144": [
+              48,
+              336,
+              624,
+              912
+            ]
+          },
+          "scale": "u16-to-0-10",
+          "unit": "knob-0-10",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Amp",
+          "key": "amp.bass",
+          "effect_ids": [
+            58
+          ],
+          "columns": [
+            144
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "144": [
+              50,
+              338,
+              626,
+              914
+            ]
+          },
+          "scale": "u16-to-0-10",
+          "unit": "knob-0-10",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Amp",
+          "key": "amp.mid",
+          "effect_ids": [
+            58
+          ],
+          "columns": [
+            144
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "144": [
+              52,
+              340,
+              628,
+              916
+            ]
+          },
+          "scale": "u16-to-0-10",
+          "unit": "knob-0-10",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Amp",
+          "key": "amp.treble",
+          "effect_ids": [
+            58
+          ],
+          "columns": [
+            144
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "144": [
+              54,
+              342,
+              630,
+              918
+            ]
+          },
+          "scale": "u16-to-0-10",
+          "unit": "knob-0-10",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Amp",
+          "key": "amp.master_volume",
+          "effect_ids": [
+            58
+          ],
+          "columns": [
+            144
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "144": [
+              56,
+              344,
+              632,
+              920
+            ]
+          },
+          "scale": "u16-to-0-10",
+          "unit": "knob-0-10",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Amp",
+          "key": "amp.depth",
+          "effect_ids": [
+            58
+          ],
+          "columns": [
+            144
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "144": [
+              78,
+              366,
+              654,
+              942
+            ]
+          },
+          "scale": "u16-to-0-10",
+          "unit": "knob-0-10",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Amp",
+          "key": "amp.sag",
+          "effect_ids": [
+            58
+          ],
+          "columns": [
+            144
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "144": [
+              84,
+              372,
+              660,
+              948
+            ]
+          },
+          "scale": "u16-to-0-10",
+          "unit": "knob-0-10",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Amp",
+          "key": "amp.presence",
+          "effect_ids": [
+            58
+          ],
+          "columns": [
+            144
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "144": [
+              86,
+              374,
+              662,
+              950
+            ]
+          },
+          "scale": "u16-to-0-10",
+          "unit": "knob-0-10",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Amp",
+          "key": "amp.negative_feedback",
+          "effect_ids": [
+            58
+          ],
+          "columns": [
+            144
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "144": [
+              88,
+              376,
+              664,
+              952
+            ]
+          },
+          "scale": "u16-to-0-10",
+          "unit": "knob-0-10",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Cab",
+          "key": "cab.mode",
+          "effect_ids": [
+            62
+          ],
+          "columns": [
+            101,
+            106
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "101": [
+              96,
+              298,
+              500,
+              702
+            ],
+            "106": [
+              96,
+              308,
+              520,
+              732
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Cab",
+          "key": "cab.dynacab1_id",
+          "effect_ids": [
+            62
+          ],
+          "columns": [
+            101,
+            106
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "101": [
+              204,
+              406,
+              608,
+              810
+            ],
+            "106": [
+              204,
+              416,
+              628,
+              840
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false,
+          "condition": {
+            "key": "cab.mode",
+            "equals": 1
+          }
+        },
+        {
+          "family": "Cab",
+          "key": "cab.dynacab2_id",
+          "effect_ids": [
+            62
+          ],
+          "columns": [
+            101,
+            106
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "101": [
+              206,
+              408,
+              610,
+              812
+            ],
+            "106": [
+              206,
+              418,
+              630,
+              842
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false,
+          "condition": {
+            "key": "cab.mode",
+            "equals": 1
+          }
+        },
+        {
+          "family": "Cab",
+          "key": "cab.mic_id",
+          "effect_ids": [
+            62
+          ],
+          "columns": [
+            101,
+            106
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "101": [
+              212,
+              414,
+              616,
+              818
+            ],
+            "106": [
+              212,
+              424,
+              636,
+              848
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false,
+          "condition": {
+            "key": "cab.mode",
+            "equals": 1
+          }
+        },
+        {
+          "family": "Reverb",
+          "key": "reverb.type",
+          "effect_ids": [
+            66
+          ],
+          "columns": [
+            71
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "71": [
+              34,
+              176,
+              318,
+              460
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Delay",
+          "key": "delay.type",
+          "effect_ids": [
+            70,
+            71
+          ],
+          "columns": [
+            88
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "88": [
+              46,
+              222,
+              398,
+              574
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Drive",
+          "key": "drive.type",
+          "effect_ids": [
+            118
+          ],
+          "columns": [
+            42,
+            43
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "42": [
+              34,
+              118,
+              202,
+              286
+            ],
+            "43": [
+              34,
+              120,
+              206,
+              292
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Chorus",
+          "key": "chorus.type",
+          "effect_ids": [
+            78
+          ],
+          "columns": [
+            29
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "29": [
+              34,
+              92,
+              150,
+              208
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Compressor",
+          "key": "compressor.type",
+          "effect_ids": [
+            46,
+            47
+          ],
+          "columns": [
+            37
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "37": [
+              58,
+              132,
+              206,
+              280
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Filter",
+          "key": "filter.type",
+          "effect_ids": [
+            114,
+            115,
+            116,
+            117
+          ],
+          "columns": [
+            37
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "37": [
+              34,
+              108,
+              182,
+              256
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Flanger",
+          "key": "flanger.type",
+          "effect_ids": [
+            82,
+            83
+          ],
+          "columns": [
+            33
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "33": [
+              34,
+              100,
+              166,
+              232
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Phaser",
+          "key": "phaser.type",
+          "effect_ids": [
+            90,
+            91
+          ],
+          "columns": [
+            35
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "35": [
+              34,
+              104,
+              174,
+              244
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Tremolo/Panner",
+          "key": "tremolo.type",
+          "effect_ids": [
+            106,
+            107
+          ],
+          "columns": [
+            22
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "22": [
+              34,
+              78,
+              122,
+              166
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Wah",
+          "key": "wah.type",
+          "effect_ids": [
+            94,
+            95
+          ],
+          "columns": [
+            25
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "25": [
+              34,
+              84,
+              134,
+              184
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Enhancer",
+          "key": "enhancer.type",
+          "effect_ids": [
+            122,
+            123
+          ],
+          "columns": [
+            11,
+            12
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "11": [
+              34,
+              56,
+              78,
+              100
+            ],
+            "12": [
+              34,
+              58,
+              82,
+              106
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Rotary",
+          "key": "rotary.type",
+          "effect_ids": [
+            86,
+            87
+          ],
+          "columns": [
+            21
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "21": [
+              34,
+              76,
+              118,
+              160
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        }
+      ]
+    },
+    {
+      "model": "Axe-Fx III",
+      "profile_id": "axe-fx-iii-saved-read-v3",
+      "firmware_scope": "Provisional model-specific saved layout; exact-firmware and hardware qualification unavailable. Capacity remains an independent caller input.",
+      "historical_layout_firmware": [],
+      "instance_prefix_delta": -12,
+      "scene_names": {
+        "offset": 4,
+        "count": 8,
+        "bytes_per_name": 32,
+        "encoding": "ascii",
+        "write_supported": false
+      },
+      "amp": {
+        "effect_ids": [
+          58,
+          59
+        ],
+        "columns": 142,
+        "rows": 4,
+        "type_offsets": [
+          34,
+          318,
+          602,
+          886
+        ],
+        "channel_offsets": [
+          -2,
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12
+        ],
+        "bypass_offsets": [
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28
+        ]
+      },
+      "routing": {
+        "encoding": "previous-column-source-row-mask",
+        "known_mask": 63,
+        "edge_decode_supported": true,
+        "write_supported": false,
+        "source_id": "gen3-body",
+        "locator": "parseGrid from_rows; per-model grid geometry. Previous-column interpretation corroborated by gen3 live gridLayout.ts commentary; synthetic only in toolkit."
+      },
+      "audio_fields": [
+        {
+          "family": "Cab",
+          "key": "cab.mode",
+          "effect_ids": [
+            62,
+            63,
+            64,
+            65
+          ],
+          "columns": [
+            105
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "105": [
+              96,
+              306,
+              516,
+              726
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Cab",
+          "key": "cab.dynacab1_id",
+          "effect_ids": [
+            62,
+            63,
+            64,
+            65
+          ],
+          "columns": [
+            105
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "105": [
+              204,
+              414,
+              624,
+              834
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false,
+          "condition": {
+            "key": "cab.mode",
+            "equals": 1
+          }
+        },
+        {
+          "family": "Cab",
+          "key": "cab.dynacab2_id",
+          "effect_ids": [
+            62,
+            63,
+            64,
+            65
+          ],
+          "columns": [
+            105
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "105": [
+              206,
+              416,
+              626,
+              836
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false,
+          "condition": {
+            "key": "cab.mode",
+            "equals": 1
+          }
+        },
+        {
+          "family": "Cab",
+          "key": "cab.mic_id",
+          "effect_ids": [
+            62,
+            63,
+            64,
+            65
+          ],
+          "columns": [
+            105
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "105": [
+              212,
+              422,
+              632,
+              842
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false,
+          "condition": {
+            "key": "cab.mode",
+            "equals": 1
+          }
+        },
+        {
+          "family": "Reverb",
+          "key": "reverb.type",
+          "effect_ids": [
+            66,
+            67,
+            68,
+            69
+          ],
+          "columns": [
+            71
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "71": [
+              34,
+              176,
+              318,
+              460
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Delay",
+          "key": "delay.type",
+          "effect_ids": [
+            70,
+            71,
+            72,
+            73
+          ],
+          "columns": [
+            88
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "88": [
+              34,
+              210,
+              386,
+              562
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Drive",
+          "key": "drive.type",
+          "effect_ids": [
+            118,
+            119,
+            120,
+            121
+          ],
+          "columns": [
+            42
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "42": [
+              34,
+              118,
+              202,
+              286
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Chorus",
+          "key": "chorus.type",
+          "effect_ids": [
+            78,
+            79,
+            80,
+            81
+          ],
+          "columns": [
+            29
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "29": [
+              34,
+              92,
+              150,
+              208
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "AMP_PARAM_OFFSETS/walkBlocks/DEVICE_PROFILES",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Compressor",
+          "key": "compressor.type",
+          "effect_ids": [
+            46,
+            47,
+            48,
+            49
+          ],
+          "columns": [
+            37
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "37": [
+              58,
+              132,
+              206,
+              280
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Filter",
+          "key": "filter.type",
+          "effect_ids": [
+            114,
+            115,
+            116,
+            117
+          ],
+          "columns": [
+            37
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "37": [
+              34,
+              108,
+              182,
+              256
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Flanger",
+          "key": "flanger.type",
+          "effect_ids": [
+            82,
+            83
+          ],
+          "columns": [
+            33
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "33": [
+              34,
+              100,
+              166,
+              232
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Phaser",
+          "key": "phaser.type",
+          "effect_ids": [
+            90,
+            91
+          ],
+          "columns": [
+            35
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "35": [
+              34,
+              104,
+              174,
+              244
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Tremolo/Panner",
+          "key": "tremolo.type",
+          "effect_ids": [
+            106,
+            107
+          ],
+          "columns": [
+            22
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "22": [
+              34,
+              78,
+              122,
+              166
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Wah",
+          "key": "wah.type",
+          "effect_ids": [
+            94,
+            95
+          ],
+          "columns": [
+            25
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "25": [
+              34,
+              84,
+              134,
+              184
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Enhancer",
+          "key": "enhancer.type",
+          "effect_ids": [
+            122,
+            123
+          ],
+          "columns": [
+            11,
+            12
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "11": [
+              34,
+              56,
+              78,
+              100
+            ],
+            "12": [
+              34,
+              58,
+              82,
+              106
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        },
+        {
+          "family": "Rotary",
+          "key": "rotary.type",
+          "effect_ids": [
+            86,
+            87
+          ],
+          "columns": [
+            21
+          ],
+          "rows": 4,
+          "offsets_by_columns": {
+            "21": [
+              34,
+              76,
+              118,
+              160
+            ]
+          },
+          "scale": "identity",
+          "unit": "numeric-id",
+          "source_id": "gen3-body",
+          "locator": "DEVICE_PROFILES / SHARED_BLOCK_COLS / SHARED_TYPE_LOCS / typeFieldByteOffset; exact instance identity required",
+          "read_support": "candidate-offline-read",
+          "write_supported": false
+        }
+      ]
+    }
+  ]
+}

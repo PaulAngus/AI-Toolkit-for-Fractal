@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release": "0.37.0",
+  "date": "2026-10-14",
+  "scope": "Synthetic FM9, FM3 and Axe-Fx III 512/1024; no hardware ports opened",
+  "source_ids": [
+    "toolkit-preset-organization",
+    "fractal-preset-management",
+    "gen3-body",
+    "toolkit-edit-read-profiles"
+  ],
+  "coverage": [
+    "Literal whole-image rename footprint, ASCII bounds, copied complete body/raw/header/name/MIDI/default-scene preservation",
+    "Immutable overlapping copies, replacement-based move, swap, three-slot permutation and same-context file import",
+    "Explicit overwrite, duplicate target, invalid permutation, source hash/context and unsafe/unqualified input refusal",
+    "Different before/result scenes; separate guarded once-only pre-Save and post-Reload alignment with complete readback",
+    "Per-target Save/Reload verification, untargeted image preservation, no-op and completed-object replay refusal",
+    "Stale source before execution and after navigation, unrelated upload drift, cancellation and ignored second Save",
+    "Query-only reconciliation and eligible first-target undo after partial failure; uncertain targets excluded; later edits refused; repeated originals no-op",
+    "Offline CLI and relocated real MCP planning/inspection/review/import/undo and exact trusted-host boundaries",
+    "Mixed-release edit bundle refused by existing exact report/version validation; current-release helpers revalidate matching plans"
+  ],
+  "results": {
+    "status": "passed",
+    "python_tests": "passed: 163 tests",
+    "focused_dotnet_checks": "passed across all four model/capacity definitions; full-image operations, separate alignment phases and eligible partial/completed undo",
+    "dotnet_checks": "Full synthetic suite passed through both CLI and relocated MCP pipelines across all four definitions",
+    "cli_pipeline": "passed across all four definitions; no MIDI ports opened",
+    "relocated_mcp_pipeline": "passed through real relocated stdio and helpers across all four definitions; organization/import/reconciliation/undo and exact review refusal exercised without MIDI",
+    "knowledge_validation": "passed: 46 capabilities and 110 sources; portable links, domain and evidence scope checked",
+    "distribution_source_privacy": "passed: 275 public source files checked",
+    "protocol_release": "contained 0.37.0 hashes verified: 116 source/build, 6 planner/entry, 19 adapter/check and 6 desktop packaging files"
+  },
+  "limits": [
+    "No hardware rename, relocation, new default-scene alignment or organization undo qualification",
+    "Multi-target writes and undo are not atomic; uncertain writes never resume automatically",
+    "External song/footswitch/MIDI references, user-cab assets and system settings are not rewritten/backed up",
+    "Matching import firmware/capacity labels are caller-declared, not proof of hardware origin or asset compatibility",
+    "Current-release organization progress receipts only; exact observed-result/original hashes required for undo",
+    "Individual same-model/context preset files only; no bank-file interchange or cross-model conversion"
+  ]
+}

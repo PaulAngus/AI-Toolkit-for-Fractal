@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>MightBeUseful.Midi</id>
+    <version>0.3.6</version>
+    <authors>Paul Angus</authors>
+    <readme>README.md</readme>
+    <description>Shared MIDI transport and platform implementations for MightBeUseful applications.</description>
+    <repository type="git" url="https://github.com/PaulAngus/MIDIHelperLibrary" commit="61c6e9ad0429f2a9087e84a562bdea92ca896ff3" />
+    <dependencies>
+      <group targetFramework="net10.0" />
+    </dependencies>
+  </metadata>
+</package>

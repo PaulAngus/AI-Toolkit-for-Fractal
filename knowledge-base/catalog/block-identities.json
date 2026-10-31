@@ -1,0 +1,4682 @@
+{
+  "schema_version": 1,
+  "catalogue_revision": 1,
+  "reference_date": "2026-10-11",
+  "scope": "Gen-3 grid block identities and dated manufacturer instance limits; not parameter/type decoding, DSP capacity, insertion defaults or exact-firmware hardware qualification.",
+  "sources": [
+    {
+      "source_id": "fractal-midi-spec",
+      "kind": "manufacturer-documentation",
+      "url": "https://www.fractalaudio.com/downloads/misc/Axe-Fx%20III%20MIDI%20for%203rd%20Party%20Devices.pdf",
+      "revision": "1.4",
+      "locator": "Appendix 1: EFFECT IDS, PDF pp5-7; consecutive C enum values from ID_TUNER = 35",
+      "sha256": "86ac3c495bcf743fd6e2b7cc8584cb13875611075475cf7126f99787757eb507",
+      "model_scope": [
+        "Axe-Fx III"
+      ]
+    },
+    {
+      "source_id": "gen3-body",
+      "kind": "open-implementation",
+      "url": "https://raw.githubusercontent.com/TheAndrewStaker/mcp-midi-control/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-gen3/src/presetBody.ts",
+      "revision": "59047175cfc4f23e092931b54a7c54f2bffde3ea",
+      "locator": "EFFECT_BASES / effectName; device profiles FM3, FM9, Axe-Fx III. Do not confuse blockColsMap record widths with effect IDs.",
+      "sha256": "4619a595b9bf336e7f49b6efe4fbe07c8951a8ca7fedf581bdb42baa6a7c559d",
+      "model_scope": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ]
+    },
+    {
+      "source_id": "fractal-blocks-guide",
+      "kind": "manufacturer-documentation",
+      "url": "https://www.fractalaudio.com/downloads/manuals/fas-guides/Fractal-Audio-Blocks-Guide.pdf",
+      "revision": "June 2023",
+      "locator": "Product Blocks Comparison, printed p3/PDF p4 (zero-based PDF page3); Input/Output Blocks printed pp4-5; Scene MIDI printed p88",
+      "sha256": "553af4a9f95bff884d9774d85c56aba9fd1bbe4bc069859ad9f67531bfd51b18",
+      "model_scope": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ]
+    }
+  ],
+  "availability_source_id": "fractal-blocks-guide",
+  "availability_revision": "June 2023",
+  "firmware_scope": "Dated documentation and implementation evidence; exact connected-firmware availability is not established.",
+  "limits": [
+    "Reserved enum instances can be named while not listed as available for a model. Names never authorize insertion or editing.",
+    "FM9/FM3 labels require independent Gen-3 implementation or contained model-definition evidence; manufacturer-only numeric mappings remain candidates for those models.",
+    "Dynamic Distortion is documented as an Axe-Fx III family, but its numeric grid IDs are not mapped in these retained sources. Unknown IDs remain numeric.",
+    "Empty cells and shunts are grid elements, not insertable effect instances."
+  ],
+  "unmapped_families": [
+    {
+      "family": "Dynamic Distortion",
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 0,
+        "FM3": 0
+      },
+      "source_id": "fractal-blocks-guide",
+      "reason": "No numeric mapping in the retained effect-ID sources."
+    }
+  ],
+  "entries": [
+    {
+      "effect_id": 37,
+      "name": "Input 1",
+      "family": "Input",
+      "instance": 1,
+      "aliases": [
+        "IN",
+        "input"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 5,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 38,
+      "name": "Input 2",
+      "family": "Input",
+      "instance": 2,
+      "aliases": [
+        "IN",
+        "input"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 5,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 39,
+      "name": "Input 3",
+      "family": "Input",
+      "instance": 3,
+      "aliases": [
+        "IN",
+        "input"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 5,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 40,
+      "name": "Input 4",
+      "family": "Input",
+      "instance": 4,
+      "aliases": [
+        "IN",
+        "input"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 5,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 41,
+      "name": "Input USB",
+      "family": "Input",
+      "instance": 5,
+      "aliases": [
+        "IN",
+        "input"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 5,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 42,
+      "name": "Output 1",
+      "family": "Output",
+      "instance": 1,
+      "aliases": [
+        "OUT",
+        "output"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 3,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 43,
+      "name": "Output 2",
+      "family": "Output",
+      "instance": 2,
+      "aliases": [
+        "OUT",
+        "output"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 3,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 44,
+      "name": "Output 3",
+      "family": "Output",
+      "instance": 3,
+      "aliases": [
+        "OUT",
+        "output"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 3,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 45,
+      "name": "Output 4",
+      "family": "Output",
+      "instance": 4,
+      "aliases": [
+        "OUT",
+        "output"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 3,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 46,
+      "name": "Compressor 1",
+      "family": "Compressor",
+      "instance": 1,
+      "aliases": [
+        "CMP",
+        "comp"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 47,
+      "name": "Compressor 2",
+      "family": "Compressor",
+      "instance": 2,
+      "aliases": [
+        "CMP",
+        "comp"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 48,
+      "name": "Compressor 3",
+      "family": "Compressor",
+      "instance": 3,
+      "aliases": [
+        "CMP",
+        "comp"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 49,
+      "name": "Compressor 4",
+      "family": "Compressor",
+      "instance": 4,
+      "aliases": [
+        "CMP",
+        "comp"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 50,
+      "name": "Graphic EQ 1",
+      "family": "Graphic EQ",
+      "instance": 1,
+      "aliases": [
+        "GEQ",
+        "geq"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 51,
+      "name": "Graphic EQ 2",
+      "family": "Graphic EQ",
+      "instance": 2,
+      "aliases": [
+        "GEQ",
+        "geq"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 52,
+      "name": "Graphic EQ 3",
+      "family": "Graphic EQ",
+      "instance": 3,
+      "aliases": [
+        "GEQ",
+        "geq"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 53,
+      "name": "Graphic EQ 4",
+      "family": "Graphic EQ",
+      "instance": 4,
+      "aliases": [
+        "GEQ",
+        "geq"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 54,
+      "name": "Parametric EQ 1",
+      "family": "Parametric EQ",
+      "instance": 1,
+      "aliases": [
+        "PEQ",
+        "peq"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 55,
+      "name": "Parametric EQ 2",
+      "family": "Parametric EQ",
+      "instance": 2,
+      "aliases": [
+        "PEQ",
+        "peq"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 56,
+      "name": "Parametric EQ 3",
+      "family": "Parametric EQ",
+      "instance": 3,
+      "aliases": [
+        "PEQ",
+        "peq"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 57,
+      "name": "Parametric EQ 4",
+      "family": "Parametric EQ",
+      "instance": 4,
+      "aliases": [
+        "PEQ",
+        "peq"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 58,
+      "name": "Amp 1",
+      "family": "Amp",
+      "instance": 1,
+      "aliases": [
+        "AMP",
+        "amp"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 59,
+      "name": "Amp 2",
+      "family": "Amp",
+      "instance": 2,
+      "aliases": [
+        "AMP",
+        "amp"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 60,
+      "name": "Amp 3",
+      "family": "Amp",
+      "instance": 3,
+      "aliases": [
+        "AMP",
+        "amp"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 61,
+      "name": "Amp 4",
+      "family": "Amp",
+      "instance": 4,
+      "aliases": [
+        "AMP",
+        "amp"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 62,
+      "name": "Cab 1",
+      "family": "Cab",
+      "instance": 1,
+      "aliases": [
+        "CAB",
+        "cab"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 63,
+      "name": "Cab 2",
+      "family": "Cab",
+      "instance": 2,
+      "aliases": [
+        "CAB",
+        "cab"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 64,
+      "name": "Cab 3",
+      "family": "Cab",
+      "instance": 3,
+      "aliases": [
+        "CAB",
+        "cab"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 65,
+      "name": "Cab 4",
+      "family": "Cab",
+      "instance": 4,
+      "aliases": [
+        "CAB",
+        "cab"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 66,
+      "name": "Reverb 1",
+      "family": "Reverb",
+      "instance": 1,
+      "aliases": [
+        "REV",
+        "reverb"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 67,
+      "name": "Reverb 2",
+      "family": "Reverb",
+      "instance": 2,
+      "aliases": [
+        "REV",
+        "reverb"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 68,
+      "name": "Reverb 3",
+      "family": "Reverb",
+      "instance": 3,
+      "aliases": [
+        "REV",
+        "reverb"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 69,
+      "name": "Reverb 4",
+      "family": "Reverb",
+      "instance": 4,
+      "aliases": [
+        "REV",
+        "reverb"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 70,
+      "name": "Delay 1",
+      "family": "Delay",
+      "instance": 1,
+      "aliases": [
+        "DLY",
+        "delay"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 71,
+      "name": "Delay 2",
+      "family": "Delay",
+      "instance": 2,
+      "aliases": [
+        "DLY",
+        "delay"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 72,
+      "name": "Delay 3",
+      "family": "Delay",
+      "instance": 3,
+      "aliases": [
+        "DLY",
+        "delay"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 73,
+      "name": "Delay 4",
+      "family": "Delay",
+      "instance": 4,
+      "aliases": [
+        "DLY",
+        "delay"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 74,
+      "name": "Multitap Delay 1",
+      "family": "Multitap Delay",
+      "instance": 1,
+      "aliases": [
+        "MTD",
+        "multitap"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 75,
+      "name": "Multitap Delay 2",
+      "family": "Multitap Delay",
+      "instance": 2,
+      "aliases": [
+        "MTD",
+        "multitap"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 76,
+      "name": "Multitap Delay 3",
+      "family": "Multitap Delay",
+      "instance": 3,
+      "aliases": [
+        "MTD",
+        "multitap"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 77,
+      "name": "Multitap Delay 4",
+      "family": "Multitap Delay",
+      "instance": 4,
+      "aliases": [
+        "MTD",
+        "multitap"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 78,
+      "name": "Chorus 1",
+      "family": "Chorus",
+      "instance": 1,
+      "aliases": [
+        "CHO",
+        "chorus"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 79,
+      "name": "Chorus 2",
+      "family": "Chorus",
+      "instance": 2,
+      "aliases": [
+        "CHO",
+        "chorus"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 80,
+      "name": "Chorus 3",
+      "family": "Chorus",
+      "instance": 3,
+      "aliases": [
+        "CHO",
+        "chorus"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 81,
+      "name": "Chorus 4",
+      "family": "Chorus",
+      "instance": 4,
+      "aliases": [
+        "CHO",
+        "chorus"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 82,
+      "name": "Flanger 1",
+      "family": "Flanger",
+      "instance": 1,
+      "aliases": [
+        "FLG",
+        "flanger"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 83,
+      "name": "Flanger 2",
+      "family": "Flanger",
+      "instance": 2,
+      "aliases": [
+        "FLG",
+        "flanger"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 84,
+      "name": "Flanger 3",
+      "family": "Flanger",
+      "instance": 3,
+      "aliases": [
+        "FLG",
+        "flanger"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 85,
+      "name": "Flanger 4",
+      "family": "Flanger",
+      "instance": 4,
+      "aliases": [
+        "FLG",
+        "flanger"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 86,
+      "name": "Rotary 1",
+      "family": "Rotary",
+      "instance": 1,
+      "aliases": [
+        "ROT",
+        "rotary"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 87,
+      "name": "Rotary 2",
+      "family": "Rotary",
+      "instance": 2,
+      "aliases": [
+        "ROT",
+        "rotary"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 88,
+      "name": "Rotary 3",
+      "family": "Rotary",
+      "instance": 3,
+      "aliases": [
+        "ROT",
+        "rotary"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 89,
+      "name": "Rotary 4",
+      "family": "Rotary",
+      "instance": 4,
+      "aliases": [
+        "ROT",
+        "rotary"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 90,
+      "name": "Phaser 1",
+      "family": "Phaser",
+      "instance": 1,
+      "aliases": [
+        "PHA",
+        "phaser"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 91,
+      "name": "Phaser 2",
+      "family": "Phaser",
+      "instance": 2,
+      "aliases": [
+        "PHA",
+        "phaser"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 92,
+      "name": "Phaser 3",
+      "family": "Phaser",
+      "instance": 3,
+      "aliases": [
+        "PHA",
+        "phaser"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 93,
+      "name": "Phaser 4",
+      "family": "Phaser",
+      "instance": 4,
+      "aliases": [
+        "PHA",
+        "phaser"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 94,
+      "name": "Wah 1",
+      "family": "Wah",
+      "instance": 1,
+      "aliases": [
+        "WAH",
+        "wah"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 95,
+      "name": "Wah 2",
+      "family": "Wah",
+      "instance": 2,
+      "aliases": [
+        "WAH",
+        "wah"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 96,
+      "name": "Wah 3",
+      "family": "Wah",
+      "instance": 3,
+      "aliases": [
+        "WAH",
+        "wah"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 97,
+      "name": "Wah 4",
+      "family": "Wah",
+      "instance": 4,
+      "aliases": [
+        "WAH",
+        "wah"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 98,
+      "name": "Formant 1",
+      "family": "Formant",
+      "instance": 1,
+      "aliases": [
+        "FOR",
+        "formant"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 99,
+      "name": "Formant 2",
+      "family": "Formant",
+      "instance": 2,
+      "aliases": [
+        "FOR",
+        "formant"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 100,
+      "name": "Formant 3",
+      "family": "Formant",
+      "instance": 3,
+      "aliases": [
+        "FOR",
+        "formant"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 101,
+      "name": "Formant 4",
+      "family": "Formant",
+      "instance": 4,
+      "aliases": [
+        "FOR",
+        "formant"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 102,
+      "name": "Volume/Pan 1",
+      "family": "Volume/Pan",
+      "instance": 1,
+      "aliases": [
+        "VOL",
+        "vol/pan"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 103,
+      "name": "Volume/Pan 2",
+      "family": "Volume/Pan",
+      "instance": 2,
+      "aliases": [
+        "VOL",
+        "vol/pan"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 104,
+      "name": "Volume/Pan 3",
+      "family": "Volume/Pan",
+      "instance": 3,
+      "aliases": [
+        "VOL",
+        "vol/pan"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 105,
+      "name": "Volume/Pan 4",
+      "family": "Volume/Pan",
+      "instance": 4,
+      "aliases": [
+        "VOL",
+        "vol/pan"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 106,
+      "name": "Tremolo/Panner 1",
+      "family": "Tremolo/Panner",
+      "instance": 1,
+      "aliases": [
+        "TRM",
+        "tremolo"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 107,
+      "name": "Tremolo/Panner 2",
+      "family": "Tremolo/Panner",
+      "instance": 2,
+      "aliases": [
+        "TRM",
+        "tremolo"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 108,
+      "name": "Tremolo/Panner 3",
+      "family": "Tremolo/Panner",
+      "instance": 3,
+      "aliases": [
+        "TRM",
+        "tremolo"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 109,
+      "name": "Tremolo/Panner 4",
+      "family": "Tremolo/Panner",
+      "instance": 4,
+      "aliases": [
+        "TRM",
+        "tremolo"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 110,
+      "name": "Pitch 1",
+      "family": "Pitch",
+      "instance": 1,
+      "aliases": [
+        "PIT",
+        "pitch"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 111,
+      "name": "Pitch 2",
+      "family": "Pitch",
+      "instance": 2,
+      "aliases": [
+        "PIT",
+        "pitch"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 112,
+      "name": "Pitch 3",
+      "family": "Pitch",
+      "instance": 3,
+      "aliases": [
+        "PIT",
+        "pitch"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 113,
+      "name": "Pitch 4",
+      "family": "Pitch",
+      "instance": 4,
+      "aliases": [
+        "PIT",
+        "pitch"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 114,
+      "name": "Filter 1",
+      "family": "Filter",
+      "instance": 1,
+      "aliases": [
+        "FLT",
+        "filter"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 4
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 115,
+      "name": "Filter 2",
+      "family": "Filter",
+      "instance": 2,
+      "aliases": [
+        "FLT",
+        "filter"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 4
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 116,
+      "name": "Filter 3",
+      "family": "Filter",
+      "instance": 3,
+      "aliases": [
+        "FLT",
+        "filter"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 4
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 117,
+      "name": "Filter 4",
+      "family": "Filter",
+      "instance": 4,
+      "aliases": [
+        "FLT",
+        "filter"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 4
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 118,
+      "name": "Drive 1",
+      "family": "Drive",
+      "instance": 1,
+      "aliases": [
+        "DRV",
+        "drive"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 3,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 119,
+      "name": "Drive 2",
+      "family": "Drive",
+      "instance": 2,
+      "aliases": [
+        "DRV",
+        "drive"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 3,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 120,
+      "name": "Drive 3",
+      "family": "Drive",
+      "instance": 3,
+      "aliases": [
+        "DRV",
+        "drive"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 3,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 121,
+      "name": "Drive 4",
+      "family": "Drive",
+      "instance": 4,
+      "aliases": [
+        "DRV",
+        "drive"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 3,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 122,
+      "name": "Enhancer 1",
+      "family": "Enhancer",
+      "instance": 1,
+      "aliases": [
+        "ENH",
+        "enhancer"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 123,
+      "name": "Enhancer 2",
+      "family": "Enhancer",
+      "instance": 2,
+      "aliases": [
+        "ENH",
+        "enhancer"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 124,
+      "name": "Enhancer 3",
+      "family": "Enhancer",
+      "instance": 3,
+      "aliases": [
+        "ENH",
+        "enhancer"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 125,
+      "name": "Enhancer 4",
+      "family": "Enhancer",
+      "instance": 4,
+      "aliases": [
+        "ENH",
+        "enhancer"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 126,
+      "name": "Mixer 1",
+      "family": "Mixer",
+      "instance": 1,
+      "aliases": [
+        "MIX",
+        "mixer"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 4
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 127,
+      "name": "Mixer 2",
+      "family": "Mixer",
+      "instance": 2,
+      "aliases": [
+        "MIX",
+        "mixer"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 4
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 128,
+      "name": "Mixer 3",
+      "family": "Mixer",
+      "instance": 3,
+      "aliases": [
+        "MIX",
+        "mixer"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 4
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 129,
+      "name": "Mixer 4",
+      "family": "Mixer",
+      "instance": 4,
+      "aliases": [
+        "MIX",
+        "mixer"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 4
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 130,
+      "name": "Synth 1",
+      "family": "Synth",
+      "instance": 1,
+      "aliases": [
+        "SYN",
+        "synth"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 131,
+      "name": "Synth 2",
+      "family": "Synth",
+      "instance": 2,
+      "aliases": [
+        "SYN",
+        "synth"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 132,
+      "name": "Synth 3",
+      "family": "Synth",
+      "instance": 3,
+      "aliases": [
+        "SYN",
+        "synth"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 133,
+      "name": "Synth 4",
+      "family": "Synth",
+      "instance": 4,
+      "aliases": [
+        "SYN",
+        "synth"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 134,
+      "name": "Vocoder 1",
+      "family": "Vocoder",
+      "instance": 1,
+      "aliases": [
+        "VOC"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 0,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 135,
+      "name": "Vocoder 2",
+      "family": "Vocoder",
+      "instance": 2,
+      "aliases": [
+        "VOC"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 0,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 136,
+      "name": "Vocoder 3",
+      "family": "Vocoder",
+      "instance": 3,
+      "aliases": [
+        "VOC"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 0,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 137,
+      "name": "Vocoder 4",
+      "family": "Vocoder",
+      "instance": 4,
+      "aliases": [
+        "VOC"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 0,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 138,
+      "name": "Megatap 1",
+      "family": "Megatap",
+      "instance": 1,
+      "aliases": [
+        "MGT",
+        "megatap"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 139,
+      "name": "Megatap 2",
+      "family": "Megatap",
+      "instance": 2,
+      "aliases": [
+        "MGT",
+        "megatap"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 140,
+      "name": "Megatap 3",
+      "family": "Megatap",
+      "instance": 3,
+      "aliases": [
+        "MGT",
+        "megatap"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 141,
+      "name": "Megatap 4",
+      "family": "Megatap",
+      "instance": 4,
+      "aliases": [
+        "MGT",
+        "megatap"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 142,
+      "name": "Crossover 1",
+      "family": "Crossover",
+      "instance": 1,
+      "aliases": [
+        "XVR"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 143,
+      "name": "Crossover 2",
+      "family": "Crossover",
+      "instance": 2,
+      "aliases": [
+        "XVR"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 144,
+      "name": "Crossover 3",
+      "family": "Crossover",
+      "instance": 3,
+      "aliases": [
+        "XVR"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 145,
+      "name": "Crossover 4",
+      "family": "Crossover",
+      "instance": 4,
+      "aliases": [
+        "XVR"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 146,
+      "name": "Gate/Expander 1",
+      "family": "Gate/Expander",
+      "instance": 1,
+      "aliases": [
+        "GTE",
+        "gate"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 147,
+      "name": "Gate/Expander 2",
+      "family": "Gate/Expander",
+      "instance": 2,
+      "aliases": [
+        "GTE",
+        "gate"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 148,
+      "name": "Gate/Expander 3",
+      "family": "Gate/Expander",
+      "instance": 3,
+      "aliases": [
+        "GTE",
+        "gate"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 149,
+      "name": "Gate/Expander 4",
+      "family": "Gate/Expander",
+      "instance": 4,
+      "aliases": [
+        "GTE",
+        "gate"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 4,
+        "FM9": 4,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 150,
+      "name": "Ring Modulator 1",
+      "family": "Ring Modulator",
+      "instance": 1,
+      "aliases": [
+        "RNG",
+        "ringmod"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 151,
+      "name": "Ring Modulator 2",
+      "family": "Ring Modulator",
+      "instance": 2,
+      "aliases": [
+        "RNG",
+        "ringmod"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 152,
+      "name": "Ring Modulator 3",
+      "family": "Ring Modulator",
+      "instance": 3,
+      "aliases": [
+        "RNG",
+        "ringmod"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 153,
+      "name": "Ring Modulator 4",
+      "family": "Ring Modulator",
+      "instance": 4,
+      "aliases": [
+        "RNG",
+        "ringmod"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 154,
+      "name": "Multiband Compressor 1",
+      "family": "Multiband Compressor",
+      "instance": 1,
+      "aliases": [
+        "MBC",
+        "multicomp"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 155,
+      "name": "Multiband Compressor 2",
+      "family": "Multiband Compressor",
+      "instance": 2,
+      "aliases": [
+        "MBC",
+        "multicomp"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 156,
+      "name": "Multiband Compressor 3",
+      "family": "Multiband Compressor",
+      "instance": 3,
+      "aliases": [
+        "MBC",
+        "multicomp"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 157,
+      "name": "Multiband Compressor 4",
+      "family": "Multiband Compressor",
+      "instance": 4,
+      "aliases": [
+        "MBC",
+        "multicomp"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 158,
+      "name": "Ten-Tap Delay 1",
+      "family": "Ten-Tap Delay",
+      "instance": 1,
+      "aliases": [
+        "TTD",
+        "ten-tap"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 159,
+      "name": "Ten-Tap Delay 2",
+      "family": "Ten-Tap Delay",
+      "instance": 2,
+      "aliases": [
+        "TTD",
+        "ten-tap"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 160,
+      "name": "Ten-Tap Delay 3",
+      "family": "Ten-Tap Delay",
+      "instance": 3,
+      "aliases": [
+        "TTD",
+        "ten-tap"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 161,
+      "name": "Ten-Tap Delay 4",
+      "family": "Ten-Tap Delay",
+      "instance": 4,
+      "aliases": [
+        "TTD",
+        "ten-tap"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 162,
+      "name": "Resonator 1",
+      "family": "Resonator",
+      "instance": 1,
+      "aliases": [
+        "RES",
+        "resonator"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 163,
+      "name": "Resonator 2",
+      "family": "Resonator",
+      "instance": 2,
+      "aliases": [
+        "RES",
+        "resonator"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 164,
+      "name": "Resonator 3",
+      "family": "Resonator",
+      "instance": 3,
+      "aliases": [
+        "RES",
+        "resonator"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 165,
+      "name": "Resonator 4",
+      "family": "Resonator",
+      "instance": 4,
+      "aliases": [
+        "RES",
+        "resonator"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 166,
+      "name": "Looper 1",
+      "family": "Looper",
+      "instance": 1,
+      "aliases": [
+        "LPR",
+        "looper"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 167,
+      "name": "Looper 2",
+      "family": "Looper",
+      "instance": 2,
+      "aliases": [
+        "LPR",
+        "looper"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 168,
+      "name": "Looper 3",
+      "family": "Looper",
+      "instance": 3,
+      "aliases": [
+        "LPR",
+        "looper"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 169,
+      "name": "Looper 4",
+      "family": "Looper",
+      "instance": 4,
+      "aliases": [
+        "LPR",
+        "looper"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 170,
+      "name": "Tone Match 1",
+      "family": "Tone Match",
+      "instance": 1,
+      "aliases": [
+        "TMA"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 0,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 171,
+      "name": "Tone Match 2",
+      "family": "Tone Match",
+      "instance": 2,
+      "aliases": [
+        "TMA"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 0,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 172,
+      "name": "Tone Match 3",
+      "family": "Tone Match",
+      "instance": 3,
+      "aliases": [
+        "TMA"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 0,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 173,
+      "name": "Tone Match 4",
+      "family": "Tone Match",
+      "instance": 4,
+      "aliases": [
+        "TMA"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 0,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 174,
+      "name": "Realtime Analyzer 1",
+      "family": "Realtime Analyzer",
+      "instance": 1,
+      "aliases": [
+        "RTA"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 0,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 175,
+      "name": "Realtime Analyzer 2",
+      "family": "Realtime Analyzer",
+      "instance": 2,
+      "aliases": [
+        "RTA"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 0,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 176,
+      "name": "Realtime Analyzer 3",
+      "family": "Realtime Analyzer",
+      "instance": 3,
+      "aliases": [
+        "RTA"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 0,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 177,
+      "name": "Realtime Analyzer 4",
+      "family": "Realtime Analyzer",
+      "instance": 4,
+      "aliases": [
+        "RTA"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 0,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 178,
+      "name": "Plex Delay 1",
+      "family": "Plex Delay",
+      "instance": 1,
+      "aliases": [
+        "PLX",
+        "plex delay"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 179,
+      "name": "Plex Delay 2",
+      "family": "Plex Delay",
+      "instance": 2,
+      "aliases": [
+        "PLX",
+        "plex delay"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 180,
+      "name": "Plex Delay 3",
+      "family": "Plex Delay",
+      "instance": 3,
+      "aliases": [
+        "PLX",
+        "plex delay"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 181,
+      "name": "Plex Delay 4",
+      "family": "Plex Delay",
+      "instance": 4,
+      "aliases": [
+        "PLX",
+        "plex delay"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 182,
+      "name": "Send 1",
+      "family": "Send",
+      "instance": 1,
+      "aliases": [
+        "SND",
+        "send"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 183,
+      "name": "Send 2",
+      "family": "Send",
+      "instance": 2,
+      "aliases": [
+        "SND",
+        "send"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 184,
+      "name": "Send 3",
+      "family": "Send",
+      "instance": 3,
+      "aliases": [
+        "SND",
+        "send"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 185,
+      "name": "Send 4",
+      "family": "Send",
+      "instance": 4,
+      "aliases": [
+        "SND",
+        "send"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 186,
+      "name": "Return 1",
+      "family": "Return",
+      "instance": 1,
+      "aliases": [
+        "RTN",
+        "return"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 187,
+      "name": "Return 2",
+      "family": "Return",
+      "instance": 2,
+      "aliases": [
+        "RTN",
+        "return"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 188,
+      "name": "Return 3",
+      "family": "Return",
+      "instance": 3,
+      "aliases": [
+        "RTN",
+        "return"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 189,
+      "name": "Return 4",
+      "family": "Return",
+      "instance": 4,
+      "aliases": [
+        "RTN",
+        "return"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 190,
+      "name": "Scene MIDI",
+      "family": "Scene MIDI",
+      "instance": 1,
+      "aliases": [
+        "MIDI"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "toolkit-read-runtime"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 1,
+        "FM9": 1,
+        "FM3": 1
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 191,
+      "name": "Multiplexer 1",
+      "family": "Multiplexer",
+      "instance": 1,
+      "aliases": [
+        "MUX",
+        "multiplexer"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 192,
+      "name": "Multiplexer 2",
+      "family": "Multiplexer",
+      "instance": 2,
+      "aliases": [
+        "MUX",
+        "multiplexer"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": true,
+        "FM3": true
+      }
+    },
+    {
+      "effect_id": 193,
+      "name": "Multiplexer 3",
+      "family": "Multiplexer",
+      "instance": 3,
+      "aliases": [
+        "MUX",
+        "multiplexer"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 194,
+      "name": "Multiplexer 4",
+      "family": "Multiplexer",
+      "instance": 4,
+      "aliases": [
+        "MUX",
+        "multiplexer"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec",
+        "gen3-body"
+      ],
+      "identity_models": [
+        "Axe-Fx III",
+        "FM9",
+        "FM3"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 2,
+        "FM3": 2
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 195,
+      "name": "IR Player 1",
+      "family": "IR Player",
+      "instance": 1,
+      "aliases": [
+        "IRP"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 0,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 196,
+      "name": "IR Player 2",
+      "family": "IR Player",
+      "instance": 2,
+      "aliases": [
+        "IRP"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 0,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": true,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 197,
+      "name": "IR Player 3",
+      "family": "IR Player",
+      "instance": 3,
+      "aliases": [
+        "IRP"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 0,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    },
+    {
+      "effect_id": 198,
+      "name": "IR Player 4",
+      "family": "IR Player",
+      "instance": 4,
+      "aliases": [
+        "IRP"
+      ],
+      "identity_source_ids": [
+        "fractal-midi-spec"
+      ],
+      "identity_models": [
+        "Axe-Fx III"
+      ],
+      "documented_instances": {
+        "Axe-Fx III": 2,
+        "FM9": 0,
+        "FM3": 0
+      },
+      "documented_available": {
+        "Axe-Fx III": false,
+        "FM9": false,
+        "FM3": false
+      }
+    }
+  ]
+}

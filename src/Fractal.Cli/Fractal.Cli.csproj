@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><AssemblyName>fractal</AssemblyName></PropertyGroup>
+  <ItemGroup><ProjectReference Include="../Fractal.Core/Fractal.Core.csproj" /></ItemGroup>
+</Project>

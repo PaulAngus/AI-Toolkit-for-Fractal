@@ -1,0 +1,1239 @@
+{
+  "schema_version": 2,
+  "curated_on": "2026-10-14",
+  "sources": [
+    {
+      "id": "fractal-midi-spec",
+      "title": "Axe-Fx III MIDI for third-party devices",
+      "url": "https://www.fractalaudio.com/downloads/misc/Axe-Fx%20III%20MIDI%20for%203rd%20Party%20Devices.pdf",
+      "kind": "manufacturer-documentation",
+      "scope": "Published framing and live/query commands for Axe-Fx III; FM9 use requires separate recorded observations.",
+      "reference_date": "2026-10-07",
+      "validation": "Retrieved and hashed 2026-10-11 for factual block identity/count research; no toolkit physical validation or exact connected-firmware availability claim.",
+      "link_check": {
+        "date": "2026-10-11",
+        "result": "Retrieved and hashed for factual block-identity catalogue. Documentation/implementation evidence only; no new hardware qualification."
+      },
+      "performance_review": {
+        "date": "2026-10-14",
+        "sha256": "86ac3c495bcf743fd6e2b7cc8584cb13875611075475cf7126f99787757eb507",
+        "scope": "Manufacturer tempo/tuner/looper sections; each own-model manual documents whole-number 20\u2013250 BPM and global/current-unsaved tempo coupling. MIDI specification is Axe-Fx III 1.13+ only. Bytes retrieved and hashed; no hardware qualification."
+      }
+    },
+    {
+      "id": "fm9-manual",
+      "title": "FM9 owner's manual",
+      "url": "https://www.fractalaudio.com/downloads/manuals/FM9/FM9-Owners-Manual.pdf",
+      "kind": "manufacturer-documentation",
+      "scope": "Preset, scene, MIDI configuration and device concepts; does not specify the private editor write envelope.",
+      "reference_date": "2026-10-07",
+      "validation": "curated historical reference; current content/availability not newly verified",
+      "link_check": {
+        "date": "2026-10-07",
+        "result": "Direct fetch timed out; official downloads page and indexed MIDI reference table available."
+      },
+      "performance_review": {
+        "date": "2026-10-14",
+        "sha256": "f8645ba39ba1f60e9d6e250496742241274284247fe0311a8b45f35b8a1a0238",
+        "scope": "Manufacturer tempo/tuner/looper sections; each own-model manual documents whole-number 20\u2013250 BPM and global/current-unsaved tempo coupling. MIDI specification is Axe-Fx III 1.13+ only. Bytes retrieved and hashed; no hardware qualification.",
+        "manual_scope": "FM9 firmware 3.x manual, August 2022"
+      }
+    },
+    {
+      "id": "fm9-downloads",
+      "title": "FM9 downloads",
+      "url": "https://www.fractalaudio.com/fm9-downloads/",
+      "kind": "manufacturer-documentation",
+      "scope": "Manufacturer firmware, editor and manual resources; current availability must be rechecked.",
+      "reference_date": "2026-10-07",
+      "validation": "curated historical reference; current content/availability not newly verified",
+      "link_check": {
+        "date": "2026-10-07",
+        "result": "Opened through web retrieval during curation; this does not validate a hardware implementation."
+      }
+    },
+    {
+      "id": "fractal-amp-basis",
+      "title": "Axe-Fx II owner's manual",
+      "url": "https://www.fractalaudio.com/downloads/manuals/axe-fx-2/Axe-Fx-II-Owners-Manual.pdf",
+      "kind": "manufacturer-documentation",
+      "scope": "Historical manufacturer amplifier descriptions; not an FM9 firmware availability or numeric ID table.",
+      "reference_date": "2026-10-07",
+      "validation": "Historical review; access and independence limits retained. Not a new assertion of current availability.",
+      "historical_access": "Downloaded PDF; extracted and inspected printed pp165-168 (PDF pp177-180).",
+      "lineage": "Fractal Audio publication; may itself have informed the community sources.",
+      "historical_sha256": "b59dcbef97bce49c8ed13c5a8ca8ec15019d0230c1de720bc62f9a0833facb30"
+    },
+    {
+      "id": "fractal-wiki-amps",
+      "title": "Community amp-model reference",
+      "url": "https://wiki.fractalaudio.com/wiki/index.php?title=Amp_models",
+      "kind": "community-reference",
+      "scope": "Amplifier families and variant reading; qualify revisions and do not infer connected-firmware availability.",
+      "reference_date": "2026-10-07",
+      "validation": "Historical review; access and independence limits retained. Not a new assertion of current availability.",
+      "historical_access": "Search-index text of full mapping-table portions and targeted model sections; direct page returned HTTP 403. Indexed snapshot was reported crawled about three months before review.",
+      "lineage": "Community synthesis with linked Fractal statements; shared lineage with Ampdex."
+    },
+    {
+      "id": "gen3-format",
+      "title": "Gen-3 preset implementation",
+      "url": "https://github.com/TheAndrewStaker/mcp-midi-control/tree/main/packages/fractal-gen3",
+      "kind": "open-implementation",
+      "scope": "Saved preset/container/body decoding research; branch may change and is not manufacturer specification.",
+      "reference_date": "2026-10-07",
+      "validation": "curated historical reference; current content/availability not newly verified"
+    },
+    {
+      "id": "gen3-body",
+      "title": "Gen-3 preset body layout",
+      "url": "https://raw.githubusercontent.com/TheAndrewStaker/mcp-midi-control/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-gen3/src/presetBody.ts",
+      "kind": "open-implementation",
+      "scope": "Placed-block, channel/bypass and modifier layout; requires device/firmware validation.",
+      "reference_date": "2026-10-08",
+      "validation": "Pinned source retrieved and hash rechecked 2026-10-11 for saved audio fields and parseGrid masks. Open implementation evidence, not new hardware qualification.",
+      "sha256": "4619a595b9bf336e7f49b6efe4fbe07c8951a8ca7fedf581bdb42baa6a7c559d",
+      "link_check": {
+        "date": "2026-10-11",
+        "result": "Retrieved and hashed for factual block-identity catalogue. Documentation/implementation evidence only; no new hardware qualification."
+      },
+      "organization_review": {
+        "date": "2026-10-14",
+        "sha256": "4619a595b9bf336e7f49b6efe4fbe07c8951a8ca7fedf581bdb42baa6a7c559d",
+        "locator": "rawPatchName, lines 692\u2013697: raw header offset 0x08 for 32 bytes",
+        "scope": "Pinned bytes re-retrieved and name field corroborated; no new hardware result."
+      }
+    },
+    {
+      "id": "gen3-editor-write",
+      "title": "Gen-3 editor parameter write implementation",
+      "url": "https://github.com/TheAndrewStaker/mcp-midi-control/blob/main/packages/fractal-midi/src/gen3/axe-fx-iii/setParam.ts",
+      "kind": "open-implementation",
+      "scope": "Candidate editor envelope context; FM9 persistent writes require independent recorded validation.",
+      "reference_date": "2026-10-07",
+      "validation": "curated historical reference; current content/availability not newly verified"
+    },
+    {
+      "id": "tonecommand-protocol",
+      "title": "ToneCommand FM9 protocol",
+      "url": "https://github.com/monzta1/ToneCommand/blob/3c97d6cff34c8b9ca842b79bed21154052411047/fm9/protocol.py",
+      "kind": "open-implementation",
+      "scope": "Pinned FM9 framing and firmware-query implementation.",
+      "reference_date": "2026-10-07",
+      "validation": "curated historical reference; current content/availability not newly verified",
+      "performance_review": {
+        "date": "2026-10-14",
+        "sha256": "eea022cc83d587518665eb0fa4e43db50d7d3e6995989e464798ac6f3b0cae04",
+        "scope": "Pinned FM9 model-addressed build_get_tempo/build_set_tempo, lines 134\u2013139; no toolkit physical verification."
+      }
+    },
+    {
+      "id": "tonecommand-firmware",
+      "title": "ToneCommand FM9 firmware read",
+      "url": "https://github.com/monzta1/ToneCommand/blob/3c97d6cff34c8b9ca842b79bed21154052411047/fm9/device.py",
+      "kind": "open-implementation",
+      "scope": "Pinned firmware read; offsets depend on whether F0/F7 are included.",
+      "reference_date": "2026-10-07",
+      "validation": "curated historical reference; current content/availability not newly verified"
+    },
+    {
+      "id": "forgefx-firmware",
+      "title": "ForgeFX firmware query",
+      "url": "https://github.com/sKuhLight/forgefx-midi/blob/553d24b7409302908d5c7e46a71b45e07dffdc05/src/shared/firmware.ts",
+      "kind": "open-implementation",
+      "scope": "Pinned Gen-3 firmware-query implementation; does not extend hardware scope.",
+      "reference_date": "2026-10-07",
+      "validation": "curated historical reference; current content/availability not newly verified"
+    },
+    {
+      "id": "recorded-reads",
+      "title": "Recorded FM9 read and compatibility evidence",
+      "url": "https://github.com/PaulAngus/Preset-Maestro/blob/078a1226559751030884aad4d95384dee37c969c/docs/hardware-tests.md",
+      "kind": "recorded-hardware-evidence",
+      "scope": "FM9 12.00 saved reads, roster and state/navigation observations; only the technical findings are curated here.",
+      "reference_date": "2026-10-07",
+      "validation": "curated historical reference; current content/availability not newly verified"
+    },
+    {
+      "id": "recorded-scene-format",
+      "title": "Recorded stored/live scene protocol evidence",
+      "url": "https://github.com/PaulAngus/Preset-Maestro/blob/078a1226559751030884aad4d95384dee37c969c/SCENE-NAMES.md",
+      "kind": "recorded-hardware-evidence",
+      "scope": "Stored transfer and live scene correlation observations; originating application details are excluded.",
+      "reference_date": "2026-10-07",
+      "validation": "curated historical reference; current content/availability not newly verified"
+    },
+    {
+      "id": "recorded-discovery",
+      "title": "Recorded identity and firmware evidence",
+      "url": "https://github.com/PaulAngus/Preset-Maestro/blob/078a1226559751030884aad4d95384dee37c969c/FRACTAL-DEVICE-INFORMATION.md",
+      "kind": "recorded-hardware-evidence",
+      "scope": "Identity/firmware transactions and source qualification.",
+      "reference_date": "2026-10-07",
+      "validation": "curated historical reference; current content/availability not newly verified"
+    },
+    {
+      "id": "existing-core",
+      "title": "Credited reusable protocol core",
+      "url": "https://github.com/PaulAngus/Preset-Maestro/blob/078a1226559751030884aad4d95384dee37c969c/PresetNameSync.Core/README.md",
+      "kind": "open-implementation",
+      "scope": "Current source of reusable read-only encoding/decoding; independent packaging is pending.",
+      "reference_date": "2026-10-07",
+      "validation": "curated historical reference; current content/availability not newly verified"
+    },
+    {
+      "id": "apple-network-midi",
+      "title": "Apple network MIDI protocol",
+      "url": "https://developer.apple.com/library/archive/documentation/Audio/Conceptual/MIDINetworkDriverProtocol/MIDI/MIDI.html",
+      "kind": "platform-documentation",
+      "scope": "Archived RTP-MIDI/session and recovery-journal behavior.",
+      "reference_date": "2026-10-07",
+      "validation": "curated historical reference; current content/availability not newly verified"
+    },
+    {
+      "id": "windows-endpoint-api",
+      "title": "Windows MIDI endpoint connection API",
+      "url": "https://microsoft.github.io/MIDI/sdk-reference/MidiEndpointConnection/",
+      "kind": "platform-documentation",
+      "scope": "Endpoint-specific transmission limits, batch sends and partial failures.",
+      "reference_date": "2026-10-07",
+      "validation": "curated historical reference; current content/availability not newly verified"
+    },
+    {
+      "id": "windows-sysex-collision",
+      "title": "Multi-client SysEx collision tracking",
+      "url": "https://github.com/microsoft/MIDI/issues/60",
+      "kind": "platform-issue",
+      "scope": "Tracks multi-client delivery limitations; issue status must be rechecked rather than assumed fixed or abandoned.",
+      "reference_date": "2026-10-07",
+      "validation": "curated historical reference; current content/availability not newly verified"
+    },
+    {
+      "id": "voes-6x6",
+      "title": "VOES MX-6x6 firmware/editor",
+      "url": "https://www.voes.be/6x6.html",
+      "kind": "manufacturer-documentation",
+      "scope": "Controller-specific static labels and generic commands; confirm installed firmware before applying.",
+      "reference_date": "2026-10-07",
+      "validation": "curated historical reference; current content/availability not newly verified"
+    },
+    {
+      "id": "voes-commands",
+      "title": "VOES standard MX command reference",
+      "url": "https://www.voes.be/commands.html",
+      "kind": "manufacturer-documentation",
+      "scope": "Fractal-specific controller commands and feedback; version-qualified.",
+      "reference_date": "2026-10-07",
+      "validation": "curated historical reference; current content/availability not newly verified"
+    },
+    {
+      "id": "voes-downloads",
+      "title": "VOES firmware and editor downloads",
+      "url": "https://www.voes.be/downloads.html",
+      "kind": "manufacturer-documentation",
+      "scope": "Identify matching firmware/editor documentation; toolkit has not performed controller firmware writes.",
+      "reference_date": "2026-10-07",
+      "validation": "curated historical reference; current content/availability not newly verified"
+    },
+    {
+      "id": "recorded-scene-midi",
+      "title": "Recorded FM9 Scene MIDI editing observations",
+      "kind": "recorded-hardware-evidence",
+      "local_reference": "docs/evidence.md",
+      "reference_date": "2026-10-02",
+      "scope": "Limited new-block PC saved/readback evidence and default-scene preservation; original writer/backups not packaged."
+    },
+    {
+      "id": "recorded-roster",
+      "title": "Recorded FM9 12.00 amp ID/name roster",
+      "kind": "recorded-hardware-evidence",
+      "local_reference": "knowledge-base/catalog/fm9-12-amp-roster.json",
+      "reference_date": "2026-10-03",
+      "scope": "336 numeric ID/name pairs; original capture hash retained; no newly executed roster read."
+    },
+    {
+      "id": "ampdex",
+      "title": "Ampdex transcription of Clayton Welch Amplifier Library Guide v1",
+      "url": "https://github.com/rinkashimikito/ampdex/blob/1210a8c2110bfdd14d567b6262383a602657d310/src/data/amps.json",
+      "kind": "historical-attribution-reference",
+      "scope": "Contemporary manufacturer/model attribution, not an independently validated FM9 firmware roster.",
+      "reference_date": "2026-10-03",
+      "historical_access": "Downloaded JSON; every supplied name reconciled to its entry; MODEL fields inspected.",
+      "lineage": "Welch guide draws on Yek, Fractal Wiki and forum; not independent of Wiki.",
+      "historical_sha256": "1d8910d48b0bba966cc50cb73937800fcde12c612e0e1832ba4e19f91ed154b5",
+      "validation": "Historical review; access and independence limits retained. Not a new assertion of current availability."
+    },
+    {
+      "id": "archived-ares-models",
+      "title": "Archived Axe-Fx III amp-model table, Ares 12.05",
+      "url": "https://archive.axefx.fr/AxeFX%20III/Docs/FAS_Amps%20Models%20Axe%20III%20Ares12.05.pdf",
+      "kind": "historical-attribution-reference",
+      "scope": "Historical B-15 Portaflex product attribution only. No confirmation of exact revision/year, FM9 firmware availability or numeric IDs.",
+      "reference_date": "2026-10-03",
+      "historical_access": "Search-index excerpt of entry 189, Porta-Bass, checked on 2026-10-03.",
+      "lineage": "Third-party archive of a model-reference table; authorship and independence from other community guides have not been established.",
+      "validation": "Historical review; access and independence limits retained. Not a new assertion of current availability."
+    },
+    {
+      "id": "fullerton",
+      "title": "Fractal Audio ICONS Fullerton Complete product model table",
+      "url": "https://shop.fractalaudio.com/products/icons-fullerton-complete",
+      "kind": "historical-attribution-reference",
+      "scope": "Primary name-to-Fender mapping; plugin names can differ from processor names. Not firmware roster evidence.",
+      "reference_date": "2026-10-03",
+      "historical_access": "Opened current official product page, AMPS sections Volumes 1-4.",
+      "lineage": "Fractal Audio publication.",
+      "validation": "Historical review; access and independence limits retained. Not a new assertion of current availability."
+    },
+    {
+      "id": "wiki-draft",
+      "title": "Fractal Audio Wiki: Greg Ferguson model draft",
+      "url": "https://wiki.fractalaudio.com/wiki/index.php?title=User%3AGreg_Ferguson",
+      "kind": "historical-attribution-reference",
+      "scope": "Community model descriptions; firmware/version scope may differ.",
+      "reference_date": "2026-10-03",
+      "historical_access": "Cited by the supplied research; not independently fetched in this follow-up.",
+      "lineage": "Supplied follow-up research and its cited sources; not counted as independent confirmations.",
+      "validation": "Historical review; access and independence limits retained. Not a new assertion of current availability."
+    },
+    {
+      "id": "vibroverb-admin",
+      "title": "FractalAudio: Vibroverb Custom modification",
+      "url": "https://forum.fractalaudio.com/threads/vibroverb.214777/post-2697459",
+      "kind": "historical-attribution-reference",
+      "scope": "Normal-channel triode removed, increasing gain and changing vibrato-channel bias. Exact Custom reissue identification also uses the supplied research and existing guide.",
+      "reference_date": "2026-10-03",
+      "historical_access": "Direct forum post checked; FractalAudio, 2025-08-15, post 24.",
+      "lineage": "Supplied follow-up research and its cited sources; not counted as independent confirmations.",
+      "validation": "Historical review; access and independence limits retained. Not a new assertion of current availability."
+    },
+    {
+      "id": "jubilee-admin",
+      "title": "Fractal firmware 24.03: Silver Jubilee reference",
+      "url": "https://forum.fractalaudio.com/threads/axe-fx-iii-firmware-24-03-release.200627/page-16",
+      "kind": "historical-attribution-reference",
+      "scope": "Reported change from Lerxst Omega to Silver Jubilee; 2555 detail comes from supplied model-reference research.",
+      "reference_date": "2026-10-03",
+      "historical_access": "Cited by supplied research; direct page could not be independently confirmed in this follow-up.",
+      "lineage": "Supplied follow-up research and its cited sources; not counted as independent confirmations.",
+      "validation": "Historical review; access and independence limits retained. Not a new assertion of current availability."
+    },
+    {
+      "id": "bright-release-repost",
+      "title": "Historical Fractal release notes reproduced on Guitariste",
+      "url": "https://www.guitariste.com/forums/pedales-effets-homestudio%2Cfractal-audio-axe-fx-ii-user-s-club%2C406485%2C12900.html",
+      "kind": "historical-attribution-reference",
+      "scope": "Historical non-Top-Boost Bright-channel description, not exact production year or current DSP identity.",
+      "reference_date": "2026-10-03",
+      "historical_access": "Cited by supplied research; not independently authenticated as an official publication.",
+      "lineage": "Supplied follow-up research and its cited sources; not counted as independent confirmations.",
+      "validation": "Historical review; access and independence limits retained. Not a new assertion of current availability."
+    },
+    {
+      "id": "marsha-admin",
+      "title": "FractalAudio: original Marsha versus later BE-100 references",
+      "url": "https://forum.fractalaudio.com/threads/which-are-the-new-be-hbe-models.114510/latest",
+      "kind": "historical-attribution-reference",
+      "scope": "Original Marsha and later Mark Day BE-100 are separate references. Does not independently establish current 2010 numeric IDs.",
+      "reference_date": "2026-10-03",
+      "historical_access": "Direct forum statement checked; FractalAudio, 2016-05-07, post 5.",
+      "lineage": "Supplied follow-up research and its cited sources; not counted as independent confirmations.",
+      "validation": "Historical review; access and independence limits retained. Not a new assertion of current availability."
+    },
+    {
+      "id": "marsha-announcement",
+      "title": "Fractal firmware 10.0 announcement published by Premier Guitar",
+      "url": "https://www.premierguitar.com/fractal-audio-systems-releases-firmware-10-0",
+      "kind": "historical-attribution-reference",
+      "scope": "Historical Marsha HB/HBE development with Dave Friedman, not a current firmware roster.",
+      "reference_date": "2026-10-03",
+      "historical_access": "Opened article, 2010-06-18; labelled press release.",
+      "lineage": "Supplied follow-up research and its cited sources; not counted as independent confirmations.",
+      "validation": "Historical review; access and independence limits retained. Not a new assertion of current availability."
+    },
+    {
+      "id": "v10-release-repost",
+      "title": "Axe-Fx II firmware 10 release notes reproduced on Rig-Talk",
+      "url": "https://www.rig-talk.com/forum/threads/axe-fx-ii-firmware-10-release-notes.134534/",
+      "kind": "historical-attribution-reference",
+      "scope": "Historical ODS HRM serial 0213, Fox ODS Mid-switch pair, and 1963 Vibrolux descriptions.",
+      "reference_date": "2026-10-03",
+      "historical_access": "Opened reproduced release text; original authorship not independently authenticated here.",
+      "lineage": "Supplied follow-up research and its cited sources; not counted as independent confirmations.",
+      "validation": "Historical review; access and independence limits retained. Not a new assertion of current availability."
+    },
+    {
+      "id": "fm9-12-release",
+      "title": "Fractal FM9 firmware 12.00 release notes, 2026-07-07",
+      "url": "https://www.fractalaudio.com/downloads/firmware-presets/fm9/12p0/fm9_dsp_rel_12p00.zip",
+      "kind": "historical-attribution-reference",
+      "scope": "New JVM410 Crunch channel models, PVH Block Clean, Deluxe Tweed Normal and Bright rename. Numeric IDs separately confirmed from attached FM9.",
+      "reference_date": "2026-10-03",
+      "historical_access": "Official ZIP downloaded; FM9 Release Notes.pdf, first page extracted and read.",
+      "lineage": "Official Fractal firmware publication.",
+      "validation": "Historical review; access and independence limits retained. Not a new assertion of current availability."
+    },
+    {
+      "id": "fractal-blocks-guide",
+      "title": "Fractal Audio Blocks Guide",
+      "url": "https://www.fractalaudio.com/downloads/manuals/fas-guides/Fractal-Audio-Blocks-Guide.pdf",
+      "kind": "manufacturer-documentation",
+      "scope": "Scene MIDI block operation, PDF page 89 (zero-based page 88); product/firmware capabilities still require matching.",
+      "reference_date": "2026-10-07",
+      "validation": "Retrieved and hashed 2026-10-11 for factual block identity/count research; no toolkit physical validation or exact connected-firmware availability claim.",
+      "link_check": {
+        "date": "2026-10-11",
+        "result": "Retrieved and hashed for factual block-identity catalogue. Documentation/implementation evidence only; no new hardware qualification."
+      },
+      "retained_sections": "June 2023 Product Blocks Comparison printed p3/PDF p4; Input/Output printed pp4-5. Separate model instance counts and Input USB distinction."
+    },
+    {
+      "id": "fractal-footswitch-guide",
+      "title": "Fractal Audio Footswitch Functions Guide",
+      "url": "https://www.fractalaudio.com/downloads/manuals/fas-guides/Fractal-Audio-Footswitch-Functions-Guide.pdf",
+      "kind": "manufacturer-documentation",
+      "scope": "Fractal onboard/FC functions, preset/scene/channel actions and labels. Does not describe third-party VOES firmware.",
+      "reference_date": "2026-10-07",
+      "validation": "Curated from useful historical references; current contents not newly verified unless explicitly recorded below.",
+      "link_check": {
+        "date": "2026-10-07",
+        "result": "Opened through web retrieval during curation; this does not validate a hardware implementation."
+      }
+    },
+    {
+      "id": "fm3-manual",
+      "title": "FM3 owner manual",
+      "url": "https://www.fractalaudio.com/downloads/manuals/FM3/FM3-Owners-Manual.pdf",
+      "kind": "manufacturer-documentation",
+      "scope": "FM3 capacity, grid and block limits; reference does not establish toolkit hardware compatibility.",
+      "reference_date": "2026-10-07",
+      "validation": "Curated from useful historical references; current contents not newly verified unless explicitly recorded below.",
+      "locators": [
+        "Transmitting MIDI With Scenes: printed p56 / PDF p62",
+        "Sending and Receiving MIDI, The Scene MIDI Block: printed p134 / PDF p140"
+      ],
+      "link_check": {
+        "date": "2026-10-08",
+        "result": "Official PDF retrieved; Scene MIDI sections inspected. Retrieved manual is labelled for firmware 7.x. No hardware test."
+      },
+      "performance_review": {
+        "date": "2026-10-14",
+        "sha256": "19f65fb935eeb037ba2e943721a9d5f96ff2e1fa9386213872404119cc8b8719",
+        "scope": "Manufacturer tempo/tuner/looper sections; each own-model manual documents whole-number 20\u2013250 BPM and global/current-unsaved tempo coupling. MIDI specification is Axe-Fx III 1.13+ only. Bytes retrieved and hashed; no hardware qualification.",
+        "manual_scope": "FM3 firmware 7.x manual, July 2023"
+      }
+    },
+    {
+      "id": "axe3-manual",
+      "title": "Axe-Fx III owner manual",
+      "url": "https://www.fractalaudio.com/downloads/manuals/axe-fx-3/Axe-Fx-III-Owners-Manual.pdf",
+      "kind": "manufacturer-documentation",
+      "scope": "Axe-Fx III capacity, MIDI and block limits; keep device-specific limits distinct.",
+      "reference_date": "2026-10-07",
+      "validation": "Curated from useful historical references; current contents not newly verified unless explicitly recorded below.",
+      "locators": [
+        "Sending MIDI, The Scene MIDI Block: printed p102"
+      ],
+      "link_check": {
+        "date": "2026-10-08",
+        "result": "Official manual opened; Scene MIDI section inspected through indexed official PDF text. Direct find did not locate that section. No hardware test."
+      },
+      "performance_review": {
+        "date": "2026-10-14",
+        "sha256": "8747033f326286b81b72c1f4c22b3cbb57d69aa8e379ff5b90a2b41e98b16882",
+        "scope": "Manufacturer tempo/tuner/looper sections; each own-model manual documents whole-number 20\u2013250 BPM and global/current-unsaved tempo coupling. MIDI specification is Axe-Fx III 1.13+ only. Bytes retrieved and hashed; no hardware qualification.",
+        "manual_scope": "Retrieved Axe-Fx III owner manual; exact connected firmware not established"
+      }
+    },
+    {
+      "id": "fm9-editor-guide",
+      "title": "FM9-Edit user guide",
+      "url": "https://www.fractalaudio.com/downloads/manuals/FM9-Edit/FM9-Edit-User-Guide.pdf",
+      "kind": "manufacturer-documentation",
+      "scope": "Independent editor comparison of scene/channel/model values and editing behavior; not a wire protocol specification.",
+      "reference_date": "2026-10-07",
+      "validation": "Curated from useful historical references; current contents not newly verified unless explicitly recorded below."
+    },
+    {
+      "id": "fm9-editor-downloads",
+      "title": "FM9-Edit downloads",
+      "url": "https://www.fractalaudio.com/fm9-edit/",
+      "kind": "manufacturer-documentation",
+      "scope": "Resolve the current compatible editor and user guide when an older PDF is unavailable.",
+      "reference_date": "2026-10-07",
+      "validation": "Curated from useful historical references; current contents not newly verified unless explicitly recorded below."
+    },
+    {
+      "id": "gen3-dump",
+      "title": "Gen-3 saved transfer framing",
+      "url": "https://raw.githubusercontent.com/TheAndrewStaker/mcp-midi-control/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-gen3/src/presetDump.ts",
+      "kind": "open-implementation",
+      "scope": "parsePresetDump, extractPresetName, frame counts, checksum and footer XOR. Read direction and restore direction have different evidence.",
+      "reference_date": "2026-10-08",
+      "validation": "Pinned implementation retrieved for contained read-only release; not a physical toolkit test.",
+      "link_check": {
+        "date": "2026-10-08",
+        "result": "Pinned source downloaded and hashed. Upstream fractal-syx-codec repository returned 404; this retained implementation is a fallback."
+      },
+      "sha256": "4a4b0f53622558885f67e07fbfe14b8f6fe90d29e2a342dcbb538c06c3e6a211"
+    },
+    {
+      "id": "gen3-tables",
+      "title": "Gen-3 effect and parameter tables",
+      "url": "https://github.com/TheAndrewStaker/mcp-midi-control/blob/main/packages/fractal-gen3/src/gen3BodyTables.ts",
+      "kind": "open-implementation",
+      "scope": "Effect IDs, parameter layout and historical roster candidates; connected FM9 12.00 roster supersedes older candidate amp tables.",
+      "reference_date": "2026-10-07",
+      "validation": "Curated from useful historical references; current contents not newly verified unless explicitly recorded below.",
+      "link_check": {
+        "date": "2026-10-07",
+        "result": "Opened through web retrieval during curation; this does not validate a hardware implementation."
+      }
+    },
+    {
+      "id": "gen3-container",
+      "title": "Gen-3 preset container integrity",
+      "url": "https://github.com/TheAndrewStaker/mcp-midi-control/blob/main/packages/fractal-midi/src/shared/presetContainer.ts",
+      "kind": "open-implementation",
+      "scope": "Container CRC, compression and image parsing. Validate exact model and firmware before adoption.",
+      "reference_date": "2026-10-07",
+      "validation": "Curated from useful historical references; current contents not newly verified unless explicitly recorded below."
+    },
+    {
+      "id": "gen3-capture-guide",
+      "title": "FM9 physical capture procedure",
+      "url": "https://raw.githubusercontent.com/TheAndrewStaker/mcp-midi-control/main/packages/fractal-midi/docs/capture-guides/testing-fm9.md",
+      "kind": "open-implementation",
+      "scope": "Candidate external hardware capture procedure; not a recorded toolkit test result.",
+      "reference_date": "2026-10-07",
+      "validation": "Curated from useful historical references; current contents not newly verified unless explicitly recorded below."
+    },
+    {
+      "id": "forgefx-grid",
+      "title": "ForgeFX preset grid codec research",
+      "url": "https://github.com/sKuhLight/ForgeFX/blob/main/docs/preset-grid-codec.md",
+      "kind": "open-implementation",
+      "scope": "Candidate grid layout research; inspect model/firmware and test against captured saved data.",
+      "reference_date": "2026-10-07",
+      "validation": "Curated from useful historical references; current contents not newly verified unless explicitly recorded below."
+    },
+    {
+      "id": "codec-origin",
+      "title": "Original fractal-syx-codec provenance",
+      "url": "https://github.com/drewmerc302/fractal-syx-codec",
+      "kind": "historical-implementation",
+      "scope": "Credited upstream format research. Link returned 404 during this curation; use retained local summaries and accessible Gen-3 implementations.",
+      "reference_date": "2026-10-07",
+      "validation": "Curated from useful historical references; current contents not newly verified unless explicitly recorded below.",
+      "link_check": {
+        "date": "2026-10-07",
+        "result": "404; historical provenance only, not a starting dependency."
+      }
+    },
+    {
+      "id": "windows-midi-reporting",
+      "title": "Windows MIDI endpoint reporting",
+      "url": "https://microsoft.github.io/MIDI/sdk-reference/Reporting/MidiReporting/",
+      "kind": "platform-documentation",
+      "scope": "Endpoint enumeration/reporting and host diagnostics; endpoint availability depends on installed runtime and backend.",
+      "reference_date": "2026-10-07",
+      "validation": "Curated from useful historical references; current contents not newly verified unless explicitly recorded below."
+    },
+    {
+      "id": "windows-midi-batch",
+      "title": "Windows MIDI batch-send implementation",
+      "url": "https://raw.githubusercontent.com/microsoft/MIDI/main/src/api/Client/WinRT/t/core/MidiEndpointConnection_SendMultipleMessages.cpp",
+      "kind": "open-implementation",
+      "scope": "Batch send sizes, partial failures and synchronization. Branch code must be matched to the installed runtime.",
+      "reference_date": "2026-10-07",
+      "validation": "Curated from useful historical references; current contents not newly verified unless explicitly recorded below."
+    },
+    {
+      "id": "voes-mx6",
+      "title": "VOES MX-6 product and firmware",
+      "url": "https://voes.be/mx6.html",
+      "kind": "manufacturer-documentation",
+      "scope": "MX-6 hardware and standard firmware; distinguish it from MX-6x6 firmware/editor behavior.",
+      "reference_date": "2026-10-07",
+      "validation": "Curated from useful historical references; current contents not newly verified unless explicitly recorded below."
+    },
+    {
+      "id": "wiki-section-index",
+      "title": "Amp-model Wiki section index",
+      "url": "https://wiki.fractalaudio.com/wiki/api.php?action=parse&page=Amp_models&prop=sections&format=json",
+      "kind": "community-reference",
+      "scope": "Section anchors retrieved 2026-10-04. Supplementary reading links do not prove amp attribution or firmware availability.",
+      "reference_date": "2026-10-07",
+      "validation": "Curated from useful historical references; current contents not newly verified unless explicitly recorded below."
+    },
+    {
+      "id": "reviewed-amp-identities",
+      "title": "Reviewed FM9 12.00 real amplifier identities",
+      "kind": "curated-factual-dataset",
+      "local_reference": "knowledge-base/catalog/fm9-12-amp-identities.json",
+      "reference_date": "2026-10-07",
+      "scope": "All 336 observed ID/name pairs; reviewed amplifier identities and 162 family/original groups. Exact years/circuits and variants retain qualification. No compatibility claim for other firmware or models."
+    },
+    {
+      "id": "winmm-header",
+      "title": "Windows MIDIHDR buffer contract",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/mmeapi/ns-mmeapi-midihdr",
+      "kind": "platform-documentation",
+      "scope": "Native struct fields, preparation and driver buffer ownership.",
+      "reference_date": "2026-10-08",
+      "validation": "Official API contract read during implementation; toolkit FM9 12.00 physical read/recovery checks passed, cable removal/driver hangs untested."
+    },
+    {
+      "id": "winmm-input-buffer",
+      "title": "Windows midiInAddBuffer",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/mmeapi/nf-mmeapi-midiinaddbuffer",
+      "kind": "platform-documentation",
+      "scope": "Prepared input buffers and returned buffer reuse.",
+      "reference_date": "2026-10-08",
+      "validation": "Official API contract read during implementation; toolkit FM9 12.00 physical read/recovery checks passed, cable removal/driver hangs untested."
+    },
+    {
+      "id": "winmm-input-reset",
+      "title": "Windows midiInReset",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/mmeapi/nf-mmeapi-midiinreset",
+      "kind": "platform-documentation",
+      "scope": "Stop input and return pending buffers before releasing storage.",
+      "reference_date": "2026-10-08",
+      "validation": "Official API contract read during implementation; toolkit FM9 12.00 physical read/recovery checks passed, cable removal/driver hangs untested."
+    },
+    {
+      "id": "winmm-output-long",
+      "title": "Windows midiOutLongMsg",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/mmeapi/nf-mmeapi-midioutlongmsg",
+      "kind": "platform-documentation",
+      "scope": "Asynchronous SysEx output and prepared buffer lifetime.",
+      "reference_date": "2026-10-08",
+      "validation": "Official API contract read during implementation; toolkit FM9 12.00 physical read/recovery checks passed, cable removal/driver hangs untested."
+    },
+    {
+      "id": "toolkit-read-runtime",
+      "title": "Contained read-only runtime 0.3.0",
+      "local_reference": "docs/runtime.md",
+      "kind": "contained-implementation",
+      "scope": "Common FM9/FM3/Axe-Fx III reads/export; FM9 12.00 physical evidence, other models synthetic-only.",
+      "reference_date": "2026-10-08",
+      "validation": "38 .NET checks, 51 Python tests and five CLI pipeline groups, including reusable block placement; prior full FM9 scan and focused Scene MIDI physical comparison. No new hardware operations in the placement update."
+    },
+    {
+      "id": "toolkit-fm9-12-hardware",
+      "title": "Toolkit FM9 12.00 read-only physical validation",
+      "kind": "recorded-hardware-observation",
+      "local_reference": "docs/hardware-validation.md",
+      "reference_date": "2026-10-08",
+      "scope": "All 512 saved slots; repeat and addressed-name checks; observed state preservation; receive-loss cancellation/timeout and reopen. Read-only, one model/firmware; no editor semantic comparison or writes.",
+      "validation": "46 physical assertions passed after retained failed pilots; private wire captures retained, redacted report and hashes public."
+    },
+    {
+      "id": "gen3-fm9-midi-banks",
+      "title": "FM9 editor Scene MIDI parameter catalogue",
+      "url": "https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/src/gen3/fm9/params.ts",
+      "kind": "open-implementation",
+      "scope": "Own-model MIDIBLOCK bank starts 0/64/128/192; no firmware version or physical compatibility inferred.",
+      "reference_date": "2026-10-08",
+      "validation": "Pinned source retrieved; bank symbols/numbers compared independently for each model. Synthetic decode tests; hardware coverage recorded separately."
+    },
+    {
+      "id": "gen3-fm3-midi-banks",
+      "title": "FM3 editor Scene MIDI parameter catalogue",
+      "url": "https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/src/gen3/fm3/params.ts",
+      "kind": "open-implementation",
+      "scope": "Own-model MIDIBLOCK bank starts 0/64/128/192; no firmware version or physical compatibility inferred.",
+      "reference_date": "2026-10-08",
+      "validation": "Pinned source retrieved; bank symbols/numbers compared independently for each model. Synthetic decode tests; hardware coverage recorded separately."
+    },
+    {
+      "id": "gen3-axe-fx-iii-midi-banks",
+      "title": "Axe-Fx III editor Scene MIDI parameter catalogue",
+      "url": "https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/src/gen3/axe-fx-iii/params.ts",
+      "kind": "open-implementation",
+      "scope": "Own-model MIDIBLOCK bank starts 0/64/128/192; no firmware version or physical compatibility inferred.",
+      "reference_date": "2026-10-08",
+      "validation": "Pinned source retrieved; bank symbols/numbers compared independently for each model. Synthetic decode tests; hardware coverage recorded separately."
+    },
+    {
+      "id": "gen3-param-ordinals-negative",
+      "title": "Cross-model parameter ordinal reuse negative finding",
+      "url": "https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/docs/research/primitives/_negative/gen3-paramid-reuse-across-model-bytes.md",
+      "kind": "open-implementation-research",
+      "scope": "Matching wire codecs do not establish matching effect parameter ordinals across models; use own-model catalogues.",
+      "reference_date": "2026-10-08",
+      "validation": "Pinned author research read; not independently reproduced in toolkit."
+    },
+    {
+      "id": "toolkit-scene-midi-reading",
+      "title": "Toolkit Scene MIDI saved/live reading validation",
+      "kind": "recorded-hardware-observation",
+      "local_reference": "docs/scene-midi-reading.md",
+      "reference_date": "2026-10-08",
+      "scope": "FM9 12.00 current saved/live PC/Off comparison and offline redecoding of 512 retained captures; FM3/Axe-Fx III and active CC hardware cases untested.",
+      "validation": "10 focused physical assertions; 512 bodies decoded; 254 unchanged populated presets in an idempotent plan. Private bytes retained, public redacted evidence."
+    },
+    {
+      "id": "toolkit-block-planning",
+      "title": "General offline block placement contract",
+      "kind": "contained-implementation",
+      "local_reference": "skills/fractal-fm9/references/block-insertion.md",
+      "reference_date": "2026-10-08",
+      "scope": "FM9/FM3/Axe-Fx III chosen-cell planning; instance IDs supplied by caller; availability/defaults/DSP and hardware writes unqualified.",
+      "validation": "Offline unit and CLI checks; no new hardware operations."
+    },
+    {
+      "id": "gen3-editor-actions-pinned",
+      "title": "Pinned Gen-3 editor insertion, clear, typed fields, store and reload encodings",
+      "url": "https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/src/gen3/axe-fx-iii/setParam.ts",
+      "kind": "open-implementation",
+      "reference_date": "2026-10-10",
+      "scope": "Select/insert/clear companion, float32 typed value and LE14 save/reload envelopes. External model observations retain their limits; no full-dump restore protocol.",
+      "validation": "Pinned source retrieved; local FM9 12.00 pilot independently qualified the stated operations. FM3/Axe-Fx III toolkit hardware tests missing.",
+      "retrieved_sha256": "f3c930f81f51c4fbfbbc0a57ef561d6c79df83bbb5ea279a3c61390b88865e47"
+    },
+    {
+      "id": "toolkit-editor-pilot",
+      "title": "Toolkit empty-preset Scene MIDI physical editing and recovery qualification",
+      "local_reference": "docs/editor-pilot-validation.json",
+      "kind": "hardware-observation",
+      "reference_date": "2026-10-10",
+      "scope": "FM9 12.00 single empty preset: owned Scene MIDI PC/CC, save/reload, default preservation and exact original recovery. No populated-preset or full-dump restoration claim.",
+      "validation": "62 complete physical assertions, 106 sends, six integrity-checked exports; three failed attempts and two explicit recoveries retained privately with public hashes."
+    },
+    {
+      "id": "toolkit-backup-inspection",
+      "title": "Toolkit single-preset file inspection and FM9 live/saved comparison",
+      "kind": "toolkit-read-only-validation",
+      "local_reference": "docs/backup-file-validation.json",
+      "reference_date": "2026-10-10",
+      "scope": "Common three-model offline integrity checking with opaque headers. A physical FM9 file passed. FM9 12.00 read-only evidence distinguishes loaded status from complete saved data and verifies a controlled changed baseline with unrelated content preserved. Single-save persistence is separately recorded in toolkit-save-current.",
+      "validation": "53 synthetic .NET checks and five CLI pipeline groups; retained private file/captures/status and public redacted artifact hashes. No FM3/Axe-Fx III hardware or toolkit restore qualification."
+    },
+    {
+      "id": "toolkit-save-current",
+      "title": "Contained save-current operation and FM9 12.00 persistence evidence",
+      "kind": "local-hardware-observation",
+      "local_reference": "docs/save-current.md",
+      "accessed_on": "2026-10-10",
+      "scope": "FM9 12.00 persistence of an already-loaded original passed: one guarded Save, exact complete raw/body equality on two saved reads, selection preserved. Expected file was not transmitted. Common save scopes for FM9/FM3/Axe-Fx III have synthetic coverage. This save-only record did not qualify full upload/reload; current restore evidence is separate. Other-model hardware and batches remain unqualified.",
+      "validation": "59 synthetic .NET checks; five CLI groups include pre-port invalid hash/slot/scene rejection. Physical redacted evidence: docs/save-current-validation.json; 18 checks, 22 reads and one save; private capture/trace hashes retained."
+    },
+    {
+      "id": "forgefx-upload-driver",
+      "title": "Pinned Gen-3 temporary-buffer upload driver",
+      "url": "https://github.com/sKuhLight/ForgeFX/blob/c22862a5b2f2078f3cb92a2735e51f94c39a0062/server/src/drivers/gen3.ts",
+      "kind": "open-implementation",
+      "scope": "Gen3Driver.loadPresetBytes: retarget temporary memory then paced/queued transfer across Gen-3 definitions. Open implementation; not manufacturer specification.",
+      "reference_date": "2026-10-10",
+      "validation": "Pinned source retrieved and inspected; toolkit physical qualification recorded separately",
+      "sha256": "576571d91af18d651c06598f5856a101035e79dbbe62d0539b3faffd10572042"
+    },
+    {
+      "id": "forgefx-upload-helper",
+      "title": "Pinned edit-buffer retargeting helper",
+      "url": "https://github.com/sKuhLight/forgefx-midi/blob/553d24b7409302908d5c7e46a71b45e07dffdc05/src/devices/gen3/presetDump.ts",
+      "kind": "open-implementation",
+      "scope": "retargetPresetDumpToEditBuffer: 7F7F header and new XOR; payload unchanged. Explicit external FM3 audition claim coexists with older writeback caveat; no external trace retained.",
+      "reference_date": "2026-10-10",
+      "validation": "Pinned source retrieved and inspected; toolkit physical qualification recorded separately",
+      "sha256": "ed6bff970ad08849cca056dfed37c7a7987b3a5e3f4d273caa154ff6517a8f8b"
+    },
+    {
+      "id": "toolkit-preset-restore",
+      "title": "Contained full-preset restoration and qualification",
+      "local_reference": "docs/preset-restore-validation.json",
+      "kind": "contained-implementation",
+      "scope": "Common contained single-preset temporary upload, complete loaded verification before Save, repeated saved equality and Reload. FM9 12.00 physically passed changed-image and original-image trials; all 511 other saved slots stayed byte-identical in both. Original complete loaded/saved image restored. FM3/Axe-Fx III have synthetic toolkit coverage only; external FM3 audition claim is separate. Interrupted recovery, conversion and batches remain unqualified.",
+      "reference_date": "2026-10-10",
+      "validation": "80 synthetic .NET checks; two complete FM9 12.00 physical restore trials with complete raw/body equality and other-slot comparison. One partial failed attempt retained; no automatic replay."
+    },
+    {
+      "id": "toolkit-block-insertion",
+      "title": "Common isolated block insertion and preservation",
+      "local_reference": "docs/block-insertion-validation.json",
+      "kind": "contained-implementation",
+      "scope": "Common model-aware isolated insertion with complete preservation before Save and after Reload. FM9 12.00 passed 52 insertions of one caller-selected audio block type; 51 existing Scene MIDI tables preserved, 460 non-target saved slots byte-identical. Two pre-edit identity timeouts stopped their requests without writes to the next target; fresh reconciliation preceded deliberate remaining-target requests. FM3/Axe-Fx III have synthetic coverage only. Other families, routing, parameter writes, automatic undo and resumable batches remain unqualified.",
+      "reference_date": "2026-10-10",
+      "validation": "89 synthetic .NET checks; 52 physical saved/reloaded insertions on FM9 12.00, 51 existing MIDI tables preserved, 460 non-target saved slots unchanged; retained pre-edit timeouts and private hashed evidence"
+    },
+    {
+      "id": "toolkit-scene-midi-execution",
+      "title": "Existing-block Scene MIDI execution and verified-result undo",
+      "local_reference": "docs/scene-midi-execution-validation.json",
+      "kind": "contained-implementation",
+      "scope": "Common existing-block PC/CC executor across all model definitions: exact ordered scopes, full preservation, independent table and saved/reload verification. FM9 12.00 passed one populated-preset PC edit and explicit backup undo; 511 non-target saved slots unchanged during edit and all 512 originals restored exactly. Populated CC, multi-target message hardware and FM3/Axe-Fx III hardware remain untested. Missing-block composition, occupied-row replacement, automatic rollback and resume remain separate.",
+      "reference_date": "2026-10-10",
+      "validation": "102 synthetic .NET checks, 51 Python tests and five CLI groups; one complete FM9 12.00 populated PC edit/backup undo, all 511 non-targets unchanged during edit and all 512 originals restored; private neutral artifact hashes retained"
+    },
+    {
+      "id": "toolkit-scene-midi-recovery",
+      "title": "Persistent Scene MIDI recovery and batch undo",
+      "kind": "contained-implementation",
+      "local_reference": "docs/scene-midi-recovery-validation.json",
+      "reference_date": "2026-10-10",
+      "scope": "Common persistent original/result records, receipt import, explicit fresh-state resume and guarded batch undo across FM9/FM3/Axe-Fx III capacities. FM9 12.00 passed a two-target populated PC/CC batch, fresh-process result verification without repeated fields/Save/upload and explicit original-backup undo; all 510 non-target saved slots remained unchanged and all 512 originals were restored exactly. Interruption/later-edit conflicts have synthetic coverage only. Other-model hardware, larger batches, deliberate hardware interruption, selective merge, automatic rollback and power-loss durability remain unqualified.",
+      "validation": "124 synthetic .NET checks, 51 Python tests and five CLI pipeline groups; FM9 12.00 populated PC/CC batch, persistent receipt import/result-only resume and explicit two-target backup undo physically passed. Hardware interruption remains untested."
+    },
+    {
+      "id": "toolkit-recovery-migration",
+      "title": "Offline migration of compatible Scene MIDI recovery records",
+      "kind": "toolkit-read-only-validation",
+      "local_reference": "docs/scene-midi-recovery-migration-validation.json",
+      "reference_date": "2026-10-13",
+      "scope": "Synthetic all-model settled and never-attempted pending record checks; four locally retained release 0.11.0 synthetic pending records across all model/capacity definitions and one actual privately retained FM9 12.00 release 0.8.0 terminal record migrated and reopened offline with identical item evidence and unchanged sources. No MIDI ports opened; other historical states and live-device status remain unqualified."
+    },
+    {
+      "id": "toolkit-preset-load",
+      "title": "Explicit capture-bound preset load",
+      "kind": "contained-implementation",
+      "local_reference": "docs/preset-load.md",
+      "reference_date": "2026-10-10",
+      "scope": "Common one-load operation binding complete retained current saved/loaded and target bytes, exact selection and model/firmware. FM9 12.00 passed two separately authorized loads, with and without explicit discard, retained the prior loaded buffer and verified both saved images unchanged. All model/capacity definitions have synthetic late-change/selection and transport-scope checks. Other-model hardware and downstream MIDI receiver effects remain untested.",
+      "validation": "FM9 12.00 scope in docs/scene-midi-recovery-validation.json; other model/capacity and late-change paths synthetic only."
+    },
+    {
+      "id": "mcp-2025-stdio",
+      "title": "MCP negotiated stdio transport",
+      "kind": "protocol-specification",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+      "reference_date": "2026-10-10",
+      "scope": "stdio: UTF-8, newline framing, JSON-RPC-only stdout and stderr diagnostics",
+      "validation": "Primary specification consulted for the deliberately supported negotiated 2025 revision family; newer stateless drafts are not implemented."
+    },
+    {
+      "id": "mcp-2025-lifecycle",
+      "title": "MCP initialization and negotiated lifecycle",
+      "kind": "protocol-specification",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle",
+      "reference_date": "2026-10-10",
+      "scope": "Initialization: initialize request/result, protocolVersion negotiation, notifications/initialized",
+      "validation": "Primary specification consulted for the deliberately supported negotiated 2025 revision family; newer stateless drafts are not implemented."
+    },
+    {
+      "id": "mcp-2025-tools",
+      "title": "MCP tool discovery, results and annotations",
+      "kind": "protocol-specification",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+      "reference_date": "2026-10-10",
+      "scope": "Tool definition/inputSchema, structuredContent with compatible TextContent, error handling and annotation hints",
+      "validation": "Primary specification consulted for the deliberately supported negotiated 2025 revision family; newer stateless drafts are not implemented."
+    },
+    {
+      "id": "mcp-2025-resources",
+      "title": "MCP static resource discovery/read",
+      "kind": "protocol-specification",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/resources",
+      "reference_date": "2026-10-10",
+      "scope": "Capability declaration, resources/list and resources/read, contents/URI/MIME fields",
+      "validation": "Primary specification consulted for the deliberately supported negotiated 2025 revision family; newer stateless drafts are not implemented."
+    },
+    {
+      "id": "mcp-2025-cancellation",
+      "title": "MCP request cancellation",
+      "kind": "protocol-specification",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/cancellation",
+      "reference_date": "2026-10-10",
+      "scope": "notifications/cancelled: requestId matching, stop processing and discard results",
+      "validation": "Primary specification consulted for the deliberately supported negotiated 2025 revision family; newer stateless drafts are not implemented."
+    },
+    {
+      "id": "mcp-python-sdk",
+      "title": "Official MCP Python client SDK",
+      "kind": "open-implementation",
+      "url": "https://github.com/modelcontextprotocol/python-sdk",
+      "reference_date": "2026-10-10",
+      "scope": "Optional independent client interoperability; SDK is not a toolkit server/build dependency.",
+      "validation": "Installed official Python SDK 1.30.0 passed initialization, all 21 schemas, structured status/knowledge, resource discovery/read and default-live refusal with an offline configuration."
+    },
+    {
+      "id": "toolkit-local-mcp",
+      "title": "Contained local MCP interface and qualification",
+      "kind": "contained-implementation",
+      "local_reference": "docs/mcp-validation.json",
+      "reference_date": "2026-10-10",
+      "scope": "21 typed tools/static references, retained knowledge, canonical offline planning, bounded real stdio-to-contained-dotnet validation, exact local operator review approval, once-only execution and durable evidence discovery.",
+      "validation": "Four model/capacity definitions checked with relocated package and real helper binaries; execution/uncertainty boundaries tested with synthetic runtimes. No MIDI ports opened or new adapter hardware qualification."
+    },
+    {
+      "id": "toolkit-block-catalogue",
+      "title": "Contained model-qualified grid block catalogue and lookup",
+      "kind": "toolkit-implementation",
+      "local_reference": "knowledge-base/catalog/block-identities.json",
+      "scope": "Offline block IDs/names, model-qualified source mappings and dated model instance limits; no exact-firmware hardware, DSP or parameter qualification.",
+      "reference_date": "2026-10-11",
+      "validation": "Synthetic CLI/MCP/export checks are recorded separately in docs/block-catalogue-validation.json."
+    },
+    {
+      "id": "toolkit-block-removal",
+      "title": "Common isolated block removal and exact insertion undo",
+      "local_reference": "docs/block-removal-validation.json",
+      "kind": "contained-implementation",
+      "scope": "All-model deterministic planning and guarded execution; physical scope must be read from the validation record. Connected routing and automatic replay are refused.",
+      "reference_date": "2026-10-11",
+      "validation": "See software checks and separately scoped hardware evidence in the validation record."
+    },
+    {
+      "id": "toolkit-edit-read-profiles",
+      "title": "Contained offline editing read profiles and semantic projection",
+      "kind": "contained-implementation",
+      "local_reference": "docs/editing-read-profiles.md",
+      "reference_date": "2026-10-11",
+      "scope": "Offline exact instance association, bounded saved audio/state/name reads, independent model editor-ID catalogues and candidate grid edges; no writes or new hardware qualification.",
+      "validation": "Synthetic fixtures and offline CLI checks; measured results in docs/editing-read-profiles-validation.json."
+    },
+    {
+      "id": "gen3-fm9-audio-parameters",
+      "title": "FM9 audio editor parameter catalogue",
+      "url": "https://raw.githubusercontent.com/TheAndrewStaker/mcp-midi-control/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/src/gen3/fm9/params.ts",
+      "kind": "open-implementation",
+      "scope": "Own-model editor parameter IDs and documentary display hints; not saved-file offsets or qualified value scales. Exact firmware not established.",
+      "reference_date": "2026-10-11",
+      "revision": "59047175cfc4f23e092931b54a7c54f2bffde3ea",
+      "sha256": "e6c32114fa75fd995669e15b9205a05757acbe1c3e6254e6192bc64cc38ee243",
+      "validation": "Pinned bytes retrieved and hashed; factual mappings retained in audio-parameter-mappings.json. No toolkit hardware qualification."
+    },
+    {
+      "id": "gen3-fm3-audio-parameters",
+      "title": "FM3 audio editor parameter catalogue",
+      "url": "https://raw.githubusercontent.com/TheAndrewStaker/mcp-midi-control/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/src/gen3/fm3/params.ts",
+      "kind": "open-implementation",
+      "scope": "Own-model editor parameter IDs and documentary display hints; not saved-file offsets or qualified value scales. Exact firmware not established.",
+      "reference_date": "2026-10-11",
+      "revision": "59047175cfc4f23e092931b54a7c54f2bffde3ea",
+      "sha256": "e2a2ddd58ffd9299c33cb13558531a757627edb167bc3cf89410fc9c8b18e8b9",
+      "validation": "Pinned bytes retrieved and hashed; factual mappings retained in audio-parameter-mappings.json. No toolkit hardware qualification."
+    },
+    {
+      "id": "gen3-axe-fx-iii-audio-parameters",
+      "title": "Axe-Fx III audio editor parameter catalogue",
+      "url": "https://raw.githubusercontent.com/TheAndrewStaker/mcp-midi-control/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/src/gen3/axe-fx-iii/params.ts",
+      "kind": "open-implementation",
+      "scope": "Own-model editor parameter IDs and documentary display hints; not saved-file offsets or qualified value scales. Exact firmware not established.",
+      "reference_date": "2026-10-11",
+      "revision": "59047175cfc4f23e092931b54a7c54f2bffde3ea",
+      "sha256": "a104ca6f463f2217ee4eae7e915e6d33a4dfe74e9bd5a38e353008e36dd66817",
+      "validation": "Pinned bytes retrieved and hashed; factual mappings retained in audio-parameter-mappings.json. No toolkit hardware qualification."
+    },
+    {
+      "id": "gen3-grid-layout",
+      "title": "Gen-3 incoming grid row-mask interpretation",
+      "url": "https://raw.githubusercontent.com/TheAndrewStaker/mcp-midi-control/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/src/gen3/axe-fx-iii/gridLayout.ts",
+      "kind": "open-implementation",
+      "scope": "Corroborates destination-cell incoming mask from the previous column. Live grid source is not a saved-word write encoding or toolkit hardware qualification.",
+      "reference_date": "2026-10-11",
+      "revision": "59047175cfc4f23e092931b54a7c54f2bffde3ea",
+      "sha256": "847ba8f83f14e88685ba7bd6634d988e81117fd224bd12315974cfad8235e205",
+      "validation": "Pinned bytes retrieved and inspected; route direction commentary corroborates saved parseGrid row masks. Synthetic toolkit checks only."
+    },
+    {
+      "id": "toolkit-live-tools",
+      "title": "Contained live roster, absolute controls and bounded monitoring",
+      "kind": "toolkit-implementation",
+      "local_reference": "docs/live-tools-validation.json",
+      "scope": "Synthetic runtime, CLI and MCP coverage across all model/capacity definitions; no new physical qualification.",
+      "reference_date": "2026-10-12"
+    },
+    {
+      "id": "gen3-live-roster-parser",
+      "title": "Pinned Gen-3 amp roster request and strict reply parser",
+      "kind": "open-implementation",
+      "url": "https://raw.githubusercontent.com/PaulAngus/Preset-Maestro/078a1226559751030884aad4d95384dee37c969c/PresetMaestro.Tests/HardwareProtocol.cs",
+      "revision": "078a1226559751030884aad4d95384dee37c969c",
+      "sha256": "64b78990a9c4453a74ad5541767d32a260d782d9ca425a98054a9340788ccb73",
+      "reference_date": "2026-10-12",
+      "scope": "HardwareProtocol.AmpNameQuery, IsAmpReply and AmpName. Descriptor/string evidence; not a firmware-wide termination rule or new hardware validation."
+    },
+    {
+      "id": "toolkit-automatic-placement",
+      "title": "Shared explicit automatic isolated placement and destination-mask isolation checks",
+      "kind": "toolkit-implementation",
+      "local_reference": "docs/automatic-placement.md",
+      "reference_date": "2026-10-12",
+      "scope": "Independent synthetic preservation, repeat, bounds and routing checks across all model definitions. No new physical qualification."
+    },
+    {
+      "id": "toolkit-batch-midi",
+      "title": "General edit batches and configured MIDI routing",
+      "kind": "toolkit-implementation",
+      "local_reference": "docs/batch-midi-validation.json",
+      "reference_date": "2026-10-12",
+      "scope": "All-model synthetic batch transaction, ordered recall, assigned CC and host-fed note/CC mapping checks; no new physical qualification."
+    },
+    {
+      "id": "toolkit-path-listener",
+      "title": "Automatic audio paths and bounded controller input",
+      "kind": "toolkit-implementation",
+      "local_reference": "docs/path-listener-validation.json",
+      "reference_date": "2026-10-12",
+      "scope": "All-model synthetic planner/listener, shared execution and CLI/MCP validation; no hardware qualification."
+    },
+    {
+      "id": "winmm-short-input",
+      "title": "Microsoft WinMM short-input callback contract",
+      "kind": "manufacturer-documentation",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/multimedia/mim-data",
+      "related_urls": [
+        "https://learn.microsoft.com/en-us/windows/win32/multimedia/mim-error"
+      ],
+      "reference_date": "2026-10-12",
+      "scope": "Official platform documentation inspected for MIM_DATA expanded status/data packing, timestamps and MIM_ERROR invalid short input. Not a device or driver test."
+    },
+    {
+      "id": "rtp-midi-rfc6295",
+      "title": "RFC 6295 RTP payload format for MIDI",
+      "kind": "protocol-standard",
+      "url": "https://www.rfc-editor.org/rfc/rfc6295.html",
+      "reference_date": "2026-10-12",
+      "scope": "Sections 3, 3.1 and 3.2 command encoding, delta time, running status and segmented SysEx; no peer interoperability qualification."
+    },
+    {
+      "id": "toolkit-network-notifications",
+      "title": "Contained RTP-MIDI transport and bounded device notification capture",
+      "kind": "toolkit-implementation",
+      "local_reference": "docs/network-notifications-validation.json",
+      "reference_date": "2026-10-12",
+      "scope": "All-model synthetic wire, loopback session, scoped execution and passive observation validation; no hardware or external peer qualification."
+    },
+    {
+      "id": "wireshark-apple-feedback",
+      "title": "Wireshark Apple MIDI feedback decoding",
+      "kind": "open-implementation",
+      "url": "https://gitlab.com/wireshark/wireshark/-/blob/v4.4.0/epan/dissectors/packet-applemidi.c",
+      "reference_date": "2026-10-12",
+      "scope": "Tagged dissector receiver feedback branch reads the RTP sequence from the leading 16 bits of the four-byte feedback field. Open implementation evidence, not a physical peer test."
+    },
+    {
+      "id": "toolkit-private-parameters",
+      "title": "Contained private parameter mapping, reads and notification observation",
+      "kind": "toolkit-implementation",
+      "local_reference": "docs/live-parameters-validation.json",
+      "reference_date": "2026-10-13",
+      "scope": "Own-model editor mappings applied to bounded private live tables and echoes. All-model synthetic tests; recorded FM9 12.00 physical reads of one Amp and seven other family instances. No parameter-write or physical-scale qualification."
+    },
+    {
+      "id": "toolkit-calibrated-authoring",
+      "title": "Capture-backed parameter and modifier authoring",
+      "kind": "toolkit-implementation",
+      "local_reference": "docs/calibrated-authoring-validation.json",
+      "reference_date": "2026-10-12",
+      "scope": "Exact caller-labelled single-word witnesses, Scene Ignore off/on authoring, source-qualified modifier source/template operations and common execution. Synthetic all-model validation; no new hardware calibration."
+    },
+    {
+      "id": "axe32-word-laws",
+      "title": "Axe-Fx III 32.02 saved-word value laws",
+      "kind": "open-implementation",
+      "url": "https://github.com/BigSaurus/axefx-sysex-maps/blob/4463ae9b7e388d2fe98e24fdd7068b1c35865277/maps/param_word_laws.json",
+      "revision": "4463ae9b7e388d2fe98e24fdd7068b1c35865277",
+      "sha256": "a40877ea36920b853cdaec899e8fa173c94d91c224f331035fe04140bddf4b4f",
+      "reference_date": "2026-10-12",
+      "scope": "Source-reported Axe-Fx III firmware 32.02 observations and inferences; original hardware captures not retained. Factual selected data adapted under CC BY 4.0; no cross-model transfer or toolkit hardware qualification."
+    },
+    {
+      "id": "axe32-map",
+      "title": "Axe-Fx III 32.02 parameter identities and block word counts",
+      "kind": "open-implementation",
+      "url": "https://github.com/BigSaurus/axefx-sysex-maps/blob/4463ae9b7e388d2fe98e24fdd7068b1c35865277/maps/axefx_sysex_map.json",
+      "revision": "4463ae9b7e388d2fe98e24fdd7068b1c35865277",
+      "sha256": "97855184930ebd1c54f62955d388af4b01249205933b31c54ff2e77aad528bab",
+      "reference_date": "2026-10-12",
+      "scope": "Source-reported Axe-Fx III firmware 32.02 observations and inferences; original hardware captures not retained. Factual selected data adapted under CC BY 4.0; no cross-model transfer or toolkit hardware qualification.",
+      "setlists_review": {
+        "date": "2026-10-14",
+        "scope": "Targeted GLOBAL note/storage_regions_s54 and display-label text-region warning. Upstream Axe-Fx III 32.02 observations only; no complete song/section/set codec or recovery and no FM3/FM9 adaptation.",
+        "revision": "4463ae9b7e388d2fe98e24fdd7068b1c35865277",
+        "reviewed_sha256": {
+          "maps/axefx_sysex_map.json": "97855184930ebd1c54f62955d388af4b01249205933b31c54ff2e77aad528bab",
+          "maps/display_label_index.json": "a78c9af7b364980e814e4303d2e01669ce0df7de58a1c444bf379f0e55b2357f",
+          "PROTOCOL.md": "8d88301bee84f309c77a8956bbc33d6d69b2ae676d11a74a7f20c1080530e430"
+        },
+        "access": "Reviewed bytes at pinned revision; 27 text/JSON files searched, relevant notes inspected. No raw device captures or hardware validation acquired."
+      }
+    },
+    {
+      "id": "axe32-modifiers",
+      "title": "Axe-Fx III 32.02 modifier word semantics",
+      "kind": "open-implementation",
+      "url": "https://github.com/BigSaurus/axefx-sysex-maps/blob/4463ae9b7e388d2fe98e24fdd7068b1c35865277/ADVANCED_COMMANDS.md",
+      "revision": "4463ae9b7e388d2fe98e24fdd7068b1c35865277",
+      "sha256": "cbef4990e0d7b8c6a02028bc521df09952406abe6eb65e0fe74b3e1b4fa2b822",
+      "reference_date": "2026-10-12",
+      "scope": "Source-reported Axe-Fx III firmware 32.02 observations and inferences; original hardware captures not retained. Factual selected data adapted under CC BY 4.0; no cross-model transfer or toolkit hardware qualification."
+    },
+    {
+      "id": "toolkit-builtin-scales",
+      "title": "Built-in saved scales and named modifier curve authoring",
+      "kind": "toolkit-implementation",
+      "local_reference": "docs/builtin-scales-validation.json",
+      "reference_date": "2026-10-13",
+      "scope": "Exact Axe-Fx III 32.02 profile, including 59 saved fields with two positive direct-integer words; bounds, ownership, complete-image preservation, CLI/MCP planning and shared execution have synthetic tests only."
+    },
+    {
+      "id": "toolkit-template-library",
+      "title": "Private block/channel template library and channel swaps",
+      "kind": "toolkit-implementation",
+      "local_reference": "docs/template-library-validation.json",
+      "reference_date": "2026-10-14",
+      "scope": "Common offline library and channel-swap planning, ordinary Save/Reload, stale-plan refusal and exact undo have synthetic all-model coverage. Firmware/provenance remains caller-declared; no factory defaults, cross-instance conversion, editor-file interoperability, audible equivalence or physical qualification."
+    },
+    {
+      "id": "gen3-performance-commands",
+      "title": "Pinned Gen-3 tempo, tuner and looper command forms",
+      "kind": "open-implementation",
+      "url": "https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/src/gen3/axe-fx-iii/setParam.ts",
+      "revision": "59047175cfc4f23e092931b54a7c54f2bffde3ea",
+      "sha256": "f3c930f81f51c4fbfbbc0a57ef561d6c79df83bbb5ea279a3c61390b88865e47",
+      "reference_date": "2026-10-14",
+      "scope": "Lines 1791\u20131857 document Axe-Fx III button/tap/tuner/tempo forms; lines 2378\u20132425 independently bind tempo queries/parsers to supplied Gen-3 model bytes. Other FM3/FM9 performance forms remain inferred adaptations. Manual bounds supersede the approximate upstream comment; no toolkit hardware qualification."
+    },
+    {
+      "id": "gen3-tempo-query-limit",
+      "title": "Pinned upstream tempo-query negative report",
+      "kind": "open-implementation",
+      "url": "https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/docs/devices/axe-fx-iii/SYSEX-MAP.md",
+      "revision": "59047175cfc4f23e092931b54a7c54f2bffde3ea",
+      "sha256": "61adf33821a75bdeefcb111923b7b1ad283dc6120110b9e82ed1bbaa5f7890f1",
+      "reference_date": "2026-10-14",
+      "scope": "Upstream reports 14/7F7F query-as-set on unspecified early Axe-Fx III firmware. No exact firmware, retained original hardware bytes or toolkit physical result; cannot establish a safe firmware boundary. Supports explicit opt-in query review and no automatic query in ordinary snapshots.",
+      "locators": [
+        "SYSEX-MAP.md lines 604\u2013613: upstream cites a 2018-09-06 forum report in the ~1.x era, without an exact firmware or retained device capture",
+        "SYSEX-MAP.md lines 1214\u20131222: explicit opt-in query, omitted from ordinary get_preset"
+      ],
+      "setlists_review": {
+        "date": "2026-10-14",
+        "sha256": "61adf33821a75bdeefcb111923b7b1ad283dc6120110b9e82ed1bbaa5f7890f1",
+        "scope": "System-transfer symbol list and later static dispatcher analysis do not supply complete setlist/song read/export/write/recovery contracts. Search of 75 Gen3/shared Fractal source files at this revision found no such implementation; bounded negative result only."
+      }
+    },
+    {
+      "id": "toolkit-performance-controls",
+      "title": "Bounded tempo, tuner and looper controls",
+      "kind": "toolkit-implementation",
+      "local_reference": "docs/performance-controls-validation.json",
+      "reference_date": "2026-10-14",
+      "scope": "Shared capture-bound scope with bounded queries, one event/set, complete preset-context preservation checks, exact CLI/MCP review and honest sent-unverified outcomes. Synthetic all-model coverage only. Unmapped loaded tempo changes stop for reconciliation; no new hardware qualification."
+    },
+    {
+      "id": "fractal-preset-management",
+      "title": "Manufacturer preset management and relocation guidance",
+      "url": "https://support.fractalaudio.com/en-US/installing-factory-presets-1410465",
+      "kind": "manufacturer-documentation",
+      "reference_date": "2026-10-14",
+      "scope": "Using Manage Presets to Relocate Favorites describes previewed copy/paste, relocation, individual import/export and saving across Axe-Fx/FM9/FM3. It does not specify toolkit wire encodings or establish hardware qualification.",
+      "validation": "Official indexed article opened on 2026-10-14; factual operation guidance only."
+    },
+    {
+      "id": "toolkit-preset-organization",
+      "title": "Immutable preset organization and eligible completed-target undo",
+      "kind": "toolkit-implementation",
+      "local_reference": "docs/preset-organization-validation.json",
+      "reference_date": "2026-10-14",
+      "scope": "Shared whole-image organization compiler, source/destination guards, ordinary batch execution and partial/completed receipt-based undo. All-model synthetic coverage only; no hardware relocation or external reference/asset changes."
+    },
+    {
+      "id": "fractal-setlists-songs-manual",
+      "title": "Setlists and Songs Mini Manual",
+      "url": "https://www.fractalaudio.com/downloads/manuals/fas-guides/Fractal-Audio-Setlists-Songs-Mini-Manual.pdf",
+      "kind": "manufacturer-documentation",
+      "reference_date": "2026-10-14",
+      "document_version": "1.04",
+      "document_date": "2023-10-30",
+      "sha256": "d6d2a0e439e81910e741c1760fbccecb4656e0e8f6cd2deb9427aff6444a9c5c",
+      "bytes": 256990,
+      "scope": "FM9 3.00+, FM3 6.00+, Axe-Fx III 19.06+ with FC: song/section/set structure, limits, DEFAULT/NONE, immediate system persistence and System backup inclusion. Editor interchange mentioned without encoding.",
+      "validation": "PDF text reviewed; bytes fetched and hashed 2026-10-14. No toolkit hardware or file/wire-format qualification."
+    },
+    {
+      "id": "toolkit-setlists-songs",
+      "title": "Offline songs and setlist proposals with bounded feasibility map",
+      "kind": "toolkit-implementation",
+      "local_reference": "docs/setlists-songs-validation.json",
+      "reference_date": "2026-10-14",
+      "scope": "Shared deterministic inventory-backed proposal planner and CLI/MCP contracts. All-model synthetic checks; no system codec, live device or editor interchange implementation."
+    },
+    {
+      "id": "axe3-editor-export-binary",
+      "title": "Axe-Edit III 1.14.34 song/setlist export static analysis",
+      "kind": "manufacturer-binary-static-analysis",
+      "url": "https://www.fractalaudio.com/downloads/Axe-Edit-III/Axe-Edit-III-Mac-v1p14p34.dmg",
+      "reference_date": "2026-10-15",
+      "sha256": "f98688e4641305db23992018508cba33b4dd3e5ecfd00a95c64f4eb03a913732",
+      "bytes": 25493651,
+      "binary_sha256": "c99118bdde39e29c1030aa62f145d2eb8718e00cd2333d6ed415a427a3a275f7",
+      "binary_bytes": 32788944,
+      "architecture": "x86_64 slice of universal macOS executable",
+      "firmware": "unknown",
+      "scope": "Own editor export identifiers, partial XML construction and metadata; no actual export, interchange, System backup codec or hardware validation. Proprietary bytes remain private.",
+      "local_reference": "docs/setlists-system-format-research.json",
+      "locators": {
+        "All-Songs": "0x100237894",
+        "Setlists": "0x100239265",
+        "Song": "0x100237e61",
+        "Section": "0x100237f68",
+        "SongId": "0x1002396d0"
+      }
+    },
+    {
+      "id": "fm3-editor-export-binary",
+      "title": "FM3-Edit 1.07.17 song/setlist export static analysis",
+      "kind": "manufacturer-binary-static-analysis",
+      "url": "https://www.fractalaudio.com/downloads/FM3-Edit/FM3-Edit-Mac-v1p07p17.dmg",
+      "reference_date": "2026-10-15",
+      "sha256": "f9990b1e827d95edc6dd7b66136560616bce3f708e39e4ef83b6e51cbefe4e94",
+      "bytes": 24527549,
+      "binary_sha256": "0d512cc00fb57569b8200451373675db242f210f7c05799df635542eb117e2a2",
+      "binary_bytes": 30903920,
+      "architecture": "x86_64 slice of universal macOS executable",
+      "firmware": "unknown",
+      "scope": "Own editor export identifiers, partial XML construction and metadata; no actual export, interchange, System backup codec or hardware validation. Proprietary bytes remain private.",
+      "local_reference": "docs/setlists-system-format-research.json",
+      "locators": {
+        "All-Songs": "0x100229e24",
+        "Setlists": "0x10022b7f5",
+        "Song": "0x10022a3f1",
+        "Section": "0x10022a4f8",
+        "SongId": "0x10022bc60"
+      }
+    },
+    {
+      "id": "fm9-editor-export-binary",
+      "title": "FM9-Edit 1.03.22 song/setlist export static analysis",
+      "kind": "manufacturer-binary-static-analysis",
+      "url": "https://www.fractalaudio.com/downloads/FM9-Edit/FM9-Edit-Mac-v1p03p22.dmg",
+      "reference_date": "2026-10-15",
+      "sha256": "c7ac8a031c1002716f7ed56faf267aec35bcf36e547310183c59771f054822d1",
+      "bytes": 24885170,
+      "binary_sha256": "32b1a4ef954ce1963a1c117ddfadd178ecdac634f0b47bc1b70d6774bca9b103",
+      "binary_bytes": 32562656,
+      "architecture": "x86_64 slice of universal macOS executable",
+      "firmware": "unknown",
+      "scope": "Own editor export identifiers, partial XML construction and metadata; no actual export, interchange, System backup codec or hardware validation. Proprietary bytes remain private.",
+      "local_reference": "docs/setlists-system-format-research.json",
+      "locators": {
+        "All-Songs": "0x100226094",
+        "Setlists": "0x100227a65",
+        "Song": "0x100226661",
+        "Section": "0x100226768",
+        "SongId": "0x100227ed0"
+      }
+    },
+    {
+      "id": "fractal-system-reset-guidance",
+      "title": "Manufacturer System reset and backup scope",
+      "kind": "manufacturer-documentation",
+      "url": "https://support.fractalaudio.com/en-US/reset-system-parameters-289296",
+      "reference_date": "2026-10-15",
+      "access": "Official indexed web text reviewed; direct byte retrieval returned HTTP 403; no original byte hash claimed",
+      "scope": "Global/I/O/MIDI/FC/layout/tuner/user-scale scope and recommendation for System backup before reset; no file/wire format or toolkit restore qualification."
+    },
+    {
+      "id": "toolkit-setlists-system-format-review",
+      "title": "Bounded editor export and System backup format investigation",
+      "kind": "toolkit-source-review",
+      "local_reference": "docs/setlists-system-format-research.json",
+      "reference_date": "2026-10-15",
+      "scope": "All three official editor x86_64 export paths, partial XML fields and unresolved System framing/recovery; no runtime changes or physical validation."
+    }
+  ],
+  "updated_on": "2026-10-15"
+}

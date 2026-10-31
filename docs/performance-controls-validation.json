@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "release": "0.36.0",
+  "date": "2026-10-14",
+  "scope": "Synthetic FM9, FM3 and Axe-Fx III 512/1024; no hardware ports opened",
+  "source_ids": [
+    "toolkit-performance-controls",
+    "fractal-midi-spec",
+    "gen3-performance-commands",
+    "gen3-tempo-query-limit",
+    "tonecommand-protocol",
+    "fm9-manual",
+    "fm3-manual",
+    "axe3-manual"
+  ],
+  "coverage": [
+    "Exact own-model frames, manual BPM bounds, six button values and strict reply decoders",
+    "Read allowlist excludes all writes and legacy-risk tempo queries",
+    "Finite scoped tempo queries, one-shot control events and repeat absolute-state no-ops",
+    "Wrong-model replies and checksumless pushes cannot satisfy correlated queries",
+    "Timeout, cancellation, stale baseline, rejection, ignored set and unrelated/saved-change refusal",
+    "Query-induced loaded change stops before any tempo set; before/after evidence retained",
+    "CLI request/capture validation and relocated MCP discovery/preparation/exact approval boundaries",
+    "Sent-unverified event/tuner attempt status and consumed review; no Save/replay"
+  ],
+  "results": {
+    "status": "passed",
+    "python_tests": "passed: 161 tests",
+    "focused_dotnet_checks": "passed across all four definitions",
+    "dotnet_checks": "Full synthetic suite passed through both CLI and relocated MCP pipelines across all four definitions",
+    "cli_pipeline": "passed across all four definitions; no MIDI ports opened",
+    "relocated_mcp_pipeline": "passed through real relocated stdio and helpers across all four definitions; exact review and live refusal verified without MIDI",
+    "knowledge_validation": "passed: 45 capabilities and 108 sources; portable links, domain and evidence scope checked",
+    "distribution_source_privacy": "passed: 270 public source files checked",
+    "protocol_release": "contained 0.36.0 hashes verified: 114 source/build, 6 planner/entry, 19 adapter/check and 6 desktop packaging files"
+  },
+  "limits": [
+    "No toolkit hardware tests or audible loop verification",
+    "FM9/FM3 non-tempo commands are inferred model-addressed adaptations",
+    "Tuner has no documented state query; pushes do not confirm requested state",
+    "Unmapped loaded tempo changes stop for reconciliation; global-only side effects cannot be excluded",
+    "No global tempo or recorded-audio backup/restore",
+    "Tempo/tuner push specification describes MIDI Out, not USB"
+  ],
+  "offline_boundary_corrections": [
+    "Network command selection initially refused the new capture command; capture-performance was added to the bounded device-operation allowlist and validate-only passed without opening ports",
+    "Out-of-range BPM is rejected at JSON-RPC argument validation; the relocated test now verifies that boundary rather than expecting a tool-level error"
+  ]
+}

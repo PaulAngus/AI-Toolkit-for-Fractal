@@ -1,0 +1,68 @@
+{
+  "applicationId": "fractal-ai-toolkit",
+  "applicationName": "AI Toolkit for Fractal",
+  "testProfile": "offline-windows-no-midi",
+  "runner": {
+    "project": "tools/Fractal.Lab/Fractal.Lab.csproj",
+    "destination": "bin/lab",
+    "executable": "bin/lab/Fractal.Lab"
+  },
+  "platforms": {
+    "win": {
+      "properties": [
+        "-p:TestLabProfile=OfflineWindows",
+        "-p:FractalNoMidi=true"
+      ],
+      "tests": [
+        {
+          "project": "tests/Fractal.Checks/Fractal.Checks.csproj",
+          "destination": "bin/tests"
+        }
+      ]
+    }
+  },
+  "offlinePolicy": {
+    "includedTestSources": [
+      "tests/Fractal.Checks/AudioRoutingChecks.cs",
+      "tests/Fractal.Checks/BatchAndMidiChecks.cs",
+      "tests/Fractal.Checks/BuiltinScaleChecks.cs",
+      "tests/Fractal.Checks/CalibrationModifierChecks.cs",
+      "tests/Fractal.Checks/CompoundMidiChecks.cs",
+      "tests/Fractal.Checks/EditReadChecks.cs",
+      "tests/Fractal.Checks/FakeEditorMidi.cs",
+      "tests/Fractal.Checks/Fixtures.cs",
+      "tests/Fractal.Checks/GridIsolationChecks.cs",
+      "tests/Fractal.Checks/InsertionFixture.cs",
+      "tests/Fractal.Checks/InventoryAnalysisChecks.cs",
+      "tests/Fractal.Checks/InventoryChecks.cs",
+      "tests/Fractal.Checks/LiveToolsChecks.cs",
+      "tests/Fractal.Checks/PathAndListenerChecks.cs",
+      "tests/Fractal.Checks/PerformanceControlChecks.cs",
+      "tests/Fractal.Checks/PresetEditChecks.cs",
+      "tests/Fractal.Checks/PresetOrganizationChecks.cs",
+      "tests/Fractal.Checks/PrivateParameterChecks.cs",
+      "tests/Fractal.Checks/Program.cs",
+      "tests/Fractal.Checks/RestoreFixture.cs",
+      "tests/Fractal.Checks/SceneMidiEditChecks.cs",
+      "tests/Fractal.Checks/SceneMidiEditFixture.cs",
+      "tests/Fractal.Checks/SceneMidiRecoveryChecks.cs",
+      "tests/Fractal.Checks/SelectiveUndoChecks.cs",
+      "tests/Fractal.Checks/SetlistSongChecks.cs",
+      "tests/Fractal.Checks/SharedMidiTransportChecks.cs",
+      "tests/Fractal.Checks/SpecialRoutingChecks.cs",
+      "tests/Fractal.Checks/TemplateLibraryChecks.cs",
+      "tests/Fractal.Checks/InventoryFileChecks.cs",
+      "tests/Fractal.Checks/RestoreDeadlineChecks.cs",
+      "tests/Fractal.Checks/WindowsInputSelectionChecks.cs"
+    ],
+    "excludedWorkflows": [
+      "NetworkNotificationChecks: includes UDP RTP-MIDI sessions",
+      "CoreMidiTransportChecks: includes native transport entry points and ownership probe",
+      "Physical device reads/writes, CLI runtime and Python/MCP checks"
+    ],
+    "midiAccess": "none",
+    "hardwareQualification": false,
+    "allScope": "Only the audited offline Functional stages; Native/Desktop explicitly unavailable."
+  },
+  "agentVersion": "0.2.5"
+}

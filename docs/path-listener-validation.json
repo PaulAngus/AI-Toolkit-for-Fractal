@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-12",
+  "release": "0.20.0",
+  "authority": "synthetic-software-validation; no hardware ports opened",
+  "models": ["FM9/512", "FM3/512", "Axe-Fx III/512", "Axe-Fx III/1024"],
+  "synthetic_firmware": "99.07",
+  "implementation": ["src/Fractal.Core/AutomaticRouting.cs", "src/Fractal.Core/ControllerListener.cs", "src/Fractal.Core/WinMmTransport.cs"],
+  "checks": ["tests/Fractal.Checks/PathAndListenerChecks.cs", "tests/test_mcp.py", "scripts/check_cli_pipeline.py", "scripts/check_mcp_pipeline.py"],
+  "sources": [
+    {"source_id": "toolkit-edit-read-profiles", "authority": "contained-open-implementation", "scope": "Existing model-specific grid definitions, saved destination masks and shared complete-image verifier; no new protocol interpretation for automatic paths."},
+    {"source_id": "winmm-short-input", "authority": "platform-manufacturer-documentation", "locator": "MIM_DATA and MIM_ERROR callback contracts", "scope": "Expanded status/data packing, driver timestamp and malformed short input; no driver or Fractal hardware qualification."}
+  ],
+  "coverage": ["Independent complete body expectations for automatic shunts/cables", "Idempotence, obstacles, explicit waypoints, shared-shunt policy and existing-route preservation", "Invalid bounds/order/hash and blocked paths", "Automatic path through standard upload, complete readback, Save and Reload", "Independent packed short-message decoding and ignored unrelated message families", "Held note, release and repeated-press routing in a live-source simulation", "Normal duration/event limits, cancellation, invalid data, source faults, retained partial observations and deterministic queue overflow", "CLI/helper execution review and input-free listener validation", "Relocated MCP path planning/review and live-access refusal"],
+  "limits": ["No hardware or native-driver tests", "Structural routing does not establish audibility, levels, DSP capacity or global I/O configuration", "Caller supplies shunt identity, occupied waypoints and any shared-path/feedback intent", "Path search is forward-grid only; final shared verifier can report feedback conflicts", "Input-only listener never identifies hardware or executes mapped commands", "Bounded subscription cannot recover events outside its scope or after input loss", "Network transport and complete unsolicited device-change decoding remain separate"]
+}

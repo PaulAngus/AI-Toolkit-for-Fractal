@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-12",
+  "release": "0.18.0",
+  "authority": "synthetic-software-validation; no new hardware access",
+  "models": [
+    "FM9/512",
+    "FM3/512",
+    "Axe-Fx III/512",
+    "Axe-Fx III/1024"
+  ],
+  "implementation": [
+    "src/Fractal.Core/AmpRoster.cs",
+    "src/Fractal.Core/LiveControl.cs",
+    "src/Fractal.Core/LiveMonitor.cs"
+  ],
+  "checks": [
+    "tests/Fractal.Checks/LiveToolsChecks.cs",
+    "tests/test_mcp.py",
+    "scripts/check_cli_pipeline.py",
+    "scripts/check_mcp_pipeline.py"
+  ],
+  "protocol_sources": [
+    {
+      "source_id": "fractal-midi-spec",
+      "authority": "manufacturer-documentation",
+      "locator": "MIDI for third-party devices revision 1.4, functions 0x0A, 0x0B, 0x0C, 0x13",
+      "scope": "Published Axe-Fx III messages; common Gen-3 adapters on FM9/FM3 remain separately physically unqualified."
+    },
+    {
+      "source_id": "recorded-roster",
+      "authority": "recorded-hardware-observation",
+      "scope": "Historical FM9 12.00 roster query/response, 336 entries. Not a new toolkit execution or a universal count."
+    },
+    {
+      "source_id": "gen3-live-roster-parser",
+      "authority": "open-implementation",
+      "revision": "078a1226559751030884aad4d95384dee37c969c",
+      "sha256": "64b78990a9c4453a74ad5541767d32a260d782d9ca425a98054a9340788ccb73",
+      "locator": "HardwareProtocol.AmpNameQuery / IsAmpReply / AmpName",
+      "scope": "Retained strict descriptor and string decoder evidence; per-model parameter IDs come independently from contained audio catalogues."
+    },
+    {
+      "authority": "open-implementation",
+      "revision": "59047175cfc4f23e092931b54a7c54f2bffde3ea",
+      "locator": "packages/fractal-midi/src/shared/packValue.ts",
+      "sha256": "9b9b55029f272a576e166dd97cedfbcf6c245f6ff25c357f8716b7e64ef06b96",
+      "scope": "Corroborating chunked MSB-first septet packing; not hardware compatibility."
+    }
+  ],
+  "synthetic_scope": [
+    "independent per-model roster addresses and packed replies",
+    "malformed descriptors/checksums and incomplete roster preservation without retry",
+    "scene/channel/bypass once, repeat no-op, stale refusal, ignored command, unrelated edit, changed saved image and explicit rejection",
+    "preservation of pre-existing unsaved differences",
+    "bounded query-only monitor and cancellation evidence",
+    "CLI hash-bound offline validation and relocated real MCP review preparation"
+  ],
+  "limitations": [
+    "No new physical tests",
+    "Roster replies omit ordinal; delayed duplicates are not uniquely identifiable",
+    "Only explicitly requested ordinals, no inferred termination",
+    "Monitor samples selection/block state, not every internal or unsolicited event",
+    "Scene Revert can change unsaved contents and cause readback failure",
+    "Receiver delivery, calibrated new parameter fields and configured CC/bank/PC routing remain separate"
+  ],
+  "physical_trial_2026_10_12": {
+    "model": "FM9",
+    "firmware": "12.00",
+    "authority": "new recorded hardware observation; private captures retained outside distribution",
+    "passed": [
+      "Four requested amp ordinals returned checksum-validated names with stable selection; this was a range, not a complete roster",
+      "Three bounded live-state samples completed",
+      "Absolute channel, bypass and scene controls each changed effective live state once and were reversed with fresh captured contexts",
+      "Saved images remained unchanged; final selection, scene, loaded image and block status matched the initial capture"
+    ],
+    "correction": "The FM9 temporary-buffer reply carried header 7F 00; live-control validation now accepts that observed form as well as the previously modeled 7F 7F form",
+    "limits": [
+      "Only one FM9 firmware and selected instances were tested",
+      "Configured CC delivery and external MIDI receiver effects were not verified",
+      "No full amp-roster termination or complete state-change monitoring was established"
+    ]
+  },
+  "physical_roster_range_and_saved_usage_2026_10_12": {
+    "model": "FM9",
+    "firmware": "12.00",
+    "authority": "new recorded read-only hardware observation; raw replies and saved captures retained privately",
+    "scope": "Explicit live amp ordinal range of 336 requested IDs followed by offline usage analysis of a complete, decoded 512-slot saved inventory",
+    "result": "All 336 requested replies validated and their ID/name pairs exactly matched the separately retained historical FM9 12.00 catalogue. The saved-inventory analysis returned qualified absence for IDs within that supplied range. A fresh final live context matched the starting selection, saved and loaded buffers, and block status exactly.",
+    "boundary_observation": "A separate read-only query for the next ordinal stopped with 'Unknown roster name encoding or empty entry'; it yielded no validated name and is not a roster end marker. A fresh context capture after the stopped query matched the starting selection, saved and loaded buffers, and block status exactly.",
+    "limits": [
+      "The live capture reports range_complete, not roster_complete; there is no verified firmware end marker or count beyond the requested range",
+      "Absence concerns saved content in this one complete inventory and the supplied IDs, not live selection, audibility or other devices",
+      "Reply bodies omit queried ordinals; serialized queries do not remove the theoretical late-duplicate ambiguity",
+      "No other-model or other-firmware physical qualification"
+    ]
+  }
+}

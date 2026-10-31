@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "release": "0.3.0",
+  "date": "2026-10-08",
+  "model": "FM9",
+  "firmware": "12.00",
+  "status": "passed within observed read/planning scope",
+  "physical": {
+    "started_utc": "2026-10-08T19:45:06.625842+00:00",
+    "completed_utc": "2026-10-08T19:45:07.6422558+00:00",
+    "checks_passed": 10,
+    "checks": [
+      {
+        "name": "identity-and-firmware",
+        "passed": true
+      },
+      {
+        "name": "current-saved-table-decoded",
+        "passed": true
+      },
+      {
+        "name": "live-table-complete",
+        "passed": true
+      },
+      {
+        "name": "eight-scenes-eight-slots",
+        "passed": true
+      },
+      {
+        "name": "all-256-direct-saved-words-match-live",
+        "passed": true
+      },
+      {
+        "name": "repeat-live-transfer-identical",
+        "passed": true
+      },
+      {
+        "name": "saved-capture-byte-preservation",
+        "passed": true
+      },
+      {
+        "name": "selection-preserved",
+        "passed": true
+      },
+      {
+        "name": "port-reopen-state-preserved",
+        "passed": true
+      },
+      {
+        "name": "all-transmissions-read-allowlisted",
+        "passed": true
+      }
+    ],
+    "selection_preserved": true,
+    "read_only_transmissions": 14,
+    "received_frames": 51,
+    "all_transmissions_read_allowlisted": true,
+    "saved_live_words_compared": 256,
+    "trace_sha256": "6068f612459cac60b982dc24c7f41aa9a727b0cfaf9b57bb6842ed5fdf3b669e",
+    "private_report_sha256": "436bc5b4e0a252a624e0df69ba1aff24efc3d9c75c08df7ad32fea4f95b30a44",
+    "saved_sysex_sha256": "2e3965bc6fb2dfca4a763cca57afb0c3a755f6d155e7bde11b5476a11c6b4ef3",
+    "saved_body_sha256": "3847583016d5ef6b9a4cee185bd191785a6078c4e911092e0fe3070eab372e00",
+    "live_sysex_sha256": "cddb64ba768fa047cae9c19a372010202e4617154de96e9585509111cd7fdb3d",
+    "message_counts": {
+      "PC": 8,
+      "Off": 56
+    }
+  },
+  "retained_full_scan_redecode": {
+    "new_hardware_scan": false,
+    "captures": 512,
+    "decoded_presets": 512,
+    "decode_errors": 0,
+    "decoded_scene_midi_tables": 254,
+    "absent_blocks": 258,
+    "message_counts": {
+      "PC": 2032,
+      "Off": 14224
+    },
+    "all_capture_bytes_preserved": true,
+    "normalized_raw_field_join_verified": true,
+    "snapshot_sha256": "f2e6a21d224716938b96c0f9bc52d96af09557ae6624f52af6b4956b4b6c990e",
+    "manifest_sha256": "104f58f5a44873aea1dce6ed55432d54c060e5e7a739677dd6abb979ce36e0c3",
+    "original_manifest_sha256": "24c0222d593f0ff2a86e4d43a25bbf796d36ccf4793af04ef4d21c5a968a939f"
+  },
+  "idempotent_plan": {
+    "scope": "All populated retained FM9 12.00 presets, all eight scenes; replan already-present PC settings. Single channel/value combination observed; no varied-value coverage established by this read-only record.",
+    "summary": {
+      "planned": 0,
+      "unchanged": 254,
+      "skipped": 0,
+      "conflict": 0
+    },
+    "actions": 0,
+    "source_snapshot_sha256": "7b4a354f1ba510c8aaf5acd1ffbddb327b2ac992a1c107c6089015cd8333d99a",
+    "private_plan_sha256": "b95e877ac2bd28133ba5353613ae546b7ef39282995f7cca027051f96398d842"
+  },
+  "model_catalogue_evidence": {
+    "fm9": {
+      "url": "https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/src/gen3/fm9/params.ts",
+      "sha256": "e6c32114fa75fd995669e15b9205a05757acbe1c3e6254e6192bc64cc38ee243",
+      "bank_starts": {
+        "TYPE": 0,
+        "CHAN": 64,
+        "NUM": 128,
+        "VAL": 192
+      },
+      "qualification": "open implementation catalogue; firmware version not established; no hardware test implied"
+    },
+    "fm3": {
+      "url": "https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/src/gen3/fm3/params.ts",
+      "sha256": "e2a2ddd58ffd9299c33cb13558531a757627edb167bc3cf89410fc9c8b18e8b9",
+      "bank_starts": {
+        "TYPE": 0,
+        "CHAN": 64,
+        "NUM": 128,
+        "VAL": 192
+      },
+      "qualification": "open implementation catalogue; firmware version not established; no hardware test implied"
+    },
+    "axe-fx-iii": {
+      "url": "https://github.com/TheAndrewStaker/mcp-midi-control/blob/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/src/gen3/axe-fx-iii/params.ts",
+      "sha256": "a104ca6f463f2217ee4eae7e915e6d33a4dfe74e9bd5a38e353008e36dd66817",
+      "bank_starts": {
+        "TYPE": 0,
+        "CHAN": 64,
+        "NUM": 128,
+        "VAL": 192
+      },
+      "qualification": "open implementation catalogue; firmware version not established; no hardware test implied"
+    }
+  },
+  "limits": [
+    "FM3/Axe-Fx III saved offsets/type profiles and live transfer shapes provisional; no physical test",
+    "No active CC or varied channel/value hardware cases in retained captures",
+    "No front-panel or editor UI comparison; live editor protocol and saved parser compared independently",
+    "No navigation, editing, outgoing message transmission, save or restore",
+    "Saved-default-scene semantics and write/restore operations remain unqualified"
+  ],
+  "privacy": "Names, preset tables, dumps, traces and full reports remain ignored private evidence; public artifacts contain only redacted counts, protocol facts and hashes."
+}

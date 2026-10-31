@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup><InternalsVisibleTo Include="Fractal.Checks" /></ItemGroup>
+  <PropertyGroup Condition="'$(FractalNoMidi)' == 'true'"><DefineConstants>$(DefineConstants);FRACTAL_NO_MIDI</DefineConstants></PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MightBeUseful.Midi.Rtp" Version="$(SharedMidiPackageVersion)" />
+    <PackageReference Include="MightBeUseful.Midi.CoreMidi" Version="$(SharedMidiPackageVersion)" />
+    <PackageReference Include="MightBeUseful.Midi" Version="$(SharedMidiPackageVersion)" />
+    <PackageReference Include="MightBeUseful.Midi.Windows" Version="$(SharedMidiPackageVersion)" Condition="'$(TargetFramework)' == 'net10.0-windows10.0.19041.0'" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="../../knowledge-base/catalog/saved-value-scales.json" LogicalName="Fractal.Core.SavedValueScales.json" />
+    <EmbeddedResource Include="../../knowledge-base/catalog/block-identities.json" LogicalName="Fractal.Core.BlockIdentities.json" />
+    <EmbeddedResource Include="../../knowledge-base/catalog/edit-read-profiles.json" LogicalName="Fractal.Core.EditReadProfiles.json" />
+    <EmbeddedResource Include="../../knowledge-base/catalog/audio-parameter-mappings.json" LogicalName="Fractal.Core.AudioParameterMappings.json" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,19 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <!-- Keep established CLI/bundle paths while using the Windows package's real TFM. -->
+    <TargetFramework Condition="'$(OS)' == 'Windows_NT' and '$(FractalPortableBuild)' != 'true'">net10.0-windows10.0.19041.0</TargetFramework>
+    <WindowsSdkPackageVersion>10.0.19041.57</WindowsSdkPackageVersion>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <OutputPath Condition="'$(UseArtifactsOutput)' != 'true'">bin/$(Configuration)/net10.0/</OutputPath>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Version>0.9.0</Version>
+    <Deterministic>true</Deterministic>
+    <PathMap>$(MSBuildThisFileDirectory)=/_/fractal-ai-toolkit/</PathMap>
+  </PropertyGroup>
+  <Import Project="dependencies/midi/MidiVersion.props" />
+  <PropertyGroup Condition="('$(TestLabProfile)' == 'OfflineWindows' or '$(TestLabProfile)' == 'PhysicalWindowsReadOnly')"><DefineConstants>$(DefineConstants);TEST_LAB_OFFLINE_WINDOWS</DefineConstants></PropertyGroup>
+</Project>

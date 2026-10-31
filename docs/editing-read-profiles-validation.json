@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "release": "0.13.0",
+  "date": "2026-10-11",
+  "status": "offline-software-validation-passed",
+  "catalogue": "knowledge-base/catalog/edit-read-profiles.json",
+  "models_checked": ["FM9/512", "FM3/512", "Axe-Fx III/512", "Axe-Fx III/1024"],
+  "checks": {
+    "dotnet_synthetic_checks": 160,
+    "new_edit_read_checks": 20,
+    "python_unit_tests": 138,
+    "python_skipped_tests": 0,
+    "cli_pipeline_groups": 9,
+    "offline_edit_cli_model_groups": 4,
+    "final_offset_origin_cli_model_groups": 4,
+    "knowledge_validation": "passed; 37 capabilities, 87 sources; portable links and scope checked",
+    "distribution_source_files_checked": 180,
+    "contained_release_source_build_files": 58,
+    "contained_release_manifest": "recorded and verified through scripts/protocol_release.py"
+  },
+  "fixture_provenance": {
+    "source": "tests/Fractal.Checks/EditReadChecks.cs",
+    "kind": "synthetic-only",
+    "firmware_label": "99.07 synthetic context, not a firmware compatibility assertion",
+    "construction": "Literal per-model saved field offsets, record shapes and expected values; no production profile resolver is used to assemble body fixtures. Existing synthetic packer supplies transfer integrity only.",
+    "independence_limit": "Fixtures independently specify expectations but share retained format evidence; they are not independent hardware observations.",
+    "private_device_data_included": false
+  },
+  "software_scope": [
+    "Explicit model/capacity/firmware and embedded catalogue hash; all new writes unsupported",
+    "Reversed Amp record order and same-shaped Cab decoy; exact grid/prefix association",
+    "Missing/duplicate prefixes, duplicate grid instances and unknown numeric IDs",
+    "Per-model saved Amp type offsets, all channels and all eight scene assignments",
+    "Raw invalid scene channel/bypass values without coercion",
+    "Printable scene names, full-width and empty names, unknown bytes and retained padding",
+    "Shunt identity, all opaque route bits, null edges and lossless grid/body bytes",
+    "Unsupported body shapes retain captured bytes and readable names",
+    "Corrupt/incomplete/wrong-model transfers and opaque saved headers rejected",
+    "Deterministic reports, unchanged captures, version-3 snapshot compatibility and offline CLI argument rejection"
+  ],
+  "midi_ports_opened": false,
+  "hardware_commands_sent": false,
+  "new_hardware_qualification": false,
+  "limits": [
+    "Routing edge direction/masks, endpoint rules and connection encoders remain unsupported.",
+    "General Amp gain/tone, Cab and effect settings have no qualified parameter mappings.",
+    "Saved scene state does not establish Scene Ignore, controller/modifier behavior or live effective state.",
+    "Exact-prefix and saved-field profiles are provisional; historical FM9 12.00 observations retain their earlier operation scope.",
+    "No new MCP editing tools, writers, planning/execution or hardware qualification were added."
+  ]
+}

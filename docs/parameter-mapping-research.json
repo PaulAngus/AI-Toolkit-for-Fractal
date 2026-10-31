@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-11",
+  "source_id": "gen3-tables",
+  "revision": "59047175cfc4f23e092931b54a7c54f2bffde3ea",
+  "sha256": "10321de164144996c995ca14ff03564757b6d1dc214b07d883734febf0ac6aad",
+  "authority": "open-implementation",
+  "total_candidates": 462,
+  "families": [
+    {
+      "family": "Amp",
+      "candidate_count": 70,
+      "weak_names": [
+        "Gain"
+      ],
+      "colliding_word_indices": {}
+    },
+    {
+      "family": "Cab",
+      "candidate_count": 62,
+      "weak_names": [
+        "Bank 3",
+        "Bank 4"
+      ],
+      "colliding_word_indices": {
+        "0": [
+          "Bank 3",
+          "Cab 3"
+        ],
+        "1": [
+          "Bank 4",
+          "Cab 4"
+        ],
+        "70": [
+          "Low Slope 3",
+          "Low Slope 4"
+        ]
+      }
+    },
+    {
+      "family": "Chorus",
+      "candidate_count": 14,
+      "weak_names": [],
+      "colliding_word_indices": {}
+    },
+    {
+      "family": "Comp",
+      "candidate_count": 13,
+      "weak_names": [
+        "LookAHead"
+      ],
+      "colliding_word_indices": {}
+    },
+    {
+      "family": "Delay",
+      "candidate_count": 47,
+      "weak_names": [
+        "Pan",
+        "Q2"
+      ],
+      "colliding_word_indices": {}
+    },
+    {
+      "family": "Drive",
+      "candidate_count": 24,
+      "weak_names": [],
+      "colliding_word_indices": {}
+    },
+    {
+      "family": "Enhancer",
+      "candidate_count": 4,
+      "weak_names": [
+        "Low Cut"
+      ],
+      "colliding_word_indices": {
+        "2": [
+          "Pan L",
+          "Pan R"
+        ]
+      }
+    },
+    {
+      "family": "Filter",
+      "candidate_count": 14,
+      "weak_names": [],
+      "colliding_word_indices": {}
+    },
+    {
+      "family": "Flanger",
+      "candidate_count": 13,
+      "weak_names": [],
+      "colliding_word_indices": {}
+    },
+    {
+      "family": "GEQ",
+      "candidate_count": 7,
+      "weak_names": [
+        "Gain 6"
+      ],
+      "colliding_word_indices": {
+        "0": [
+          "Gain 6",
+          "Gain 7"
+        ]
+      }
+    },
+    {
+      "family": "Gate",
+      "candidate_count": 3,
+      "weak_names": [],
+      "colliding_word_indices": {
+        "0": [
+          "Hi Cut",
+          "Low Cut"
+        ]
+      }
+    },
+    {
+      "family": "MultiTap",
+      "candidate_count": 54,
+      "weak_names": [],
+      "colliding_word_indices": {
+        "49": [
+          "Q2",
+          "Q3",
+          "Q4"
+        ]
+      }
+    },
+    {
+      "family": "Phaser",
+      "candidate_count": 17,
+      "weak_names": [
+        "Depth"
+      ],
+      "colliding_word_indices": {
+        "20": [
+          "Astable Beta",
+          "Depth"
+        ],
+        "26": [
+          "HiCut",
+          "LoCut"
+        ]
+      }
+    },
+    {
+      "family": "Pitch",
+      "candidate_count": 52,
+      "weak_names": [
+        "Harm 1",
+        "Harm 2"
+      ],
+      "colliding_word_indices": {
+        "71": [
+          "Step 1",
+          "Step 2"
+        ],
+        "76": [
+          "Step 6",
+          "Step 7"
+        ],
+        "84": [
+          "Step 14",
+          "Step 16"
+        ]
+      }
+    },
+    {
+      "family": "Reverb",
+      "candidate_count": 40,
+      "weak_names": [
+        "WallDiff"
+      ],
+      "colliding_word_indices": {
+        "18": [
+          "Drip",
+          "WallDiff"
+        ]
+      }
+    },
+    {
+      "family": "Rotary",
+      "candidate_count": 9,
+      "weak_names": [],
+      "colliding_word_indices": {}
+    },
+    {
+      "family": "Tremolo",
+      "candidate_count": 4,
+      "weak_names": [],
+      "colliding_word_indices": {}
+    },
+    {
+      "family": "Wah",
+      "candidate_count": 15,
+      "weak_names": [
+        "Max Freq",
+        "Min Freq"
+      ],
+      "colliding_word_indices": {
+        "3": [
+          "Fat",
+          "Max Freq",
+          "Min Freq"
+        ]
+      }
+    }
+  ],
+  "qualification": "Correlation-derived generic body word candidates, not model-specific calibrated saved field descriptors. Per-model offset origin/shape and value scales remain to be established. Amp output-level interpretation has explicit conflicting evidence in presetBody.ts.",
+  "completion_requirements": [
+    "Same-model/firmware controlled before/after captures or another exact source for each field offset and applicable record shape.",
+    "Value-scale endpoints and nonlinear/enum behavior; source correlations alone cannot establish display values.",
+    "Separate type-dependent, tempo, modifier and Scene Ignore dependencies."
+  ],
+  "hardware_qualified": false
+}

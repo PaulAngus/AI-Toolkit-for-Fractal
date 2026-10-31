@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "protocol_release": "0.38.0",
+  "date": "2026-10-14",
+  "evidence_kind": "synthetic-software-and-source-review",
+  "models": [
+    "FM9/512",
+    "FM3/512",
+    "Axe-Fx III/512",
+    "Axe-Fx III/1024"
+  ],
+  "decision": {
+    "offline_planning": "delivered",
+    "editor_interchange": "deferred-format-unqualified",
+    "live_system_execution": "no-go-incomplete-codec-preservation-and-recovery"
+  },
+  "checks": {
+    "focused_core": "passed across all four definitions: documented firmware bounds, FC dependency, maxima, invalid and duplicate inputs, DEFAULT, disabled sections, ordered repeats, missing references, partial coverage, complete capture integrity, deterministic repeat and unchanged input bytes",
+    "python": "166 tests passed, including closed MCP contracts and offline planning without operator device configuration",
+    "cli_pipeline": "passed across all four definitions, including symbolic DEFAULT, missing references, output hashes and explicit 0.37.0 inventory migration; full synthetic .NET regressions passed; no MIDI ports opened",
+    "relocated_mcp_pipeline": "passed against final adapter through real relocated stdio and built helpers across all four definitions, including symbolic DEFAULT, repeated songs, unresolved references and invalid selection refusal; full synthetic .NET regressions passed; no MIDI ports opened",
+    "knowledge_validation": "passed: 47 capabilities, 112 sources; portable links, evidence and domain scope checked",
+    "distribution_source_privacy": "passed: 280 public source files checked",
+    "protocol_release": "contained 0.38.0 hashes verified: 118 source/build, 6 planner/entry, 19 adapter/check and 6 desktop packaging files"
+  },
+  "limits": [
+    "No new hardware connections or qualification",
+    "No system dump decoder, write scope, backup/restore or existing-data preservation",
+    "No editor-importable file, automatic MIDI playback or footswitch assignment",
+    "Firmware and FC declarations are not hardware compatibility or identity evidence",
+    "DEFAULT preview resolves retained saved data only; slot references do not follow relocation",
+    "Bounded source review does not establish that other public implementations are absent"
+  ]
+}

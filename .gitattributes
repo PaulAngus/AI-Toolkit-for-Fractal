@@ -1,0 +1,11 @@
+* text=auto eol=lf
+*.nupkg binary
+
+# Preserve exact bytes covered by the vendored Test Lab checksum manifest.
+dependencies/test-lab/** -text
+
+# Preserve pinned MIDI dependency snapshots byte for byte.
+dependencies/midi/** -text whitespace=cr-at-eol
+
+# Preserve the exact contained runtime snapshot covered by protocol-release.json.
+src/fractal_mcp/runtime.py -text whitespace=cr-at-eol

@@ -1,0 +1,6 @@
+{
+  "mode": "built-in image_gen edit",
+  "source": "assets/branding/ai-toolkit-for-fractal-logo.png",
+  "output": "assets/branding/ai-toolkit-for-fractal-logo-tight.png",
+  "prompt": "Precise image edit: tighten ONLY the outer white canvas margins of this approved logo. Crop away approximately half of the existing empty white space around the complete logo lockup, yielding a near-square compact image with about 50 pixels of white margin beyond the widest text and beyond the top of the handle and bottom of the subtitle. Keep ALL existing artwork exactly unchanged: case, block geometry, routing connections, colours, letterforms, brand text \"AI Toolkit\" and \"for Fractal\", relative sizes, placement and internal spacing between symbol and text. Do not redraw or reinterpret any element. This is only a tighter framing/canvas crop; preserve the approved design faithfully. White background, all elements fully visible, no clipping."
+}

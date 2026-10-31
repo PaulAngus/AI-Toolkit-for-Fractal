@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-10",
+  "scope": "Public source, knowledge resources, build inputs and packaged runtime; private operator profiles and artifacts are outside distribution",
+  "status": "software-and-curation-validation-passed",
+  "removed_categories": [
+    "Contributor chat inventory and request-count history",
+    "Personal placement preferences and copied-target context",
+    "Contributor manual restoration, receiver reaction and extension installation anecdotes",
+    "Personal message choices and active preset address in historical public narratives",
+    "Local user-profile paths embedded in assemblies and portable debug symbols"
+  ],
+  "retained_categories": [
+    "General device operations with explicit caller inputs",
+    "Manufacturer documentation and pinned implementation references",
+    "Licence notices, public technical attribution and source hashes",
+    "Model/firmware-specific qualification, aggregate results, negative observations and incomplete-run limits",
+    "Clearly synthetic software fixtures, independently of operator setup"
+  ],
+  "controls": [
+    "Build path mapping uses a portable virtual source root",
+    "Public input and completed bundle scans are enforced by packaging",
+    "Independent archive scan covers text, PE metadata and portable PDBs, including UTF-16 path strings",
+    "Synthetic regression checks reject private artifact types, chat records and profile paths while permitting public provenance",
+    "Knowledge validation checks source links, capability coverage, evidence labels and portable references"
+  ],
+  "midi_ports_opened": false,
+  "hardware_commands_sent": false,
+  "new_hardware_qualification": false,
+  "limits": [
+    "Pattern scans supplement human curation; they cannot establish the reusable meaning of every sentence",
+    "Model/firmware scope and aggregate validation results are intentionally retained and do not establish universal hardware compatibility",
+    "This audit does not change or erase an operator's private profiles, backups or recovery records"
+  ]
+}

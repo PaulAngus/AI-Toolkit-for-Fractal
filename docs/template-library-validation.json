@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "release": "0.35.0",
+  "date": "2026-10-14",
+  "scope": "Synthetic FM9, FM3 and Axe-Fx III 512/1024; no hardware ports opened",
+  "source_ids": [
+    "toolkit-template-library",
+    "gen3-body"
+  ],
+  "coverage": [
+    "Complete donor capture integrity, derived instance/row hashes, exact context and shape, private metadata/search/paging",
+    "Template kind/field mismatches, stale hashes, altered shape metadata, duplicate JSON, unsafe IDs and tag conflicts",
+    "Library application lowers to existing frozen copy/insertion contracts; donor retained independently of later library file changes",
+    "Literal independent whole-body expectations for both channel-swap scene-reference policies and unrelated-byte preservation",
+    "Identical-row no-op, invalid channels/policy/references, overlap/shared-modifier refusal and unrelated composition",
+    "Synthetic ordinary Save/Reload, stale-plan replay refusal and complete original-image undo",
+    "Real offline CLI and relocated MCP import/search/inspection/application, swaps and exact execution review preparation"
+  ],
+  "results": {
+    "status": "passed",
+    "python_tests": "passed: 159 tests",
+    "focused_dotnet_checks": "passed across all four model/capacity definitions",
+    "cli_pipeline": "passed across all four model/capacity definitions; no MIDI ports opened",
+    "relocated_mcp_pipeline": "passed through real relocated stdio and helpers across all four definitions; no MIDI ports opened",
+    "knowledge_validation": "passed: 44 capabilities and 105 sources; scope and portable links checked",
+    "protocol_release": "contained 0.35.0 source/planner/adapter/packaging hashes verified",
+    "dotnet_checks": "Full synthetic suite passed through both CLI and relocated MCP pipelines across all four definitions",
+    "distribution_source_privacy": "passed: 264 public source files checked"
+  },
+  "limits": [
+    "Firmware/provenance labels are caller-declared; complete byte integrity cannot establish hardware origin",
+    "No factory-default claim, cross-instance/model remapping or editor-native library format interoperability",
+    "Only existing uniquely placed exact instance records and four-row channel layouts; no hardware swap qualification",
+    "Following scene channel selectors does not prove identical audio or all channel-dependent behavior",
+    "System/library hashes are integrity checks, not authentication or authorization"
+  ]
+}

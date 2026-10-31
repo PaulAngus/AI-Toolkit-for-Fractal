@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-13",
+  "scope": "Synthetic saved captures across all four model/capacity definitions, plus one separately scoped FM9 12.00 physical modifier-value edit",
+  "implementation": "Exact capture-backed modifier value calibration through shared CLI, planner and local MCP adapter",
+  "coverage": [
+    "Complete witness hashes, stable saved slot, 25-word modifier record, exact source/target binding and uniquely placed target block",
+    "One differing settings word, source-mapped key/word agreement, exact current/requested witnesses and no interpolation",
+    "Changed modifier or target-block context, stale binding, unit mismatch and conflicting assignments refuse planning",
+    "Unrelated preset bytes preserved, repeat no-op and shared complete-image execution/undo verified with synthetic transport",
+    "Relocated MCP witness artifacts and plan review across all four model/capacity definitions"
+  ],
+  "results": {
+    "python_tests": "158 passed",
+    "dotnet_checks": "236 passed",
+    "cli_pipeline": "passed across all four definitions",
+    "relocated_mcp_pipeline": "passed across all four definitions",
+    "knowledge_validation": "passed",
+    "source_distribution_privacy": "passed",
+    "protocol_release_hashes": "verified",
+    "hardware_tests_performed": true
+  },
+  "fm9_12_00_initial_witness_attempt": {
+    "date": "2026-10-13",
+    "scope": "Caller-operated modifier changes and integrity-checked saved reads; the calibrated modifier setter was not executed",
+    "result": "No stable-binding, one-settings-word pair was obtained. Assignment changes affected binding and initialization words; another change created a different modifier assignment. These captures cannot calibrate a numeric display value.",
+    "recovery": "A guarded single-preset restore verified the original loaded, saved and reloaded image. Its post-restore inventory stopped early after a MIDI receive-channel closure. A fresh saved read matched the original wire, raw and body hashes; a separate checkpointed read-only inventory completed and all 512 saved slots matched the pre-test inventory in wire, raw and body hashes. The original selection and scene were then restored by a guarded Load.",
+    "limits": "The early inventory failure and a later excess of unrelated MIDI replies were recorded; the latter read-only scan resumed and completed. No effective modifier response, numeric display mapping or calibrated setter persistence was qualified.",
+    "private_evidence_sha256": {
+      "artifact-001": "369a8b91be5e08f9272d8ea06965ae4c19e702881bbc33f5de085525cdf76c31",
+      "artifact-002": "5f6b1573ea7666e7355d4143beed406ce949250145e6a2287046aed15b0ab810",
+      "artifact-003": "879948fe51c9daa2831820cea2abb5fe078e07073a0e55377b76efa80999e48a"
+    }
+  },
+  "fm9_12_00_hardware_setter_trial": {
+    "date": "2026-10-13",
+    "scope": "One existing 25-word modifier record on FM9 12.00; two caller-labelled saved captures with stable binding and target context differed in exactly one named curve word",
+    "calibration": "Offline resolver accepted the two integrity-checked exact witnesses. Their labels qualify only this observed context, not a general display scale.",
+    "execution": "One set-calibrated-modifier persistent edit passed guarded upload, saved verification and reload. An independent saved read matched the pre-test image exactly in wire, raw and decoded-body hashes.",
+    "preservation": "A checkpointed post-edit read-only inventory completed after a receive-noise interruption. All 512 saved slots matched the pre-test full inventory in wire, raw and decoded-body hashes. A guarded Load restored the original selected preset and scene without discarding changes.",
+    "limits": "The tested direction was from one exact witnessed value to another in one modifier context. Effective pedal response, display readback after the toolkit write, other values/fields, other firmware and other models remain unqualified. A concurrently open editor was reported during unrelated MIDI replies in the inventory; no write was replayed.",
+    "private_evidence_sha256": {
+      "artifact-001": "96e19162bf00cd0d5cb977ca028b64d8203028b85599db64c31e50d5eeb4f72c",
+      "artifact-002": "634268c86228bde7bf84707ed4c85f2f0145c2d8f8386245a109cb5520f29825",
+      "artifact-003": "441636be242576203e1a3ae408cdec1758691c3ee7965be7cf558e8d90110e26",
+      "artifact-004": "307df013f1fb2512b66fb65a81955f915fee70985de08a47bea7f72075e924fe",
+      "artifact-005": "15f8c69a404ec60de00ed633e1f980a165d04b5e2cf278e3055a3861e161b684"
+    }
+  },
+  "limits": [
+    "Capture labels and origin are caller-declared; synthetic witnesses do not establish hardware calibration",
+    "Exact witnessed values only; no general display conversion, time-unit law or selector-name mapping inferred",
+    "Only single-word values in parsed 25-word modifier records; other storage layouts remain unqualified",
+    "One exact FM9 12.00 modifier-value edit passed saved persistence; effective behavior and broader model/firmware applicability remain untested"
+  ]
+}

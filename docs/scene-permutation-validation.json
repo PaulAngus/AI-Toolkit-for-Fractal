@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "release": "0.25.0",
+  "date": "2026-10-12",
+  "status": "offline-software-validation-passed",
+  "models_checked": [
+    "FM9/512",
+    "FM3/512",
+    "Axe-Fx III/512",
+    "Axe-Fx III/1024"
+  ],
+  "fixture_provenance": {
+    "source": "tests/Fractal.Checks/InventoryAnalysisChecks.cs",
+    "kind": "synthetic-only",
+    "firmware_label": "99.07 is synthetic context, not a compatibility claim."
+  },
+  "checks": [
+    "Unique raw scene name and placed-block state swap yields one-based before-to-after mapping with exact whole-body equality",
+    "Complete Scene MIDI type, channel, controller and value banks participate in the permutation",
+    "One unrelated opaque byte change prevents a positive result",
+    "Indistinguishable scenes retain ambiguity rather than an invented correspondence",
+    "Existing missing-capture, preset-move and duplicate-content comparison behavior remains intact"
+  ],
+  "results": {
+    "python_tests": 158,
+    "dotnet_checks": 232,
+    "cli_pipeline": "passed across four model/capacity definitions",
+    "relocated_mcp_pipeline": "passed across four model/capacity definitions",
+    "knowledge_validation": "passed",
+    "distribution_source_privacy": "passed",
+    "protocol_release_hashes": "verified",
+    "hardware_tests_performed": false
+  },
+  "limits": [
+    "A positive result proves saved-byte correspondence for the located scene fields; it does not establish audible or physical identity",
+    "Changes to unlocated scene-indexed fields remain unexplained and receive no map",
+    "No automatic scene reassignment or hardware operation is performed"
+  ]
+}

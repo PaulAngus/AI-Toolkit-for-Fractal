@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "protocol_release": "0.4.0",
+  "date": "2026-10-10",
+  "device_model": "FM9",
+  "firmware": "12.00",
+  "scope": "Single authorized empty preset; owned Scene MIDI insertion/edit/save/reload/removal",
+  "complete": true,
+  "original_saved_image_restored": true,
+  "original_selection_restored": true,
+  "checks_passed": 62,
+  "transmissions": 106,
+  "received_frames": 288,
+  "operations": {
+    "read": 87,
+    "select-cell": 4,
+    "insert-scene-midi": 2,
+    "clear-cell": 2,
+    "reload-target": 3,
+    "set-scene-midi-field": 2,
+    "select-scene": 3,
+    "save-target": 3
+  },
+  "all_saves_and_reloads_scoped_to_target": true,
+  "verified_exports": 6,
+  "checks": [
+    "selected-authorized-target",
+    "saved-base-hash",
+    "live-grid-empty",
+    "live-scene-names-match-backup",
+    "target-before-SelectCell",
+    "target-before-InsertBlock",
+    "live-inserted-instance",
+    "new-block-actual-defaults-decodable",
+    "target-before-SelectCell",
+    "target-before-ClearCell",
+    "live-block-removed",
+    "transient-test-saved-state-unchanged",
+    "target-before-ReloadPreset",
+    "reload-authorized-target",
+    "transient-reload-empty",
+    "target-before-SelectCell",
+    "target-before-InsertBlock",
+    "live-inserted-instance",
+    "repeat-new-block-defaults",
+    "target-before-SetSceneMidiField",
+    "target-before-SetSceneMidiField",
+    "complete-live-table-pc-cc",
+    "live-opaque-extra-preserved",
+    "save-base-not-changed",
+    "target-before-SelectScene",
+    "scene-before-save",
+    "target-before-SavePreset",
+    "saved-default-follows-selected-scene",
+    "chosen-grid-cell",
+    "complete-saved-table",
+    "names-preserved",
+    "inserted-record-instance-prefix",
+    "unrelated-body-bytes-preserved",
+    "save-base-not-changed",
+    "target-before-SelectScene",
+    "scene-before-save",
+    "target-before-SavePreset",
+    "original-default-scene-preserved",
+    "chosen-grid-cell",
+    "complete-saved-table",
+    "names-preserved",
+    "inserted-record-instance-prefix",
+    "unrelated-body-bytes-preserved",
+    "target-before-ReloadPreset",
+    "reload-authorized-target",
+    "saved-default-after-reload",
+    "complete-pc-cc-table-after-reload",
+    "saved-state-stable-after-reload",
+    "target-before-SelectCell",
+    "target-before-ClearCell",
+    "live-block-removed",
+    "save-base-not-changed",
+    "target-before-SelectScene",
+    "scene-before-save",
+    "target-before-SavePreset",
+    "target-before-ReloadPreset",
+    "reload-authorized-target",
+    "final-live-empty",
+    "original-saved-body-restored",
+    "original-saved-raw-image-restored",
+    "final-saved-read-identical",
+    "original-selection-restored"
+  ],
+  "partial_attempts": [
+    {
+      "stage": "preflight",
+      "failed_checks": [
+        "live-grid-empty"
+      ]
+    },
+    {
+      "stage": "transient-insertion-and-removal",
+      "failed_checks": [
+        "new-block-defaults-all-off"
+      ]
+    },
+    {
+      "stage": "persistent-pc-cc-pilot",
+      "failed_checks": [
+        "unrelated-body-bytes-preserved"
+      ]
+    }
+  ],
+  "explicit_recoveries": [
+    {
+      "complete": true,
+      "original_saved_image_restored": true,
+      "checks_passed": 5
+    },
+    {
+      "complete": true,
+      "original_saved_image_restored": true,
+      "checks_passed": 12
+    }
+  ],
+  "retained_evidence_sha256": [
+    {
+      "label": "complete-pilot",
+      "report_sha256": "fce322c51e8582158abac278bed73ccdb2ea1a59d2e5bb6bbe56429c6fab34e9",
+      "trace_sha256": "2b8fce1f5f1922ba6ae05ab5d28302819cec924733e9bc29c6f31d40539df303"
+    },
+    {
+      "label": "partial-attempt-1",
+      "report_sha256": "aa023a34878b43f574956778c502f478cffd4b9b6cc37fa45c01fd253aa7f0fb",
+      "trace_sha256": "5d661d56b1c1d69fef6d8adf54c09a19e2656444906c746f9444aca23e1c92d4"
+    },
+    {
+      "label": "partial-attempt-2",
+      "report_sha256": "e0bef664dc361692788217619b1c0ccd2066cb19686a108b51a50481d1c276ea",
+      "trace_sha256": "924dbf73698fc566c6ddf19768b5fb667fc5b4e1bb45ace30b23f91d960c013b"
+    },
+    {
+      "label": "partial-attempt-3",
+      "report_sha256": "913de3ed08e5b9ed51e6828df98194447856c92d16a814501483c4f71586c116",
+      "trace_sha256": "e77337e540bef575060c1521cd1d9d4cf91ae72ce7687123c849b5acf53b3857"
+    },
+    {
+      "label": "explicit-recovery-1",
+      "report_sha256": "3238d0d69e4229df1f40c49995dfe4236e406a13556466a8ebd889b784c48732",
+      "trace_sha256": "99dff8fa162536cc6318994d9e785f83d3d7d60b146cf506400e722b4125d9db"
+    },
+    {
+      "label": "explicit-recovery-2",
+      "report_sha256": "d9f9eaf3acc34d5d0a09c3c82a819db41bdace27ead2fd63ff77216b3f2fabe4",
+      "trace_sha256": "28515dc6ac70b94842f230134b7c472a61ae9b169594698a6231069b42c04b0a"
+    }
+  ],
+  "limitations": [
+    "Empty-preset operation-based recovery only; full-dump restore unqualified",
+    "No production writer or batch execution",
+    "Other models/firmware require physical qualification",
+    "External MIDI receiver behavior and independent editor display not observed"
+  ],
+  "other_models": "FM3/Axe-Fx III synthetic checks only; no physical editor test"
+}

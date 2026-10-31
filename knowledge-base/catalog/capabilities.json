@@ -1,0 +1,1164 @@
+{
+  "schema_version": 1,
+  "curated_on": "2026-10-14",
+  "capabilities": [
+    {
+      "id": "identify-device",
+      "title": "Identify a connected Fractal device",
+      "workflow": "workflows/device-reads.md",
+      "inputs": [
+        "MIDI input/output pair",
+        "supported identity query"
+      ],
+      "outputs": [
+        "validated manufacturer/model",
+        "connection evidence"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "Recorded FM9 identification; other hardware requires validation. Toolkit release 0.2.1 physical read scope: FM9 12.00; FM3/Axe-Fx III remain synthetic-only.",
+      "source_ids": [
+        "fractal-midi-spec",
+        "recorded-discovery",
+        "toolkit-read-runtime",
+        "toolkit-fm9-12-hardware"
+      ],
+      "tool": "src/Fractal.Cli/Program.cs"
+    },
+    {
+      "id": "read-firmware",
+      "title": "Read the connected firmware version",
+      "workflow": "workflows/device-reads.md",
+      "inputs": [
+        "validated model",
+        "supported firmware query"
+      ],
+      "outputs": [
+        "validated version",
+        "raw response provenance"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "Recorded FM9 12.00 and pinned implementation sources. Toolkit release 0.2.1 physical read scope: FM9 12.00; FM3/Axe-Fx III remain synthetic-only.",
+      "source_ids": [
+        "tonecommand-protocol",
+        "tonecommand-firmware",
+        "recorded-discovery",
+        "toolkit-read-runtime",
+        "toolkit-fm9-12-hardware"
+      ],
+      "tool": "src/Fractal.Cli/Program.cs"
+    },
+    {
+      "id": "read-preset-names",
+      "title": "Read preset names with address correlation",
+      "workflow": "workflows/device-reads.md",
+      "inputs": [
+        "device capacity",
+        "serialized transport"
+      ],
+      "outputs": [
+        "fresh names per slot",
+        "missing/rejected reply list"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "FM9 observations; published Axe-Fx III format. Toolkit release 0.2.1 physical read scope: FM9 12.00; FM3/Axe-Fx III remain synthetic-only.",
+      "source_ids": [
+        "fractal-midi-spec",
+        "recorded-reads",
+        "toolkit-read-runtime",
+        "toolkit-fm9-12-hardware"
+      ],
+      "tool": "src/Fractal.Cli/Program.cs"
+    },
+    {
+      "id": "read-live-scenes",
+      "title": "Read live scene names and current state",
+      "workflow": "workflows/device-reads.md",
+      "inputs": [
+        "stable active preset",
+        "supported scene/state queries"
+      ],
+      "outputs": [
+        "scene names/current scene",
+        "state stability result"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "State/name queries physically passed on FM9 12.00. State bracketing cannot detect a brief change and return; other models remain physically unverified.",
+      "source_ids": [
+        "fractal-midi-spec",
+        "recorded-scene-format",
+        "toolkit-read-runtime",
+        "toolkit-fm9-12-hardware",
+        "toolkit-scene-midi-reading",
+        "gen3-fm9-midi-banks",
+        "gen3-fm3-midi-banks",
+        "gen3-axe-fx-iii-midi-banks"
+      ],
+      "tool": "src/Fractal.Cli/Program.cs"
+    },
+    {
+      "id": "read-saved-preset",
+      "title": "Read and decode saved preset data",
+      "workflow": "workflows/device-reads.md",
+      "inputs": [
+        "model/firmware-qualified decoder",
+        "slot"
+      ],
+      "outputs": [
+        "integrity-checked saved image",
+        "decoded scenes/Amp data"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "Integrity export, grid/Amp/scenes and complete Scene MIDI implemented. FM9 12.00 saved/live PC/Off reading and active PC/CC pilot passed; FM3/Axe-Fx III profiles remain provisional. Unknown bodies retain exact captures and errors.",
+      "source_ids": [
+        "gen3-format",
+        "recorded-reads",
+        "recorded-scene-format",
+        "gen3-dump",
+        "gen3-container",
+        "gen3-tables",
+        "toolkit-read-runtime",
+        "toolkit-fm9-12-hardware",
+        "toolkit-scene-midi-reading",
+        "gen3-fm9-midi-banks",
+        "gen3-fm3-midi-banks",
+        "gen3-axe-fx-iii-midi-banks",
+        "gen3-editor-actions-pinned",
+        "toolkit-editor-pilot"
+      ],
+      "tool": "src/Fractal.Cli/Program.cs"
+    },
+    {
+      "id": "discover-capacity",
+      "title": "Determine the supported preset address range",
+      "workflow": "workflows/device-reads.md",
+      "inputs": [
+        "exact-address reply validation",
+        "family capacity bounds"
+      ],
+      "outputs": [
+        "positive address evidence or unknown",
+        "explicit established range"
+      ],
+      "toolkit_support": "research-reference",
+      "evidence_scope": "Positive boundary strategy; no imported Axe-Fx III physical validation.",
+      "source_ids": [
+        "fractal-midi-spec"
+      ]
+    },
+    {
+      "id": "plan-scene-midi-pc",
+      "title": "Plan PC or CC messages across preset scenes",
+      "workflow": "workflows/scene-midi.md",
+      "inputs": [
+        "normalized FM9/FM3/Axe-Fx III snapshot",
+        "preset/scene/message scope",
+        "message type/channel/value and CC controller",
+        "chosen fallback cell for an absent block"
+      ],
+      "outputs": [
+        "planned/unchanged/skipped/conflict outcomes",
+        "source hashes"
+      ],
+      "toolkit_support": "offline-tool",
+      "evidence_scope": "Complete schema-3 PC/CC planning, raw preservation, idempotence and conflicts across all models. The separate existing-block executor consumes schema-2 plans and complete saved captures; planner output alone grants no write authorization. FM3/Axe-Fx III hardware remains unverified.",
+      "source_ids": [
+        "recorded-scene-midi",
+        "fractal-blocks-guide",
+        "toolkit-scene-midi-reading",
+        "gen3-fm9-midi-banks",
+        "gen3-fm3-midi-banks",
+        "gen3-axe-fx-iii-midi-banks",
+        "toolkit-block-planning",
+        "gen3-editor-actions-pinned",
+        "toolkit-editor-pilot",
+        "toolkit-scene-midi-execution"
+      ],
+      "tool": "skills/fractal-fm9/scripts/plan_scene_midi.py"
+    },
+    {
+      "id": "configure-scene-midi",
+      "title": "Configure and save Scene MIDI messages",
+      "workflow": "workflows/scene-midi.md",
+      "inputs": [
+        "explicit model/firmware/capacity and saved targets",
+        "complete schema-3 captures and schema-2 planner output bound to exact request/base hashes",
+        "caller-specified PC/CC message, scenes, row and coordinated MIDI ports"
+      ],
+      "outputs": [
+        "exact planned message edits or explicit occupied-row conflict",
+        "complete preserved loaded/saved body and independent table verification",
+        "repeated saved and Reload verification with retained private evidence"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "Common existing-block PC/CC executor with complete preservation, independent live table checks, Save/Reload receipts, persistent import and explicit original-backup undo. FM9 12.00 separately passed the empty-preset eight-scene pilot and a populated two-target PC/CC batch with fresh-process result verification and explicit undo; 510 non-target slots remained unchanged and all 512 originals matched afterwards. The general complete-image editor also implements combined template insertion/configuration, explicit occupied-slot replacement and expected-word selective clearing, with independent live table checks. Completed saved general-edit receipts and completed persistent recovery-store items support selective exact raw-row undo against later unrelated changes. These new operations have synthetic coverage only. Scoped Claude cancellation after verified restoration and query-only continuation passed; in-flight mutation interruption and other-model hardware remain unqualified.",
+      "source_ids": [
+        "recorded-scene-midi",
+        "gen3-editor-write",
+        "fractal-blocks-guide",
+        "toolkit-scene-midi-reading",
+        "gen3-fm9-midi-banks",
+        "gen3-fm3-midi-banks",
+        "gen3-axe-fx-iii-midi-banks",
+        "gen3-editor-actions-pinned",
+        "toolkit-editor-pilot",
+        "gen3-body",
+        "toolkit-preset-restore",
+        "toolkit-scene-midi-execution",
+        "toolkit-scene-midi-recovery"
+      ],
+      "tool": "tests/Fractal.HardwareChecks/ApplySceneMidi.cs"
+    },
+    {
+      "id": "backup-presets",
+      "title": "Capture integrity-checked preset backups",
+      "workflow": "workflows/backups-verification.md",
+      "inputs": [
+        "validated saved reader",
+        "target slots",
+        "model/firmware"
+      ],
+      "outputs": [
+        "saved images",
+        "hash/integrity manifest"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "Contained three-model saved export and opaque single-preset backup inspection have synthetic validation. FM9 12.00 physical saved reads passed; one independently restored FM9 file passed full offline integrity. File integrity does not qualify restore. FM3/Axe-Fx III remain synthetic-only.",
+      "source_ids": [
+        "recorded-reads",
+        "gen3-format",
+        "toolkit-read-runtime",
+        "toolkit-fm9-12-hardware",
+        "toolkit-backup-inspection"
+      ],
+      "tool": "src/Fractal.Cli/Program.cs"
+    },
+    {
+      "id": "restore-presets",
+      "title": "Validate a target-specific preset restore path",
+      "workflow": "workflows/backups-verification.md",
+      "inputs": [
+        "model, firmware and actual capacity",
+        "authorized selected destination and expected scene",
+        "integrity-checked source backup and expected hash",
+        "retained addressed saved baseline and hash",
+        "coordinated MIDI transport"
+      ],
+      "outputs": [
+        "saved restore verification",
+        "failure/restoration report"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "Common contained single-preset temporary upload, complete loaded verification before Save, repeated saved equality and Reload. FM9 12.00 physically passed changed-image and original-image trials; all 511 other saved slots stayed byte-identical in both. Original complete loaded/saved image restored. FM3/Axe-Fx III have synthetic toolkit coverage only; external FM3 audition claim is separate. Interrupted recovery, conversion and batches remain unqualified.",
+      "source_ids": [
+        "gen3-format",
+        "fractal-midi-spec",
+        "gen3-editor-actions-pinned",
+        "toolkit-editor-pilot",
+        "toolkit-backup-inspection",
+        "toolkit-save-current",
+        "forgefx-upload-driver",
+        "forgefx-upload-helper",
+        "toolkit-preset-restore"
+      ],
+      "tool": "tests/Fractal.HardwareChecks/RestorePreset.cs"
+    },
+    {
+      "id": "verify-preset-edit",
+      "title": "Verify persistent edits and preservation",
+      "workflow": "workflows/backups-verification.md",
+      "inputs": [
+        "original saved state",
+        "intended operation",
+        "fresh saved readback"
+      ],
+      "outputs": [
+        "intended differences",
+        "preserved-field comparison",
+        "uncertain results"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "Common independent preservation checkers cover Scene MIDI editing, isolated insertion/removal and full restoration. FM9 12.00 saved/reloaded PC/CC editing and explicit undo passed, including two-target Claude batches. Ordinary isolated removal and receipt-based insertion undo passed through Claude with complete original equality. Independent full final saved inventories found all 512 captures unchanged. Other-model hardware and arbitrary block families remain unqualified.",
+      "source_ids": [
+        "recorded-scene-midi",
+        "recorded-reads",
+        "gen3-editor-actions-pinned",
+        "toolkit-editor-pilot",
+        "toolkit-block-insertion",
+        "toolkit-scene-midi-execution"
+      ],
+      "tool": "src/Fractal.Core/EditorPreservation.cs"
+    },
+    {
+      "id": "inventory-presets",
+      "title": "Build a resumable saved preset inventory",
+      "workflow": "workflows/preset-inventory.md",
+      "inputs": [
+        "explicit device model, firmware and established capacity",
+        "caller-selected slots or complete capacity",
+        "new private destination or exact retained checkpoint"
+      ],
+      "outputs": [
+        "complete/partial inventory with capture and decode completeness",
+        "per-slot integrity, original capture timestamps and attempt history",
+        "offline snapshot export from a complete journal"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "Resumable read-only journals, retained-content revalidation, offline snapshot export, comparison, amp search, explicit prior-release migration and MCP inventory tools are implemented. New physical qualification, atomic snapshots and unique device identity remain unestablished.",
+      "source_ids": [
+        "recorded-reads",
+        "gen3-format",
+        "toolkit-read-runtime"
+      ],
+      "tool": "src/Fractal.Core/PresetInventory.cs"
+    },
+    {
+      "id": "compare-inventory",
+      "title": "Compare saved inventories and qualify identity",
+      "workflow": "workflows/preset-inventory.md",
+      "inputs": [
+        "old/new data",
+        "firmware/decoder scope",
+        "validated fingerprints"
+      ],
+      "outputs": [
+        "exact matches",
+        "qualified differences and ambiguous identity"
+      ],
+      "toolkit_support": "offline-tool",
+      "evidence_scope": "Offline complete-raw and name-independent full-body comparison identifies name changes and possible moves. Same-slot comparison now proves a unique permutation only when moving raw scene names, every placed block channel/bypass word and all Scene MIDI banks produces exact whole-body equality. Identical scenes, unsupported layouts, unrelated bytes and missing captures remain explicit; no physical or audible identity or automatic reassignment.",
+      "source_ids": [
+        "gen3-body",
+        "recorded-reads"
+      ],
+      "tool": "src/Fractal.Core/InventoryAnalysis.cs"
+    },
+    {
+      "id": "detect-scene-rearrangement",
+      "title": "Investigate renamed or rearranged scenes",
+      "workflow": "workflows/preset-inventory.md",
+      "inputs": [
+        "validated scene-indexed fields",
+        "before/after saved captures"
+      ],
+      "outputs": [
+        "permutation/rename evidence or uncertainty"
+      ],
+      "toolkit_support": "offline-tool",
+      "evidence_scope": "Offline same-slot comparison reports a one-based before-to-after scene map only for a unique byte-exact permutation of known scene fields with every other decoded body byte unchanged. Identical scenes, unsupported layouts and unexplained changes remain unresolved. This does not establish sound identity or all editor scene semantics.",
+      "source_ids": [
+        "gen3-body"
+      ],
+      "tool": "src/Fractal.Core/ScenePermutationAnalysis.cs"
+    },
+    {
+      "id": "discover-amp-roster",
+      "title": "Discover available numeric amp IDs and names",
+      "workflow": "workflows/amp-catalogues.md",
+      "inputs": [
+        "model/firmware-qualified roster adapter",
+        "serialized ordinal reads"
+      ],
+      "outputs": [
+        "ID/name pairs",
+        "validated boundary and uncertainty"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "Bounded live ordinal reader and CLI/MCP access are implemented across all model definitions using own-model type addresses. Retains raw replies, partial failures and explicit requested-range coverage; no roster termination or complete firmware count inferred. New runtime has synthetic coverage only; historical FM9 12.00 roster evidence remains separate.",
+      "source_ids": [
+        "recorded-reads",
+        "recorded-roster",
+        "toolkit-live-tools",
+        "gen3-live-roster-parser"
+      ],
+      "tool": "src/Fractal.Core/AmpRoster.cs"
+    },
+    {
+      "id": "attribute-real-amps",
+      "title": "Research real amplifier families and variants",
+      "workflow": "workflows/amp-catalogues.md",
+      "inputs": [
+        "FM9 12.00 scope",
+        "numeric ID or model/family search words"
+      ],
+      "outputs": [
+        "qualified family/variant mapping",
+        "sources/conflicts"
+      ],
+      "toolkit_support": "offline-tool",
+      "evidence_scope": "All 336 observed ID/name pairs; reviewed amplifier identities and 162 family/original groups. Exact years/circuits and variants retain qualification. No compatibility claim for other firmware or models.",
+      "source_ids": [
+        "reviewed-amp-identities",
+        "recorded-roster",
+        "fractal-amp-basis",
+        "fractal-wiki-amps"
+      ],
+      "tool": "scripts/query_amp.py"
+    },
+    {
+      "id": "find-amp-usage",
+      "title": "Find saved presets/scenes containing an amp",
+      "workflow": "workflows/amp-catalogues.md",
+      "inputs": [
+        "complete compatible inventory",
+        "verified numeric catalogue"
+      ],
+      "outputs": [
+        "deduplicated preset matches",
+        "contained/selected/engaged distinctions"
+      ],
+      "toolkit_support": "offline-tool",
+      "evidence_scope": "Offline inventory search returns exact saved Amp instance/channel IDs and scene channel/bypass assignments, including unselected channels. Partial coverage is explicit; saved content does not establish live usage or audibility.",
+      "source_ids": [
+        "recorded-roster",
+        "gen3-body"
+      ],
+      "tool": "src/Fractal.Core/InventoryAnalysis.cs"
+    },
+    {
+      "id": "diagnose-midi",
+      "title": "Diagnose duplicate routing and missing replies",
+      "workflow": "workflows/midi-reliability.md",
+      "inputs": [
+        "bounded logs",
+        "frame correlation",
+        "controlled route comparison"
+      ],
+      "outputs": [
+        "observations",
+        "bounded read recovery",
+        "unproven causes"
+      ],
+      "toolkit_support": "reference-only",
+      "evidence_scope": "General transport principles with recorded FM9 observations; pacing is not a universal requirement.",
+      "source_ids": [
+        "fractal-midi-spec",
+        "recorded-reads"
+      ]
+    },
+    {
+      "id": "coordinate-network-midi",
+      "title": "Carry SysEx reliably across network sessions",
+      "workflow": "workflows/midi-reliability.md",
+      "inputs": [
+        "compatible endpoints",
+        "complete-message assembly",
+        "session/queue bounds"
+      ],
+      "outputs": [
+        "validated transport",
+        "loss/reconnect and coexistence limits"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "Contained Apple RTP-MIDI initiator supports explicit endpoints through common CLI/MCP read and scoped edit paths. Invitation, source, sequencing, segmentation, clock and ownership checks have all-model synthetic loopback coverage. Packet discontinuity stops without replay. Actual external peer/device interoperability, remote physical-port ownership and RTP journal recovery remain separate.",
+      "source_ids": [
+        "apple-network-midi",
+        "windows-endpoint-api",
+        "windows-sysex-collision",
+        "toolkit-network-notifications",
+        "rtp-midi-rfc6295"
+      ],
+      "tool": "src/Fractal.Core/RtpMidiTransport.cs"
+    },
+    {
+      "id": "integrate-controller",
+      "title": "Match controller commands, labels and feedback",
+      "workflow": "workflows/controllers.md",
+      "inputs": [
+        "controller/firmware",
+        "configured command assignments",
+        "receiver"
+      ],
+      "outputs": [
+        "command readback",
+        "label and actual feedback behavior"
+      ],
+      "toolkit_support": "reference-only",
+      "evidence_scope": "Version-qualified controller documentation; no firmware-write validation.",
+      "source_ids": [
+        "voes-6x6",
+        "voes-commands",
+        "fm9-manual",
+        "voes-mx6",
+        "fractal-footswitch-guide"
+      ]
+    },
+    {
+      "id": "validate-hardware-compatibility",
+      "title": "Validate a model/firmware with physical tests",
+      "workflow": "workflows/device-reads.md",
+      "inputs": [
+        "opt-in hardware",
+        "production transport",
+        "captured/replayed fixtures"
+      ],
+      "outputs": [
+        "model-qualified evidence",
+        "failures/skips",
+        "state restoration result"
+      ],
+      "toolkit_support": "reference-only",
+      "evidence_scope": "Recorded FM9 12.00; no new physical tests of toolkit execution.",
+      "source_ids": [
+        "recorded-reads",
+        "fractal-midi-spec",
+        "fm3-manual",
+        "axe3-manual",
+        "gen3-capture-guide",
+        "fm9-editor-guide"
+      ]
+    },
+    {
+      "id": "search-knowledge",
+      "title": "Find a reusable procedure and source",
+      "workflow": "workflows/midi-reliability.md",
+      "inputs": [
+        "search words"
+      ],
+      "outputs": [
+        "ranked domain workflows",
+        "generalized capability records"
+      ],
+      "toolkit_support": "offline-tool",
+      "evidence_scope": "Provider-independent local retrieval; it does not establish device compatibility.",
+      "source_ids": [],
+      "tool": "scripts/search_knowledge.py"
+    },
+    {
+      "id": "recall-preset-scene",
+      "title": "Recall a preset and scene with configured MIDI commands",
+      "workflow": "workflows/recall-and-control.md",
+      "inputs": [
+        "established preset capacity",
+        "slot/display offset",
+        "configured MIDI channel and scene CC",
+        "verified live sender"
+      ],
+      "outputs": [
+        "bank/program/scene command sequence",
+        "readback of active state"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "Configured bank/PC recall and assigned CC scene control now execute through captured state, exact review and complete readback across all model definitions. Explicit direct/custom mapping, raw values and receive channel are required. Host-fed note/CC routing handles releases and repeated presses. A bounded standalone input-only listener now feeds the same router; downstream delivery, automatic command execution and new hardware qualification remain separate.",
+      "source_ids": [
+        "fm9-manual",
+        "fractal-midi-spec",
+        "recorded-reads",
+        "toolkit-batch-midi",
+        "toolkit-path-listener"
+      ],
+      "tool": "src/Fractal.Core/ConfiguredMidi.cs"
+    },
+    {
+      "id": "control-block-state",
+      "title": "Control effect bypass/channel and avoid duplicate toggles",
+      "workflow": "workflows/recall-and-control.md",
+      "inputs": [
+        "device MIDI assignment and value semantics",
+        "one route",
+        "controller command"
+      ],
+      "outputs": [
+        "intended block/channel state",
+        "observed feedback or unknown"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "Direct SysEx and explicitly assigned CC channel/bypass/scene controls preserve saved and unrelated loaded settings, bind fresh captures and verify actual state; repeat absolute intent is a no-op. Host-fed note/CC mapping is implemented with release and duplicate handling. Controller labels, firmware writes, downstream delivery and new hardware qualification remain separate.",
+      "source_ids": [
+        "fm9-manual",
+        "fractal-blocks-guide",
+        "voes-commands",
+        "toolkit-live-tools",
+        "toolkit-batch-midi"
+      ],
+      "tool": "src/Fractal.Core/LiveControl.cs"
+    },
+    {
+      "id": "observe-live-changes",
+      "title": "Research live device notifications and bounded refresh",
+      "workflow": "workflows/device-reads.md",
+      "inputs": [
+        "model-qualified notification documentation",
+        "coordinated query owner",
+        "captured messages"
+      ],
+      "outputs": [
+        "observed notification scope",
+        "targeted refresh or polling limits"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "Bounded passive CLI/MCP capture decodes published pushes, known state formats, private parameter echoes, raw private result codes and complete private block tables with own-model names. Unknown/malformed/interrupted frames and partial input remain visible; no saved-state or complete-change-coverage claim. Broader private semantics and exact model/firmware/output emission remain unqualified; all-model synthetic checks only.",
+      "source_ids": [
+        "fractal-midi-spec",
+        "fm9-editor-guide",
+        "gen3-format",
+        "toolkit-live-tools",
+        "toolkit-network-notifications",
+        "toolkit-private-parameters",
+        "gen3-editor-actions-pinned"
+      ],
+      "tool": "src/Fractal.Core/DeviceNotifications.cs"
+    },
+    {
+      "id": "remove-scene-midi",
+      "title": "Find and safely undo owned Scene MIDI changes",
+      "workflow": "workflows/scene-midi.md",
+      "inputs": [
+        "saved preset inspection",
+        "original/result change manifest",
+        "verified clear/remove runtime"
+      ],
+      "outputs": [
+        "owned-message matches",
+        "preserved unrelated rows",
+        "conflicts and saved readback"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "General editing selectively clears a selected active message only when its exact expected raw words match a fresh complete baseline. Completed saved general-edit receipts and completed persistent recovery-store items can restore exact owned rows, including inactive Off-row words, against a later capture while preserving unrelated settings; conflicting rows are refused. Exact-result whole-backup undo and unfinished recovery records remain separate. General connected block removal is available.",
+      "source_ids": [
+        "recorded-scene-midi",
+        "fractal-blocks-guide",
+        "gen3-body",
+        "gen3-editor-actions-pinned",
+        "toolkit-editor-pilot",
+        "toolkit-scene-midi-execution"
+      ],
+      "tool": "src/Fractal.Core/PresetEditPlan.cs"
+    },
+    {
+      "id": "find-unused-amps",
+      "title": "Find firmware-available amps absent from saved presets",
+      "workflow": "workflows/amp-catalogues.md",
+      "inputs": [
+        "complete compatible saved inventory",
+        "firmware-qualified available roster"
+      ],
+      "outputs": [
+        "available IDs minus contained IDs",
+        "explicit partial/unknown exclusions"
+      ],
+      "toolkit_support": "offline-tool",
+      "evidence_scope": "Offline roster set difference requires exact model/firmware and complete established-capacity captures with decoded Amp fields. Partial or undecodable coverage returns unknown absence; no firmware availability is inferred from used IDs.",
+      "source_ids": [
+        "recorded-roster",
+        "gen3-body",
+        "reviewed-amp-identities"
+      ],
+      "tool": "src/Fractal.Core/InventoryAnalysis.cs"
+    },
+    {
+      "id": "plan-block-insertion",
+      "title": "Plan insertion of a block instance at a chosen cell",
+      "workflow": "workflows/block-insertion.md",
+      "inputs": [
+        "normalized saved snapshot with complete grid",
+        "caller-resolved model-specific effect instance ID",
+        "preset scope and chosen row/column"
+      ],
+      "outputs": [
+        "planned/unchanged/conflict placement outcomes",
+        "source/base hashes and original cell",
+        "explicit executor requirements"
+      ],
+      "toolkit_support": "offline-tool",
+      "evidence_scope": "Explicit coordinates or first-isolated-empty automatic placement and exact-instance reuse across all models. The automatic policy preserves incoming/outgoing routes, never replaces shunts, and freezes per-preset locations before review. Shared isolated execution checks use destination masks and permit unrelated routes. These additions have synthetic coverage only. Isolated insertion has separate FM9 12.00 physical qualification for one caller-selected audio type across 52 test targets. The earlier Scene MIDI empty-preset pilot is separately scoped. Exact-firmware availability/DSP/default catalogues, arbitrary families and other-model hardware remain unqualified.",
+      "source_ids": [
+        "toolkit-block-planning",
+        "toolkit-read-runtime",
+        "gen3-body",
+        "fractal-midi-spec",
+        "fractal-blocks-guide",
+        "gen3-editor-actions-pinned",
+        "toolkit-editor-pilot",
+        "toolkit-block-insertion",
+        "toolkit-automatic-placement",
+        "gen3-grid-layout"
+      ],
+      "tool": "skills/fractal-fm9/scripts/plan_block_insertion.py"
+    },
+    {
+      "id": "save-loaded-preset",
+      "title": "Persist an already-loaded preset with complete saved verification",
+      "workflow": "workflows/backups-verification.md",
+      "inputs": [
+        "authorized model/slot/scene and firmware",
+        "integrity-checked expected backup and addressed saved base with hashes",
+        "model-qualified live block-channel expectations"
+      ],
+      "outputs": [
+        "single save attempt outcome",
+        "complete repeated raw/body readback comparison",
+        "private before/after evidence"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "FM9 12.00 persistence of an already-loaded original passed: one guarded Save, exact complete raw/body equality on two saved reads, selection preserved. Expected file was not transmitted. Common save scopes for FM9/FM3/Axe-Fx III have synthetic coverage. This save-only record did not qualify full upload/reload; current restore evidence is separate. Other-model hardware and batches remain unqualified.",
+      "source_ids": [
+        "gen3-editor-write",
+        "toolkit-save-current"
+      ],
+      "tool": "tests/Fractal.HardwareChecks/SaveCurrent.cs"
+    },
+    {
+      "id": "execute-block-insertion",
+      "title": "Insert an isolated block instance into saved presets",
+      "workflow": "workflows/block-insertion.md",
+      "inputs": [
+        "hash-bound addressed saved backups",
+        "explicit targets, chosen isolated cells and absent instance IDs",
+        "model, firmware, capacity and coordinated MIDI ports",
+        "caller-supplied saved scenes"
+      ],
+      "outputs": [
+        "complete loaded and saved preservation verification",
+        "repeat saved and reloaded captures",
+        "partial progress and failure report"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "Common model-aware isolated insertion with complete preservation before Save and after Reload. FM9 12.00 passed 52 insertions of one caller-selected audio block type; 51 existing Scene MIDI tables preserved, 460 non-target saved slots byte-identical. Two pre-edit identity timeouts stopped their requests without writes to the next target; fresh reconciliation preceded deliberate remaining-target requests. FM3/Axe-Fx III have synthetic coverage only. Other families, routing, parameter writes, automatic undo and resumable batches remain unqualified.",
+      "source_ids": [
+        "toolkit-block-planning",
+        "gen3-body",
+        "gen3-editor-actions-pinned",
+        "fractal-midi-spec",
+        "fractal-blocks-guide",
+        "toolkit-block-insertion"
+      ],
+      "tool": "tests/Fractal.HardwareChecks/InsertBlocks.cs"
+    },
+    {
+      "id": "undo-verified-scene-midi-edit",
+      "title": "Undo a completed Scene MIDI edit without overwriting later changes",
+      "workflow": "workflows/backups-verification.md",
+      "inputs": [
+        "explicit undo authorization",
+        "immutable original backup and verified saved/reloaded result receipt",
+        "fresh exact result saved hash, unchanged live buffer and model/firmware/scene"
+      ],
+      "outputs": [
+        "original whole-preset restore with complete saved/reload equality",
+        "later-edit or uncertain-state conflict without upload or Save",
+        "private undo and full-inventory comparison evidence"
+      ],
+      "toolkit_support": "runtime-tool",
+      "tool": "tests/Fractal.HardwareChecks/ApplySceneMidi.cs",
+      "source_ids": [
+        "fractal-blocks-guide",
+        "gen3-body",
+        "gen3-editor-actions-pinned",
+        "gen3-fm9-midi-banks",
+        "gen3-fm3-midi-banks",
+        "gen3-axe-fx-iii-midi-banks",
+        "toolkit-preset-restore",
+        "toolkit-scene-midi-execution",
+        "toolkit-scene-midi-recovery"
+      ],
+      "evidence_scope": "Exact whole-backup undo remains available. Completed general-edit receipts and persistent recovery-store items support backup-sourced selective restoration of exact owned raw Scene MIDI rows against a later saved capture, preserving unrelated settings and refusing conflicting owned rows. FM9 12.00 populated two-target PC/CC editing and whole-backup undo passed; selective undo has all-model synthetic coverage only. Unfinished recovery items, cable/power loss, other-model hardware and automatic rollback remain unqualified."
+    },
+    {
+      "id": "recover-interrupted-scene-midi-batch",
+      "title": "Resume interrupted Scene MIDI changes from retained original and verified result records",
+      "workflow": "workflows/scene-midi.md",
+      "inputs": [
+        "explicit resume or undo authorization",
+        "private hash-bound original plans and current recovery-state hash",
+        "exact model/capacity/firmware and exclusively coordinated MIDI ports",
+        "fresh complete saved/live state"
+      ],
+      "outputs": [
+        "per-target original/result/conflict reconciliation",
+        "durable completed receipts or terminal original records",
+        "verified continuation without blind replay and later-edit protection",
+        "private complete inventory and failure evidence"
+      ],
+      "toolkit_support": "runtime-tool",
+      "tool": "tests/Fractal.HardwareChecks/RecoverSceneMidi.cs",
+      "source_ids": [
+        "toolkit-scene-midi-recovery",
+        "toolkit-recovery-migration",
+        "toolkit-scene-midi-execution",
+        "toolkit-preset-restore",
+        "gen3-editor-actions-pinned"
+      ],
+      "evidence_scope": "Common persistent original/result records, receipt import, explicit fresh-state resume and guarded batch undo across all model/capacity definitions. Compatible completed schema-1 items from 0.8.0 onward support read-only selective planning; settled items and never-attempted pending items support explicit immutable offline migration to the current release, followed by ordinary fresh-state execution guards. One actual 0.8.0 FM9 12.00 record with two terminal undone items migrated and reopened offline with identical item evidence and unchanged source. Interrupted editing/undo still needs exact-state reconciliation under its original release. FM9 12.00 populated two-target PC/CC editing and original-backup undo passed. Scoped Claude cancellation during final inventory after verified restoration, followed by a fresh approved query-only continuation, passed without replaying Save/upload; all 512 original saved captures matched. In-flight field/upload/Save interruption, cable or power loss, and later-edit conflicts retain synthetic or unknown scope. Other-model hardware, other historical record states/releases, migration of interrupted recovery states, selective merging of unfinished records, and automatic rollback remain unqualified."
+    },
+    {
+      "id": "load-saved-preset",
+      "title": "Load a saved preset while explicitly resolving unsaved differences",
+      "workflow": "workflows/recall-and-control.md",
+      "inputs": [
+        "explicit target and discard decision",
+        "integrity-checked current saved/loaded and target captures",
+        "model, capacity, firmware and exact current selection"
+      ],
+      "outputs": [
+        "complete target/default-scene verification",
+        "both saved images unchanged",
+        "retained prior loaded buffer and private evidence"
+      ],
+      "toolkit_support": "runtime-tool",
+      "tool": "tests/Fractal.HardwareChecks/LoadPreset.cs",
+      "source_ids": [
+        "toolkit-preset-load",
+        "gen3-editor-actions-pinned",
+        "fractal-midi-spec"
+      ],
+      "evidence_scope": "Common one-load operation binding complete retained current saved/loaded and target bytes, exact selection and model/firmware. FM9 12.00 passed two separately authorized loads, with and without explicit discard, retained the prior loaded buffer and verified both saved images unchanged. All model/capacity definitions have synthetic late-change/selection and transport-scope checks. Other-model hardware and downstream MIDI receiver effects remain untested."
+    },
+    {
+      "id": "use-local-mcp-interface",
+      "title": "Use retained knowledge, plans and guarded operations through a local MCP client",
+      "workflow": "workflows/mcp-client.md",
+      "inputs": [
+        "local stdio-capable client and self-contained toolkit bundle",
+        "private artifact/runtime configuration",
+        "explicit device/ports for live access and exact operator-approved review for execution"
+      ],
+      "outputs": [
+        "typed tools and retained documentation resources",
+        "canonical plans and concrete hash-bound execution reviews",
+        "verified outcome or retained uncertainty/recovery evidence"
+      ],
+      "toolkit_support": "runtime-tool",
+      "tool": "scripts/fractal_mcp.py",
+      "source_ids": [
+        "toolkit-local-mcp",
+        "mcp-2025-stdio",
+        "mcp-2025-lifecycle",
+        "mcp-2025-tools",
+        "mcp-2025-resources",
+        "mcp-2025-cancellation",
+        "mcp-python-sdk",
+        "toolkit-scene-midi-recovery",
+        "toolkit-block-insertion"
+      ],
+      "evidence_scope": "Local MCP adapter software passed across all model/capacity definitions. Generic configuration defaults live access off; the Claude package starts both access switches on and requires valid setup. Exact execution approvals remain trusted-host-only. Actual host-guided Claude FM9 12.00 tests cover Scene MIDI PC/CC edits and batch undo, unsaved-change refusal, cancellation after verified restoration with query-only continuation, isolated insertion, ordinary isolated removal and receipt-based insertion undo. Complete final saved inventories matched originals. No remote/cloud transport or stateless draft support; other-model physical qualification remains missing. See docs/claude-desktop-validation.json."
+    },
+    {
+      "id": "identify-grid-blocks",
+      "title": "Identify grid block names, numeric IDs and model instance limits",
+      "workflow": "workflows/block-identification.md",
+      "inputs": [
+        "FM9, FM3 or Axe-Fx III model",
+        "numeric effect instance ID or block name/abbreviation"
+      ],
+      "outputs": [
+        "source-attributed identity, family and instance",
+        "dated per-model availability and explicit unknown/unqualified results",
+        "named grid cells preserving numeric IDs and routing"
+      ],
+      "toolkit_support": "offline-tool",
+      "evidence_scope": "Contained 162 numeric identities across 41 families: Reverb, Delay, Chorus, Drive, Volume/Pan, Amp, Cab and others. Published Axe-Fx III IDs plus independently pinned Gen-3 mappings for FM9/FM3; manufacturer-only candidate identities remain unqualified on other models. June 2023 limits are not exact-firmware compatibility, DSP capacity or editing authorization. Dynamic Distortion numeric IDs remain unknown.",
+      "source_ids": [
+        "fractal-midi-spec",
+        "gen3-body",
+        "fractal-blocks-guide",
+        "toolkit-read-runtime",
+        "toolkit-block-catalogue"
+      ],
+      "tool": "src/Fractal.Core/BlockCatalogue.cs"
+    },
+    {
+      "id": "remove-isolated-block",
+      "title": "Remove an isolated block or undo its verified insertion",
+      "workflow": "workflows/block-removal.md",
+      "inputs": [
+        "Complete integrity-checked saved baseline and explicit preset scope",
+        "Exact block instance with isolated routing",
+        "Exact insertion receipt and original backup for insertion undo"
+      ],
+      "outputs": [
+        "Reviewed exact-instance removal",
+        "Complete loaded, repeated saved and reloaded preservation",
+        "Byte-identical original image for insertion undo"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "Common isolated exact-instance planning and execution across all model/capacity definitions have synthetic guard/preservation coverage. Actual host-guided Claude FM9 12.00 ordinary removal and receipt-based insertion undo of one isolated audio family passed Save/Reload and restored original bytes; all 512 final saved captures matched the independent baseline. Absent-block plans produced no action and connected-block planning refused. Connected routing, later-edit insertion undo, other families and other-model hardware remain unqualified. See docs/block-removal-validation.json.",
+      "source_ids": [
+        "toolkit-block-removal",
+        "gen3-body",
+        "gen3-editor-actions-pinned",
+        "fractal-midi-spec"
+      ],
+      "tool": "src/Fractal.Core/BlockRemoval.cs"
+    },
+    {
+      "id": "inspect-saved-editing-data",
+      "title": "Inspect saved audio parameters and grid routing offline",
+      "workflow": "workflows/editing-readiness.md",
+      "inputs": [
+        "Complete addressed saved capture with valid integrity",
+        "Actual model, established capacity and recorded firmware"
+      ],
+      "outputs": [
+        "Versioned source/profile hash bindings",
+        "Exact instance associations and bounded saved audio/state/name fields",
+        "Model-specific editor parameter IDs, separate from saved offsets",
+        "Candidate directed grid edges, explicit unsupported semantics and preserved raw bytes"
+      ],
+      "toolkit_support": "offline-tool",
+      "evidence_scope": "Own-model editor IDs, saved fields, scene assignments, routing and special paths remain implemented. Exact-profile built-in physical scales and named modifier values now accompany raw words and provenance. Unknown fields/sentinels stay raw. Effective controller/type/tempo behavior and hardware applicability remain separately qualified.",
+      "source_ids": [
+        "toolkit-edit-read-profiles",
+        "toolkit-read-runtime",
+        "gen3-body",
+        "toolkit-editor-pilot",
+        "gen3-fm9-audio-parameters",
+        "gen3-fm3-audio-parameters",
+        "gen3-axe-fx-iii-audio-parameters",
+        "gen3-grid-layout",
+        "toolkit-calibrated-authoring",
+        "toolkit-builtin-scales",
+        "axe32-word-laws",
+        "axe32-map",
+        "axe32-modifiers"
+      ],
+      "tool": "src/Fractal.Core/PresetEditProjection.cs"
+    },
+    {
+      "id": "edit-preset",
+      "title": "Edit preset parameters, channels and scenes",
+      "workflow": "workflows/preset-editing.md",
+      "inputs": [
+        "Integrity-checked complete saved capture",
+        "Recorded model/firmware/capacity",
+        "Explicit semantic operations and persistence intent"
+      ],
+      "outputs": [
+        "Deterministic original/result-bound plan",
+        "Verified complete-image execution and private receipt"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "Mapped saved setters, compound edits, templates, routing, verification, batches and undo remain enabled. Capture-backed block, Scene Ignore and exact modifier-value setters, modifier sources/templates and 59 built-in saved fields are implemented. Named modifier points, continuous-target-unit Min/Max, saved-normalized Scale/Offset/Attack/Release and same-binding Damping Type word copy use an exact Axe-Fx III 32.02 profile at both capacities. Other-model/firmware physical scales, general modifier display conversions, selector labels, source/default catalogues and additional layouts remain evidence gaps; exact caller-labelled modifier values require matching captures. One FM9 12.00 exact-witness modifier-value edit passed guarded Save/Reload with independent saved readback; wider physical behavior remains unqualified. Synthetic execution and hardware qualification are separate.",
+      "source_ids": [
+        "toolkit-read-runtime",
+        "toolkit-edit-read-profiles",
+        "gen3-body",
+        "toolkit-batch-midi",
+        "toolkit-calibrated-authoring",
+        "toolkit-builtin-scales",
+        "axe32-word-laws",
+        "axe32-map",
+        "axe32-modifiers"
+      ],
+      "tool": "src/Fractal.Core/PresetEditPlan.cs"
+    },
+    {
+      "id": "edit-connected-routing",
+      "title": "Edit connected routing and insert or remove connected blocks",
+      "workflow": "workflows/preset-editing.md",
+      "inputs": [
+        "Integrity-checked complete saved capture",
+        "Recorded model/firmware/capacity",
+        "Explicit semantic operations and persistence intent"
+      ],
+      "outputs": [
+        "Deterministic original/result-bound plan",
+        "Verified complete-image execution and private receipt"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "Connected grid editing, fixed Send/Return links, feedback components, model-qualified I/O and scene-conditioned potential paths are implemented. Explicit feedback intent permits new loops; existing loops remain editable. Automatic forward-grid path planning through explicit occupied waypoints now produces executable shunt/cable bundles with explicit sharing and feedback policies. Global I/O settings, external cables, automatic effect/tone selection and unqualified model-specific USB IDs remain extensions. Synthetic coverage is not audibility or hardware qualification.",
+      "source_ids": [
+        "toolkit-read-runtime",
+        "toolkit-edit-read-profiles",
+        "gen3-body",
+        "toolkit-path-listener"
+      ],
+      "tool": "src/Fractal.Core/PresetEditPlan.cs"
+    },
+    {
+      "id": "plan-audio-path",
+      "title": "Plan an audio path through explicit grid waypoints",
+      "workflow": "workflows/preset-editing.md",
+      "inputs": [
+        "Integrity-checked saved capture and model/firmware/capacity",
+        "Increasing-column occupied waypoints",
+        "Explicit shunt identity, sharing policy and persistence"
+      ],
+      "outputs": [
+        "Deterministic chosen path and ordinary executable edit bundle",
+        "Full before/after routing and preservation review"
+      ],
+      "toolkit_support": "runtime-tool",
+      "tool": "src/Fractal.Core/AutomaticRouting.cs",
+      "source_ids": [
+        "toolkit-path-listener",
+        "toolkit-edit-read-profiles"
+      ],
+      "evidence_scope": "Automatic forward-grid routing adds explicit shunts/cables while preserving blocks and existing routes. Standard edit execution, batches, verification and undo are reused. Isolated or explicitly shared intermediate shunts, deterministic ties and repeat no-ops are implemented. Structural routes do not establish audibility, DSP capacity or global I/O settings; no new hardware qualification."
+    },
+    {
+      "id": "listen-controller-input",
+      "title": "Capture controller note and CC input with configured intent mapping",
+      "workflow": "workflows/recall-and-control.md",
+      "inputs": [
+        "Explicit controller input and one coordinated owner",
+        "Caller-supplied model/firmware routing context and assignments",
+        "Duration and event-count bounds"
+      ],
+      "outputs": [
+        "Private checkpointed input observations and mapped absolute intents",
+        "Completion, cancellation or partial-failure evidence"
+      ],
+      "toolkit_support": "runtime-tool",
+      "tool": "src/Fractal.Core/ControllerListener.cs",
+      "source_ids": [
+        "toolkit-path-listener",
+        "winmm-short-input"
+      ],
+      "evidence_scope": "A standalone bounded WinMM input-only listener feeds shared note/CC routing, with CLI and MCP access. It sends no MIDI and performs no identity queries or automatic target execution. Invalid input, source faults and overflow retain incomplete evidence. Real driver/controller behavior, events outside the subscription and downstream delivery remain unqualified."
+    },
+    {
+      "id": "read-live-block-parameters",
+      "title": "Read live block parameters with model-specific mappings",
+      "workflow": "workflows/live-parameters.md",
+      "inputs": [
+        "configured model/firmware and coordinated transport",
+        "explicit currently present effect instance"
+      ],
+      "outputs": [
+        "bounded raw table with own-model symbolic aliases",
+        "private report, raw complete frames and partial failure evidence"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "Bounded 1F query, strict 74/75/76 assembly, own-model editor mappings and stable endpoint checks are implemented in shared CLI/MCP paths. Raw words have no inferred physical scales or saved offsets; same-block unsolicited bursts cannot be uniquely correlated. FM9 12.00 physical reads covered one Amp and seven additional family instances with stable endpoint samples and unchanged saved-image endpoints. Other instances/models/firmware, parameter writes and physical scales remain unqualified.",
+      "source_ids": [
+        "toolkit-private-parameters",
+        "gen3-editor-actions-pinned",
+        "gen3-fm9-audio-parameters",
+        "gen3-fm3-audio-parameters",
+        "gen3-axe-fx-iii-audio-parameters"
+      ],
+      "tool": "src/Fractal.Core/BlockParameterRead.cs"
+    },
+    {
+      "id": "calibrate-saved-parameter",
+      "title": "Validate exact saved-parameter calibration witnesses",
+      "workflow": "workflows/preset-editing.md",
+      "inputs": [
+        "two to sixteen complete same-model/firmware saved captures",
+        "explicit instance, scope, declared values and unit"
+      ],
+      "outputs": [
+        "integrity-checked single-word calibration with exact observed values",
+        "context-bound executable setter evidence without interpolation"
+      ],
+      "toolkit_support": "offline-tool",
+      "evidence_scope": "Shared CLI/MCP calibration supports exact observed block, Scene Ignore and modifier values with matching record, binding and target-block context. Labels and hardware origin remain caller-declared. Built-in interpolation uses separate explicit scale laws where available; automatic acquisition, other-model/firmware scales and multiword calibration remain extensions. No MIDI is sent during calibration or planning.",
+      "source_ids": [
+        "toolkit-calibrated-authoring",
+        "gen3-body",
+        "toolkit-builtin-scales",
+        "axe32-word-laws",
+        "axe32-map",
+        "axe32-modifiers"
+      ],
+      "tool": "src/Fractal.Core/ParameterCalibration.cs"
+    },
+    {
+      "id": "reuse-preset-templates",
+      "title": "Reuse private block/channel templates and swap channels",
+      "workflow": "workflows/preset-templates.md",
+      "inputs": [
+        "integrity-checked complete donor and target captures",
+        "exact model/capacity/firmware, instance and scope",
+        "named private entry hash or distinct channels and scene-reference policy"
+      ],
+      "outputs": [
+        "private searchable integrity-checked library entry",
+        "ordinary frozen edit bundle and explicit preservation/replay scope"
+      ],
+      "toolkit_support": "runtime-tool",
+      "evidence_scope": "Common offline library and channel-swap planning, ordinary Save/Reload, stale-plan refusal and exact undo have synthetic all-model coverage. Firmware/provenance remains caller-declared; no factory defaults, cross-instance conversion, editor-file interoperability, audible equivalence or physical qualification.",
+      "source_ids": [
+        "toolkit-template-library",
+        "gen3-body"
+      ],
+      "tool": "src/Fractal.Core/TemplateLibrary.cs"
+    },
+    {
+      "id": "control-tempo-tuner-looper",
+      "title": "Control tempo, tuner and looper with bounded reviewed operations",
+      "workflow": "workflows/performance-controls.md",
+      "inputs": [
+        "Exact model/capacity/firmware and coordinated transport owner",
+        "Complete saved/loaded context and present-looper observation where needed",
+        "Explicit absolute intent or single button event and exact trusted-host review"
+      ],
+      "outputs": [
+        "Bounded BPM/looper readback or explicit sent-unverified event result",
+        "Private before/after captures and stopped-uncertain evidence without replay"
+      ],
+      "toolkit_support": "runtime-tool",
+      "tool": "src/Fractal.Core/PerformanceControl.cs",
+      "source_ids": [
+        "toolkit-performance-controls",
+        "fractal-midi-spec",
+        "fm9-manual",
+        "fm3-manual",
+        "axe3-manual",
+        "gen3-performance-commands",
+        "gen3-tempo-query-limit",
+        "tonecommand-protocol"
+      ],
+      "evidence_scope": "Common CLI/MCP controls have synthetic FM9/FM3/Axe-Fx III 512/1024 coverage. Manufacturer command specification is Axe-Fx III 1.13+; FM9/FM3 tempo has separate open-code bindings, other adapted forms remain inference. Tempo query requires explicit review; tuner and button effects are sent-unverified. Unmapped loaded tempo changes require reconciliation. No Save, automatic replay, audible loop verification or hardware qualification."
+    },
+    {
+      "id": "organize-saved-presets",
+      "title": "Organize saved presets with immutable copy, move and reorder plans",
+      "workflow": "workflows/preset-organization.md",
+      "inputs": [
+        "Exact model/capacity/firmware and complete source/destination original captures",
+        "Explicit rename/assignment, overwrite and vacated-source replacement intent",
+        "Retained current saved/unsaved context and exact trusted-host execution review"
+      ],
+      "outputs": [
+        "Deterministic full-image organization preview and guarded ordinary batch",
+        "Verified per-target receipts, query-only reconciliation and eligible completed-target undo plan"
+      ],
+      "toolkit_support": "runtime-tool",
+      "tool": "src/Fractal.Core/PresetOrganization.cs",
+      "source_ids": [
+        "toolkit-preset-organization",
+        "fractal-preset-management",
+        "gen3-body",
+        "toolkit-edit-read-profiles"
+      ],
+      "evidence_scope": "Shared rename/copy/import, explicit replacement-based move, swap and closed permutations have synthetic FM9/FM3/Axe-Fx III 512/1024 coverage. Complete donor settings/default scenes, immutable overlaps, source/destination guards, non-atomic progress, guarded scene alignment and eligible partial/completed undo are implemented. No hardware relocation, external reference/asset updates, cross-model conversion, bank-file parsing or uncertain-write resume is qualified."
+    },
+    {
+      "id": "plan-setlists-songs",
+      "title": "Plan songs, sections and ordered setlists offline",
+      "workflow": "workflows/setlists-songs.md",
+      "inputs": [
+        "Caller-supplied numbered songs/sections and ordered set entries",
+        "Integrity-checked complete or partial retained inventory with exact model/capacity/firmware",
+        "Explicit scene or symbolic DEFAULT, optional active set and caller FC evidence"
+      ],
+      "outputs": [
+        "Toolkit-native private proposal, ordered name/scene previews and capture hashes",
+        "Location-specific unresolved dependencies and bounded go/no-go feasibility map"
+      ],
+      "toolkit_support": "offline-tool",
+      "tool": "src/Fractal.Core/SetlistSongs.cs",
+      "source_ids": [
+        "fractal-setlists-songs-manual",
+        "toolkit-setlists-songs",
+        "axe32-map",
+        "gen3-tempo-query-limit",
+        "gen3-body",
+        "axe3-editor-export-binary",
+        "fm3-editor-export-binary",
+        "fm9-editor-export-binary",
+        "fractal-system-reset-guidance",
+        "toolkit-setlists-system-format-review"
+      ],
+      "evidence_scope": "All four model/capacity definitions have synthetic offline coverage. Own-model documented firmware minimums, naming/ordering/limits, integrity, symbolic DEFAULT, partial inventories and missing dependencies are checked. No editor-native format implementation, live system reads/writes, existing-data preservation, footswitch programming, playback or verified system restoration. Upstream Axe-Fx III storage notes do not qualify FM9/FM3. Offline static review of all three official editor packages establishes file extensions and partial XML construction only; numeric sentinels, actual file round trips and complete System backup framing remain unqualified. See docs/setlists-system-format-research.md."
+    }
+  ],
+  "target_device_models": [
+    "FM9",
+    "AxeFxIII",
+    "FM3"
+  ],
+  "device_support_requirements": "docs/device-support.md",
+  "updated_on": "2026-10-15"
+}

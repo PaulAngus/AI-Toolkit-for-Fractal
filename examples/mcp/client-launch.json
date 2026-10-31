@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "fractal-toolkit": {
+      "command": "python",
+      "args": ["ABSOLUTE_BUNDLE_PATH/scripts/fractal_mcp.py", "--config", "ABSOLUTE_PRIVATE_CONFIG_PATH"]
+    }
+  }
+}

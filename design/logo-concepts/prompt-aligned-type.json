@@ -1,0 +1,6 @@
+{
+  "mode": "built-in image_gen edit",
+  "source": "assets/branding/ai-toolkit-for-fractal-logo-balanced.png",
+  "output": "assets/branding/ai-toolkit-for-fractal-logo-aligned.png",
+  "prompt": "Precise typography-only edit. Slightly enlarge ONLY the dark headline \"AI Toolkit\" by approximately 9 percent, uniformly in width and height, using the EXACT same typeface, colour, weight and spelling. The reference toolkit illustration spans roughly x=220 to x=1035 in this 1254-square image; headline currently spans x=255 to x=999. Set headline leftmost ink edge to x=220 and rightmost ink edge to x=1035 so its outer edges align visually with the WIDEST outer edges of the toolkit case above. Keep headline centred and top edge at approximately its current y=865, preserving gap below case. This is a small fine adjustment, not a return to the oversized original text. Subtitle \"for Fractal\" retains current size, style, colour and centring; lower it only a few pixels if necessary for comfortable spacing under slightly taller headline. Preserve the entire toolkit illustration EXACTLY: silhouette, proportions, position, lid circuit, handle, clasps, all grid tiles and corrected split/merge white wires, colours and perspective. Preserve white background, canvas and compact outer framing. Change nothing except headline size and minimal subtitle vertical spacing."
+}

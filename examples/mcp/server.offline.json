@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "data_root": "../../private/mcp-data",
+  "runtime_dir": "../../dist/mcp/runtime",
+  "allow_live_reads": false,
+  "allow_writes": false
+}

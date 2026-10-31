@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "release": "0.17.0",
+  "date": "2026-10-11",
+  "scope": "General saved-image editing, compound Scene MIDI configuration, additional type mappings and connected/special routing",
+  "models": [
+    {
+      "model": "FM9",
+      "capacity": 512,
+      "firmware": "99.07",
+      "evidence": "synthetic"
+    },
+    {
+      "model": "FM3",
+      "capacity": 512,
+      "firmware": "99.07",
+      "evidence": "synthetic"
+    },
+    {
+      "model": "Axe-Fx III",
+      "capacity": 512,
+      "firmware": "99.07",
+      "evidence": "synthetic"
+    },
+    {
+      "model": "Axe-Fx III",
+      "capacity": 1024,
+      "firmware": "99.07",
+      "evidence": "synthetic"
+    }
+  ],
+  "hardware_qualified": false,
+  "ports_opened": false,
+  "source": {
+    "revision": "59047175cfc4f23e092931b54a7c54f2bffde3ea",
+    "url": "https://raw.githubusercontent.com/TheAndrewStaker/mcp-midi-control/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-gen3/src/presetBody.ts",
+    "sha256": "4619a595b9bf336e7f49b6efe4fbe07c8951a8ca7fedf581bdb42baa6a7c559d",
+    "authority": "open-implementation",
+    "scope": "Source-derived scene assignment and complete channel-row layout; not hardware validation"
+  },
+  "checks": {
+    "python": {
+      "status": "passed",
+      "tests": 143
+    },
+    "cli_pipeline": {
+      "status": "passed",
+      "model_capacity_definitions": 4,
+      "dotnet_checks": 200
+    },
+    "mcp_pipeline": {
+      "status": "passed",
+      "model_capacity_definitions": 4,
+      "relocated_bundle": true,
+      "transport": "real stdio with contained helpers; no MIDI ports"
+    },
+    "knowledge": {
+      "status": "passed",
+      "capabilities": 39,
+      "sources": 91
+    },
+    "distribution_privacy": {
+      "status": "passed"
+    },
+    "protocol_release": {
+      "status": "passed",
+      "release": "0.17.0"
+    }
+  },
+  "limits": [
+    "FM9 12.00 combined scene-name/connected-cable editing, a two-target batch, mapped Amp Drive and compound Amp Bass/Mid saved setters, and one existing modifier-source change passed Save/Reload and exact undo. Other edit operations, models and firmware remain unqualified.",
+    "Named parameter scope is bounded by saved-field descriptors; whole-channel/block templates cover unmapped settings without guessed scales.",
+    "Potential routing is not audibility; global I/O, physical cables, Return levels and other bypass modes are not inferred.",
+    "No automatic later-edit merge, rollback or replay after uncertain writes."
+  ],
+  "software_extensions": [
+    "Eight exact-instance type mappings with independently assembled expected body words on all definitions",
+    "Fixed Send/Return pairs, cycle detection, explicit new-loop intent, Output-to-Input grid cables and scene-conditioned I/O potential paths",
+    "Single-channel Return and full-block template settings preserve other records and grid",
+    "Combined Scene MIDI insertion/configuration, occupied replacement, exact precondition selective clear and repeat-run preservation",
+    "Independent live table mismatch prevents Save even when the complete image matches",
+    "Real relocated stdio plans/reviews for block templates and compound Scene MIDI, with no live execution"
+  ],
+  "followup_checks_2026_10_12": {
+    "python_unittest": "passed: 158 tests",
+    "cli_pipeline": "passed: four model/capacity definitions, complete offline checks and CLI decode/plan/execution validation",
+    "mcp_pipeline": "passed: relocated bundle and stdio adapter across four model/capacity definitions, no MIDI ports opened",
+    "knowledge_validation": "passed: 43 capabilities and 106 sources",
+    "protocol_release": "contained source hashes verified at release 0.29.0",
+    "compression_regression": "Synthetic equivalent-stream and variable-length recompression, actual-wire receipt and undo, opaque-header/trailer refusal, guarded recall/Reload scene alignment and unrelated-drift refusal passed across four definitions"
+  },
+  "followup_checks_2026_10_13": {
+    "python_unittest": "passed: 158 tests",
+    "focused_dotnet": "passed: compressed-stream boundary and general-edit checks across four model/capacity definitions",
+    "cli_pipeline": "passed: complete offline .NET checks and CLI pipeline across four model/capacity definitions; no MIDI ports opened",
+    "mcp_pipeline": "passed: relocated bundle and real stdio adapter across four model/capacity definitions; no MIDI ports opened",
+    "knowledge_validation": "passed: 43 capabilities and 106 sources",
+    "distribution_source_privacy": "passed: 258 public source files; private captures excluded",
+    "protocol_release": "contained source hashes verified at release 0.29.0",
+    "validation_limit": "A preliminary MCP run stopped on a transient Windows listener-checkpoint file-sharing race. The bounded test reader was corrected; both final CLI and MCP pipelines passed. An unscoped whole-directory privacy scan includes local build logs and is not the distributable-source check."
+  },
+  "physical_trial_2026_10_12": {
+    "model": "FM9",
+    "firmware": "12.00",
+    "authority": "new recorded hardware observation; complete private captures retained outside distribution",
+    "scope": "One caller-authorized saved preset; explicit scene-name and connected-grid-cable plan, complete temporary upload, no Save",
+    "result": "stopped-uncertain during loaded-image verification; the decoded intended body was byte-identical, but 908 raw bytes differed across the CRC and compressed stream in 125 runs with the same compressed length. Name, other header bytes and trailing bytes matched. The existing exact-raw guard refused Save.",
+    "recovery": "Query-only reconciliation classified saved as original and loaded as other. A fresh guarded same-slot reload restored the original loaded image. Repeat saved reads of both observed target slots were byte-identical to their baselines; the final original selection, scene, saved and loaded images and block status matched the initial context.",
+    "qualified": false,
+    "limits": [
+      "This failed first attempt did not establish saved connected routing or scene-name execution on hardware",
+      "A revised verifier would need to distinguish equivalent recompression from changes to opaque bytes and retain the actual result identity for receipts and undo; no raw-exact guard was relaxed in this trial",
+      "No second write attempt or blind Save was sent"
+    ]
+  },
+  "physical_trial_2026_10_12_reencoded_save": {
+    "model": "FM9",
+    "firmware": "12.00",
+    "authority": "new recorded hardware observation; complete private captures retained outside distribution",
+    "scope": "One caller-authorized saved preset; combined scene-name and connected-grid-cable edit followed by completed receipt-based original-image undo",
+    "result": "The complete independently read loaded body and opaque header/trailer matched the plan; the device changed only compressed-stream and CRC bytes. One Save, two identical saved reads and Reload completed. The saved wire hash differed from the planned wire hash and was retained in the receipt. Undo preflight bound to that actual saved hash, then restored the original saved image byte-exactly.",
+    "preservation": "Fresh independent saved reads of the edited target and a second observed target matched their pre-edit wire, raw and decoded-body hashes after undo. Original selection, scene, saved/loaded captures and block status matched the starting context.",
+    "qualified": true,
+    "limits": [
+      "This trial covered one combined edit/undo path on FM9 12.00; other parameters, routes, devices and firmware remain unqualified",
+      "No audible output, global I/O or external cabling was tested",
+      "The comparison covered the two observed saved targets, not a full-capacity inventory or interruption during Save"
+    ]
+  },
+  "physical_batch_trials_2026_10_12": {
+    "model": "FM9",
+    "firmware": "12.00",
+    "authority": "new recorded hardware observation; complete private captures and stopped-run journals retained outside distribution",
+    "scope": "Two caller-authorized saved presets; the first combines a scene rename with a connected grid cable, the second renames a scene. Each completed receipt was used for exact original-image undo.",
+    "stopped_trials": [
+      "The first batch stopped during target recall before the second upload or Save: this FM9 retained a selected scene that differed from the second target's saved default. Read-only reconciliation found the first result and the second original; the first receipt-based undo and guarded navigation restored the starting state exactly.",
+      "After guarded recall alignment was added, a fresh batch saved both intended results but stopped after the second Reload selected another scene. The second saved result had no completed receipt. A hash-bound original-backup restore recovered its saved image, then the completed first receipt was undone. Fresh reads proved both saved targets and the original selection, loaded/saved context and block status matched the start. The restore helper itself stopped at the same post-Reload scene check after its Save; that negative result remains retained."
+    ],
+    "completed_trial": "A fresh batch with guarded recall and post-Save Reload scene alignment completed both saved edits. Each saved result was read and verified after Save and Reload, and final batch saved reads matched the observed result hashes. Both completed receipts then passed one-shot undo in reverse order. Fresh independent reads of both targets matched their original wire hashes exactly; the original selection, scene, block status and saved/loaded captures also matched exactly.",
+    "qualified": true,
+    "limits": [
+      "Physical scope is this two-target FM9 12.00 saved-edit/undo sequence; other edit fields, routes, models and firmware remain separate qualification work.",
+      "No audible output, downstream MIDI receiver behavior, full-capacity saved inventory, or interruption during a transmitted upload or Save was tested.",
+      "The two stopped trials do not count as completed batches or as proof of automatic recovery; each was reconciled and explicitly restored before a fresh attempt."
+    ]
+  },
+  "physical_parameter_trial_2026_10_12": {
+    "model": "FM9",
+    "firmware": "12.00",
+    "authority": "new recorded hardware observation; complete private source, result and undo captures retained outside distribution",
+    "scope": "One mapped saved Amp Drive word in a caller-authorized preset, followed by completed receipt-bound original-image undo",
+    "result": "The offline plan changed exactly one saved parameter word. Independent decoding of the observed saved result found precisely those two body bytes changed and a complete body equal to the authored plan. Temporary upload, Save, repeated saved reads and Reload passed. The actual saved wire hash was retained in the completed receipt, and its exact-result undo restored the original saved image byte-for-byte.",
+    "preservation": "Fresh independent reads of both observed saved test targets matched their original wire hashes. The original selection, scene, block status and saved/loaded captures matched the starting context after undo.",
+    "qualified": true,
+    "limits": [
+      "This qualifies persistence and body-byte preservation for one FM9 12.00 mapped setter; it does not calibrate the audible knob response or establish other parameters, model/firmware profiles or modifier behavior.",
+      "No audible output, controller effects, full-capacity inventory or interruption during upload or Save was tested."
+    ]
+  },
+  "physical_parameter_and_modifier_trials_2026_10_13": {
+    "model": "FM9",
+    "firmware": "12.00",
+    "authority": "new recorded hardware observation; complete private captures retained outside distribution",
+    "compound_parameter_result": "One compound mapped Amp Bass/Mid plan changed exactly two adjacent saved words. Independently decoded saved readback equalled the complete authored body, with only those four intended body bytes changed. Temporary upload, Save, repeated saved reads, Reload and receipt-bound exact original-image undo passed.",
+    "initial_modifier_attempt": "An existing bound modifier source was changed in a guarded temporary upload. Loaded-image verification stopped before Save because the device zeroed one byte vacated when recompression shortened the stream, while the authored raw image retained the old byte. Independent decoding found the loaded body exactly matched the authored body. Query-only reconciliation found the saved image original and the loaded image different. A guarded same-slot Reload restored the original loaded image; no blind retry or Save occurred.",
+    "correction": "The shared body writer now clears only bytes vacated between the new and old compressed-stream ends, preserving fixed opaque padding beyond them. A synthetic all-model regression checks that boundary.",
+    "completed_modifier_result": "A fresh plan for the same existing modifier changed only its source word. Guarded upload, Save, repeated saved reads, Reload and receipt-bound exact original-image undo passed. Independent decoding found only the intended source byte changed in the complete saved body.",
+    "preservation": "The original selection, scene, saved and loaded context matched exactly after undo. A final read-only full-capacity scan verified all capture files and found all 512 saved wire, raw and decoded-body images byte-identical to an integrity-checked full backup acquired before the test series. A further context read after the scan matched the starting context exactly.",
+    "qualified": true,
+    "limits": [
+      "The stopped modifier attempt is not a completed persistent edit; its saved image remained original.",
+      "The completed modifier test establishes saved-source-word persistence and preservation for one existing binding, not effective controller response, source-name semantics or modifier curve behavior.",
+      "The compound Amp test establishes saved words and preservation, not audible calibration.",
+      "Scene Ignore lacked matching off/on hardware witnesses and was not physically edited. Other modifier layouts, model/firmware profiles, uploads interrupted in flight and Save interruption remain unqualified."
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-12",
+  "release": "0.19.0",
+  "authority": "synthetic-software-validation; no new hardware access",
+  "models": ["FM9/512", "FM3/512", "Axe-Fx III/512", "Axe-Fx III/1024"],
+  "synthetic_firmware": "99.07",
+  "implementation": ["src/Fractal.Core/PresetEditBatch.cs", "src/Fractal.Core/ConfiguredMidi.cs", "src/Fractal.Core/PresetLoad.cs", "src/Fractal.Core/LiveControl.cs"],
+  "checks": ["tests/Fractal.Checks/BatchAndMidiChecks.cs", "tests/Fractal.Checks/LiveToolsChecks.cs", "tests/test_mcp.py", "scripts/check_cli_pipeline.py", "scripts/check_mcp_pipeline.py"],
+  "protocol_sources": [
+    {"source_id": "fm9-manual", "authority": "manufacturer-documentation", "locator": "MIDI Reference Tables: MIDI Bank & Program Change and MIDI CC Reference", "scope": "FM9 documented receive conventions; direct/custom mode and assignments are explicit caller inputs across model definitions, not discovered global configuration."},
+    {"source_id": "fractal-midi-spec", "authority": "manufacturer-documentation", "locator": "MIDI for third-party devices revision 1.4: current selection and block status replies", "scope": "Published Axe-Fx III readback. Other models retain common-adapter synthetic coverage and separately scoped historical evidence."},
+    {"source_id": "toolkit-read-runtime", "authority": "contained-open-implementation", "scope": "Existing load and complete-image transaction verification reused by the batch coordinator; source hashes identify bytes, not physical qualification."}
+  ],
+  "coverage": ["Multi-target Save/Reload, no-op targets, unsaved preservation and explicit discard", "Fresh all-target baseline check before first mutation", "Device-reencoded synthetic saved results: fresh next-target load scopes, final actual-wire hashes and query-only equivalent-result classification", "Durable first-item receipt after second-item failure; query-only reconciliation", "Completed-item exact-result undo preparation", "Ordered bank/PC byte encoding, stale target after bank, cancellation/fault after bank and ignored PC", "Configured CC scene/channel/bypass success, no-op, stale state, wrong result, unrelated saved/unsaved changes and transport failure", "Note press/release/velocity-zero and repeated-CC handling; duplicate binding rejection", "Real CLI/helper and relocated stdio MCP validation without MIDI"],
+  "limits": ["No new hardware qualification", "No atomic device-wide snapshot or automatic rollback/retry", "A result observed after interruption is not a fabricated completion receipt", "Host-fed input mapping; no background input listener", "No inferred receive assignments or PC mapping mode", "Controller labels/firmware programming and downstream MIDI delivery remain separate"]
+}

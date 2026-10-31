@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "protocol_release": "0.2.1",
+  "started_utc": "2026-10-08T10:42:30.6148753+00:00",
+  "completed_utc": "2026-10-08T10:45:49.8294422+00:00",
+  "device": {
+    "model": "FM9",
+    "firmware": "12.00",
+    "preset_capacity": 512
+  },
+  "physical_read_validation_passed": true,
+  "captured_presets": 512,
+  "decoded_presets": 512,
+  "complete_capacity_covered": true,
+  "populated_presets": 254,
+  "empty_presets": 258,
+  "amp_blocks": 296,
+  "scene_midi_blocks": 254,
+  "opaque_terminal_tails": 512,
+  "selection_preserved_at_observed_checks": true,
+  "checks": [
+    {
+      "name": "identity-and-firmware",
+      "passed": true
+    },
+    {
+      "name": "live-scenes-coherent",
+      "passed": true
+    },
+    {
+      "name": "selection-after-32",
+      "passed": true
+    },
+    {
+      "name": "selection-after-64",
+      "passed": true
+    },
+    {
+      "name": "selection-after-96",
+      "passed": true
+    },
+    {
+      "name": "selection-after-128",
+      "passed": true
+    },
+    {
+      "name": "selection-after-160",
+      "passed": true
+    },
+    {
+      "name": "selection-after-192",
+      "passed": true
+    },
+    {
+      "name": "selection-after-224",
+      "passed": true
+    },
+    {
+      "name": "selection-after-256",
+      "passed": true
+    },
+    {
+      "name": "selection-after-288",
+      "passed": true
+    },
+    {
+      "name": "selection-after-320",
+      "passed": true
+    },
+    {
+      "name": "selection-after-352",
+      "passed": true
+    },
+    {
+      "name": "selection-after-384",
+      "passed": true
+    },
+    {
+      "name": "selection-after-416",
+      "passed": true
+    },
+    {
+      "name": "selection-after-448",
+      "passed": true
+    },
+    {
+      "name": "selection-after-480",
+      "passed": true
+    },
+    {
+      "name": "selection-after-512",
+      "passed": true
+    },
+    {
+      "name": "full-scan-state-preserved",
+      "passed": true
+    },
+    {
+      "name": "repeat-content-0",
+      "passed": true
+    },
+    {
+      "name": "addressed-preset-name-0",
+      "passed": true
+    },
+    {
+      "name": "repeat-content-current-selection",
+      "passed": true
+    },
+    {
+      "name": "addressed-preset-name-current-selection",
+      "passed": true
+    },
+    {
+      "name": "repeat-content-127",
+      "passed": true
+    },
+    {
+      "name": "addressed-preset-name-127",
+      "passed": true
+    },
+    {
+      "name": "repeat-content-128",
+      "passed": true
+    },
+    {
+      "name": "addressed-preset-name-128",
+      "passed": true
+    },
+    {
+      "name": "repeat-content-255",
+      "passed": true
+    },
+    {
+      "name": "addressed-preset-name-255",
+      "passed": true
+    },
+    {
+      "name": "repeat-content-256",
+      "passed": true
+    },
+    {
+      "name": "addressed-preset-name-256",
+      "passed": true
+    },
+    {
+      "name": "repeat-content-383",
+      "passed": true
+    },
+    {
+      "name": "addressed-preset-name-383",
+      "passed": true
+    },
+    {
+      "name": "repeat-content-384",
+      "passed": true
+    },
+    {
+      "name": "addressed-preset-name-384",
+      "passed": true
+    },
+    {
+      "name": "repeat-content-511",
+      "passed": true
+    },
+    {
+      "name": "addressed-preset-name-511",
+      "passed": true
+    },
+    {
+      "name": "sample-repeat-state-preserved",
+      "passed": true
+    },
+    {
+      "name": "live-saved-scene-name-comparison",
+      "observed_equal": true
+    },
+    {
+      "name": "all-bodies-decoded",
+      "passed": true
+    },
+    {
+      "name": "timeout-observed",
+      "passed": true
+    },
+    {
+      "name": "timeout-actual-reply-suppressed",
+      "passed": true
+    },
+    {
+      "name": "timeout-late-reply-rejected",
+      "passed": true
+    },
+    {
+      "name": "cancellation-observed",
+      "passed": true
+    },
+    {
+      "name": "cancellation-actual-reply-suppressed",
+      "passed": true
+    },
+    {
+      "name": "cancellation-late-reply-rejected",
+      "passed": true
+    },
+    {
+      "name": "port-reopen-and-recovery",
+      "passed": true
+    }
+  ],
+  "checks_passed": 46,
+  "repeat_samples": 9,
+  "all_repeat_samples_byte_identical": true,
+  "transmitted_requests": 586,
+  "received_frames": 5473,
+  "all_transmissions_read_allowlisted": true,
+  "elapsed_seconds": 199.2156128,
+  "preset_read_ms": {
+    "min": 377.906,
+    "max": 380.2605,
+    "mean": 378.54712011718783
+  },
+  "capture_file_length_counts": {
+    "24680": 512
+  },
+  "independent_manifest_hash_verification": "passed",
+  "evidence_sha256": {
+    "private_report": "849cdc6881588096f201932e5349e511e4b89252a5d5389747dc52cbd2a5bce2",
+    "private_trace": "391e77e39e192c77dbe93cd57d550d47395ca02ee94e80136c9b4169384165df",
+    "capture_manifest": "24c0222d593f0ff2a86e4d43a25bbf796d36ccf4793af04ef4d21c5a968a939f",
+    "snapshot_file": "a56f4508f50dc301f9da06f48205b4f0dce37fd9d093fa44d1b73ca83b278a02"
+  },
+  "limitations": [
+    "No navigation, writes or restore tested",
+    "No physical cable removal or driver-hang test",
+    "Semantic editor/front-panel comparison not performed",
+    "Only connected model/firmware physically tested"
+  ],
+  "prior_attempts": [
+    {
+      "protocol_release": "0.2.0",
+      "stage": "saved-read-pilot",
+      "result": "failed",
+      "reason": "Incorrect uniqueness requirement for repeated leading chunk fields",
+      "private_error_sha256": "3f0d26733b4cc51be165b4266784488b4788b9e3c9147eb1ae8f774f6598a9db"
+    },
+    {
+      "protocol_release": "0.2.1",
+      "stage": "body-decode-pilot",
+      "result": "partial; 9 integrity-valid captures, 0 decoded bodies",
+      "reason": "Terminal metadata was incorrectly interpreted as an ordinary effect record",
+      "private_result_sha256": "e2f8580b37b5879876eedd2ef563ef0e16987261a9ba0271b781eddaad080204"
+    }
+  ],
+  "post_scan_qualification": {
+    "offline_redecoded_presets": 512,
+    "decode_errors": 0,
+    "opaque_body_header_words": "Two preserved words; semantic default-scene interpretation remains unqualified",
+    "pilot_full_hash_match_samples": 9,
+    "amp_ids_outside_recorded_fm9_12_roster": 0,
+    "real_snapshot_scene_midi_plan": {
+      "planned": 0,
+      "unchanged": 0,
+      "skipped": 0,
+      "conflict": 254
+    }
+  },
+  "trace_metadata_verification": {
+    "identity_replies": 4,
+    "saved_read_requests": 521,
+    "saved_chunk_frames": 4168,
+    "all_observed_chunk_leading_fields": "00 08"
+  }
+}

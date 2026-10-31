@@ -1,0 +1,4 @@
+RTP strict codec and explicit initiator derived from AI Toolkit for Fractal, Apache-2.0.
+See LICENSE. Loopback peer and stream encoding originate in MIDIHelperLibrary.
+Diagnostic responder extracted from MIDI Forwarder; its diagnostic policies are preserved.
+This notice does not relicense other MIDIHelperLibrary components.

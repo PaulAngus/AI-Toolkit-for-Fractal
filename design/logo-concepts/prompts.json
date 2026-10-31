@@ -1,0 +1,31 @@
+{
+  "project": "AI Toolkit for Fractal",
+  "mode": "built-in image_gen",
+  "status": "Exploratory concepts; no logo selected",
+  "concepts": [
+    {
+      "name": "01-signal-flow",
+      "prompt": "Use case: logo-brand. Asset type: independent community audio software logo concept. Brand text exactly: \"AI Toolkit\" with \"for Fractal\" smaller underneath. Make AI Toolkit the dominant identity. One original polished minimal flat vector-style symbol and typographic lockup, centered on a clean white square with generous margins. Crisp and legible at small sizes. No mockups, no watermark, no extra slogans, no manufacturer logos or official endorsement cues. Signal flow: three clean linked nodes forming an abstract A, expressing deterministic audio routing and intelligent planning."
+    },
+    {
+      "name": "02-patch-grid",
+      "prompt": "Use case: logo-brand. Asset type: independent community audio software logo concept. Brand text exactly: \"AI Toolkit\" with \"for Fractal\" smaller underneath. Make AI Toolkit the dominant identity. One original polished minimal flat vector-style symbol and typographic lockup, centered on a clean white square with generous margins. Crisp and legible at small sizes. No mockups, no watermark, no extra slogans, no manufacturer logos or official endorsement cues. Patch grid: a compact modular grid with a single elegant connected route, inspired by audio effects patching; bold rounded geometry."
+    },
+    {
+      "name": "03-waveform",
+      "prompt": "Use case: logo-brand. Asset type: independent community audio software logo concept. Brand text exactly: \"AI Toolkit\" with \"for Fractal\" smaller underneath. Make AI Toolkit the dominant identity. One original polished minimal flat vector-style symbol and typographic lockup, centered on a clean white square with generous margins. Crisp and legible at small sizes. No mockups, no watermark, no extra slogans, no manufacturer logos or official endorsement cues. Waveform: an elegant continuous waveform cleverly shaping a compact AI monogram; expressive but restrained."
+    },
+    {
+      "name": "04-toolkit",
+      "prompt": "Use case: logo-brand. Asset type: independent community audio software logo concept. Brand text exactly: \"AI Toolkit\" with \"for Fractal\" smaller underneath. Make AI Toolkit the dominant identity. One original polished minimal flat vector-style symbol and typographic lockup, centered on a clean white square with generous margins. Crisp and legible at small sizes. No mockups, no watermark, no extra slogans, no manufacturer logos or official endorsement cues. Toolkit: a simple open tool case icon containing abstract signal blocks, subtly integrating a circuit path; approachable and clear."
+    },
+    {
+      "name": "05-monogram",
+      "prompt": "Use case: logo-brand. Asset type: independent community audio software logo concept. Brand text exactly: \"AI Toolkit\" with \"for Fractal\" smaller underneath. Make AI Toolkit the dominant identity. One original polished minimal flat vector-style symbol and typographic lockup, centered on a clean white square with generous margins. Crisp and legible at small sizes. No mockups, no watermark, no extra slogans, no manufacturer logos or official endorsement cues. Monogram: strong bespoke AIT lettermark, interlocking geometric forms with carefully cut negative space; sophisticated typographic identity."
+    },
+    {
+      "name": "06-branching",
+      "prompt": "Use case: logo-brand. Asset type: independent community audio software logo concept. Brand text exactly: \"AI Toolkit\" with \"for Fractal\" smaller underneath. Make AI Toolkit the dominant identity. One original polished minimal flat vector-style symbol and typographic lockup, centered on a clean white square with generous margins. Crisp and legible at small sizes. No mockups, no watermark, no extra slogans, no manufacturer logos or official endorsement cues. Branching geometry: a simple original recursive branching signal mark, only two levels, balanced and distinctive, mathematical yet musical."
+    }
+  ]
+}

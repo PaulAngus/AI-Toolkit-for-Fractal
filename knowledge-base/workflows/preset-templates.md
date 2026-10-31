@@ -1,0 +1,9 @@
+# Reuse complete block/channel settings and swap channels
+
+Use the [private template library](../../docs/template-library.md) for caller-supplied settings on FM9, FM3 or Axe-Fx III. Import an integrity-checked addressed capture with exact model/capacity/firmware declarations, instance, block-or-channel scope and provenance. A channel entry needs its explicit A–D source channel. Complete captures remain private; labels/tags help retrieval but do not establish defaults or hardware origin.
+
+Search/list and inspect the entry, retaining its exact current hash. Apply it against a fresh saved baseline through the ordinary planner: channel copying owns one complete row, block copying owns the full instance including scene assignments, and insertion needs explicit grid placement. Existing model/instance/shape, preservation, review and persistence checks apply. Cross-instance/model conversion and editor-library file interchange require separate support.
+
+To exchange two channels within one exact instance, request `swap-channels` with distinct `channel`/`other_channel` and an explicit `policy`: `preserve-scene-references` or `follow-channel-settings`. Inspect the complete-row hashes, affected scenes and before/after selectors. Identical rows are no-ops; other swaps are intentional events bound to the original baseline, not a repeatedly enforceable desired state. Shared modifier edits and same-instance composition are refused. Scene-name, bypass, MIDI and other-data preservation does not establish identical sound.
+
+Use the existing exact review, fresh saved/live comparisons, optional Save/Reload and verified-result undo. Query-only reconciliation resolves interrupted attempts before any newly scoped action. A plan or library entry cannot authorize itself. The [validation record](../../docs/template-library-validation.json) contains synthetic all-model software evidence; no physical compatibility is established by these additions.

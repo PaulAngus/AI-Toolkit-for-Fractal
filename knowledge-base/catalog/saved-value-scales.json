@@ -1,0 +1,1260 @@
+{
+  "schema_version": 1,
+  "revision": 2,
+  "reference_date": "2026-10-13",
+  "source_revision": "4463ae9b7e388d2fe98e24fdd7068b1c35865277",
+  "model_profiles": [
+    {
+      "model": "Axe-Fx III",
+      "firmware": "32.02",
+      "fields": [
+        {
+          "key": "amp.level",
+          "family": "Amp",
+          "effect_ids": [
+            58,
+            59
+          ],
+          "columns": 142,
+          "parameter_id": 21,
+          "scale": {
+            "minimum": -80,
+            "maximum": 20,
+            "unit": "dB",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[0]; master map AMP1 parameter 21",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "compressor.threshold",
+          "family": "Compressor",
+          "effect_ids": [
+            46,
+            47,
+            48,
+            49
+          ],
+          "columns": 37,
+          "parameter_id": 0,
+          "scale": {
+            "minimum": -60,
+            "maximum": 20,
+            "unit": "dB",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[1]; master map COMP parameter 0",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "compressor.level",
+          "family": "Compressor",
+          "effect_ids": [
+            46,
+            47,
+            48,
+            49
+          ],
+          "columns": 37,
+          "parameter_id": 4,
+          "scale": {
+            "minimum": -20,
+            "maximum": 20,
+            "unit": "dB",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[3]; master map COMP parameter 4",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "compressor.emphasis_frequency",
+          "family": "Compressor",
+          "effect_ids": [
+            46,
+            47,
+            48,
+            49
+          ],
+          "columns": 37,
+          "parameter_id": 33,
+          "scale": {
+            "minimum": 100,
+            "maximum": 10000,
+            "unit": "Hz",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[4]; master map COMP parameter 33",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "gate.threshold",
+          "family": "Gate/Expander",
+          "effect_ids": [
+            146,
+            147,
+            148,
+            149
+          ],
+          "columns": 19,
+          "parameter_id": 0,
+          "scale": {
+            "minimum": -100,
+            "maximum": 0,
+            "unit": "dB",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[7]; master map GATE parameter 0",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "reverb.time",
+          "family": "Reverb",
+          "effect_ids": [
+            66,
+            67,
+            68,
+            69
+          ],
+          "columns": 71,
+          "parameter_id": 1,
+          "scale": {
+            "minimum": 0.1,
+            "maximum": 100,
+            "unit": "s",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[8]; master map REVERB parameter 1",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "reverb.early_level",
+          "family": "Reverb",
+          "effect_ids": [
+            66,
+            67,
+            68,
+            69
+          ],
+          "columns": 71,
+          "parameter_id": 7,
+          "scale": {
+            "minimum": -40,
+            "maximum": 10,
+            "unit": "dB",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[9]; master map REVERB parameter 7",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "reverb.pitch_high_cut",
+          "family": "Reverb",
+          "effect_ids": [
+            66,
+            67,
+            68,
+            69
+          ],
+          "columns": 71,
+          "parameter_id": 64,
+          "scale": {
+            "minimum": 200,
+            "maximum": 20000,
+            "unit": "Hz",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[10]; master map REVERB parameter 64",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "chorus.rate",
+          "family": "Chorus",
+          "effect_ids": [
+            78,
+            79,
+            80,
+            81
+          ],
+          "columns": 29,
+          "parameter_id": 2,
+          "scale": {
+            "minimum": 0.1,
+            "maximum": 10,
+            "unit": "Hz",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[12]; master map CHORUS parameter 2",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "flanger.rate",
+          "family": "Flanger",
+          "effect_ids": [
+            82,
+            83,
+            84,
+            85
+          ],
+          "columns": 33,
+          "parameter_id": 1,
+          "scale": {
+            "minimum": 0.05,
+            "maximum": 10,
+            "unit": "Hz",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[13]; master map FLANGER parameter 1",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "drive.mid_frequency",
+          "family": "Drive",
+          "effect_ids": [
+            118,
+            119,
+            120,
+            121
+          ],
+          "columns": 44,
+          "parameter_id": 14,
+          "scale": {
+            "minimum": 200,
+            "maximum": 2000,
+            "unit": "Hz",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[15]; master map DRIVE parameter 14",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "drive.bit_reduce",
+          "family": "Drive",
+          "effect_ids": [
+            118,
+            119,
+            120,
+            121
+          ],
+          "columns": 44,
+          "parameter_id": 16,
+          "scale": {
+            "minimum": 0,
+            "maximum": 24,
+            "unit": "bits",
+            "taper": "int-raw",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[14]; master map DRIVE parameter 16",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "megatap.threshold",
+          "family": "Megatap",
+          "effect_ids": [
+            138,
+            139,
+            140,
+            141
+          ],
+          "columns": 35,
+          "parameter_id": 14,
+          "scale": {
+            "minimum": -100,
+            "maximum": 0,
+            "unit": "dB",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[17]; master map MEGATAP parameter 14",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "megatap.number_of_taps",
+          "family": "Megatap",
+          "effect_ids": [
+            138,
+            139,
+            140,
+            141
+          ],
+          "columns": 35,
+          "parameter_id": 3,
+          "scale": {
+            "minimum": 1,
+            "maximum": 128,
+            "unit": "taps",
+            "taper": "int-raw",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[16]; master map MEGATAP parameter 3",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "peq.frequency_1",
+          "family": "Parametric EQ",
+          "effect_ids": [
+            54
+          ],
+          "columns": 33,
+          "parameter_id": 0,
+          "scale": {
+            "minimum": 20,
+            "maximum": 2000,
+            "unit": "Hz",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[18]; master map PEQ parameter 0",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "peq.frequency_2",
+          "family": "Parametric EQ",
+          "effect_ids": [
+            54
+          ],
+          "columns": 33,
+          "parameter_id": 1,
+          "scale": {
+            "minimum": 100,
+            "maximum": 10000,
+            "unit": "Hz",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[19]; master map PEQ parameter 1",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "peq.frequency_3",
+          "family": "Parametric EQ",
+          "effect_ids": [
+            54
+          ],
+          "columns": 33,
+          "parameter_id": 2,
+          "scale": {
+            "minimum": 100,
+            "maximum": 10000,
+            "unit": "Hz",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[20]; master map PEQ parameter 2",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "peq.frequency_4",
+          "family": "Parametric EQ",
+          "effect_ids": [
+            54
+          ],
+          "columns": 33,
+          "parameter_id": 3,
+          "scale": {
+            "minimum": 100,
+            "maximum": 10000,
+            "unit": "Hz",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[21]; master map PEQ parameter 3",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "peq.frequency_5",
+          "family": "Parametric EQ",
+          "effect_ids": [
+            54
+          ],
+          "columns": 33,
+          "parameter_id": 4,
+          "scale": {
+            "minimum": 200,
+            "maximum": 20000,
+            "unit": "Hz",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[22]; master map PEQ parameter 4",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "peq.gain_1",
+          "family": "Parametric EQ",
+          "effect_ids": [
+            54
+          ],
+          "columns": 33,
+          "parameter_id": 10,
+          "scale": {
+            "minimum": -20,
+            "maximum": 20,
+            "unit": "dB",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[23]; master map PEQ parameter 10",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "peq.gain_2",
+          "family": "Parametric EQ",
+          "effect_ids": [
+            54
+          ],
+          "columns": 33,
+          "parameter_id": 11,
+          "scale": {
+            "minimum": -20,
+            "maximum": 20,
+            "unit": "dB",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[24]; master map PEQ parameter 11",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "peq.gain_3",
+          "family": "Parametric EQ",
+          "effect_ids": [
+            54
+          ],
+          "columns": 33,
+          "parameter_id": 12,
+          "scale": {
+            "minimum": -20,
+            "maximum": 20,
+            "unit": "dB",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[25]; master map PEQ parameter 12",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "peq.gain_4",
+          "family": "Parametric EQ",
+          "effect_ids": [
+            54
+          ],
+          "columns": 33,
+          "parameter_id": 13,
+          "scale": {
+            "minimum": -20,
+            "maximum": 20,
+            "unit": "dB",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[26]; master map PEQ parameter 13",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "peq.gain_5",
+          "family": "Parametric EQ",
+          "effect_ids": [
+            54
+          ],
+          "columns": 33,
+          "parameter_id": 14,
+          "scale": {
+            "minimum": -20,
+            "maximum": 20,
+            "unit": "dB",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[27]; master map PEQ parameter 14",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "peq.q1",
+          "family": "Parametric EQ",
+          "effect_ids": [
+            54
+          ],
+          "columns": 33,
+          "parameter_id": 5,
+          "scale": {
+            "minimum": 0.1,
+            "maximum": 10,
+            "unit": "Q",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[28]; master map PEQ parameter 5",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "peq.q2",
+          "family": "Parametric EQ",
+          "effect_ids": [
+            54
+          ],
+          "columns": 33,
+          "parameter_id": 6,
+          "scale": {
+            "minimum": 0.1,
+            "maximum": 10,
+            "unit": "Q",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[29]; master map PEQ parameter 6",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "peq.q3",
+          "family": "Parametric EQ",
+          "effect_ids": [
+            54
+          ],
+          "columns": 33,
+          "parameter_id": 7,
+          "scale": {
+            "minimum": 0.1,
+            "maximum": 10,
+            "unit": "Q",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[30]; master map PEQ parameter 7",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "peq.q4",
+          "family": "Parametric EQ",
+          "effect_ids": [
+            54
+          ],
+          "columns": 33,
+          "parameter_id": 8,
+          "scale": {
+            "minimum": 0.1,
+            "maximum": 10,
+            "unit": "Q",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[31]; master map PEQ parameter 8",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "peq.q5",
+          "family": "Parametric EQ",
+          "effect_ids": [
+            54
+          ],
+          "columns": 33,
+          "parameter_id": 9,
+          "scale": {
+            "minimum": 0.1,
+            "maximum": 10,
+            "unit": "Q",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[32]; master map PEQ parameter 9",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "gate.hold_time",
+          "family": "Gate/Expander",
+          "effect_ids": [
+            146,
+            147,
+            148,
+            149
+          ],
+          "columns": 19,
+          "parameter_id": 2,
+          "scale": {
+            "minimum": 1,
+            "maximum": 1000,
+            "unit": "ms",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[33]; master map GATE parameter 2",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "gate.release_time",
+          "family": "Gate/Expander",
+          "effect_ids": [
+            146,
+            147,
+            148,
+            149
+          ],
+          "columns": 19,
+          "parameter_id": 3,
+          "scale": {
+            "minimum": 1,
+            "maximum": 1000,
+            "unit": "ms",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[34]; master map GATE parameter 3",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "gate.attack_time",
+          "family": "Gate/Expander",
+          "effect_ids": [
+            146,
+            147,
+            148,
+            149
+          ],
+          "columns": 19,
+          "parameter_id": 1,
+          "scale": {
+            "minimum": 1,
+            "maximum": 100,
+            "unit": "ms",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[35]; master map GATE parameter 1",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "amp.input_trim",
+          "family": "Amp",
+          "effect_ids": [
+            58,
+            59
+          ],
+          "columns": 142,
+          "parameter_id": 47,
+          "scale": {
+            "minimum": 0.1,
+            "maximum": 10,
+            "unit": "multiplier",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[36]; master map AMP1 parameter 47",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "delay.time",
+          "family": "Delay",
+          "effect_ids": [
+            70,
+            71,
+            72,
+            73
+          ],
+          "columns": 89,
+          "parameter_id": 2,
+          "scale": {
+            "minimum": 0,
+            "maximum": 16000,
+            "unit": "ms",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[37]; master map DELAY parameter 2",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "delay.time_r",
+          "family": "Delay",
+          "effect_ids": [
+            70,
+            71,
+            72,
+            73
+          ],
+          "columns": 89,
+          "parameter_id": 26,
+          "scale": {
+            "minimum": 0,
+            "maximum": 16000,
+            "unit": "ms",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[39]; master map DELAY parameter 26",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "delay.feedback",
+          "family": "Delay",
+          "effect_ids": [
+            70,
+            71,
+            72,
+            73
+          ],
+          "columns": 89,
+          "parameter_id": 4,
+          "scale": {
+            "minimum": -100,
+            "maximum": 100,
+            "unit": "%",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[40]; master map DELAY parameter 4",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "delay.feedback_r_r",
+          "family": "Delay",
+          "effect_ids": [
+            70,
+            71,
+            72,
+            73
+          ],
+          "columns": 89,
+          "parameter_id": 6,
+          "scale": {
+            "minimum": -100,
+            "maximum": 100,
+            "unit": "%",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[42]; master map DELAY parameter 6",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "delay.feedback_l_r",
+          "family": "Delay",
+          "effect_ids": [
+            70,
+            71,
+            72,
+            73
+          ],
+          "columns": 89,
+          "parameter_id": 30,
+          "scale": {
+            "minimum": -100,
+            "maximum": 100,
+            "unit": "%",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[43]; master map DELAY parameter 30",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "delay.feedback_r_l",
+          "family": "Delay",
+          "effect_ids": [
+            70,
+            71,
+            72,
+            73
+          ],
+          "columns": 89,
+          "parameter_id": 31,
+          "scale": {
+            "minimum": -100,
+            "maximum": 100,
+            "unit": "%",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[44]; master map DELAY parameter 31",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "delay.high_cut_frequency",
+          "family": "Delay",
+          "effect_ids": [
+            70,
+            71,
+            72,
+            73
+          ],
+          "columns": 89,
+          "parameter_id": 11,
+          "scale": {
+            "minimum": 200,
+            "maximum": 20000,
+            "unit": "Hz",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[45]; master map DELAY parameter 11",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "amp.high_cut",
+          "family": "Amp",
+          "effect_ids": [
+            58,
+            59
+          ],
+          "columns": 142,
+          "parameter_id": 83,
+          "scale": {
+            "minimum": 200,
+            "maximum": 20000,
+            "unit": "Hz",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[46]; master map AMP1 parameter 83",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "phaser.tone",
+          "family": "Phaser",
+          "effect_ids": [
+            90,
+            91,
+            92,
+            93
+          ],
+          "columns": 35,
+          "parameter_id": 19,
+          "scale": {
+            "minimum": -10,
+            "maximum": 10,
+            "unit": "bipolar-10",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[47]; master map PHASER parameter 19",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "megatap.attack_time",
+          "family": "Megatap",
+          "effect_ids": [
+            138,
+            139,
+            140,
+            141
+          ],
+          "columns": 35,
+          "parameter_id": 15,
+          "scale": {
+            "minimum": 10,
+            "maximum": 10000,
+            "unit": "ms",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[48]; master map MEGATAP parameter 15",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "megatap.release_time",
+          "family": "Megatap",
+          "effect_ids": [
+            138,
+            139,
+            140,
+            141
+          ],
+          "columns": 35,
+          "parameter_id": 16,
+          "scale": {
+            "minimum": 1,
+            "maximum": 1000,
+            "unit": "ms",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[49]; master map MEGATAP parameter 16",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "multiband.crossover",
+          "family": "Multiband Compressor",
+          "effect_ids": [
+            154
+          ],
+          "columns": 37,
+          "parameter_id": 0,
+          "scale": {
+            "minimum": 50,
+            "maximum": 5000,
+            "unit": "Hz",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[50]; master map MULTIBAND parameter 0",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "multiband.mid_high_crossover",
+          "family": "Multiband Compressor",
+          "effect_ids": [
+            154
+          ],
+          "columns": 37,
+          "parameter_id": 1,
+          "scale": {
+            "minimum": 100,
+            "maximum": 10000,
+            "unit": "Hz",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[51]; master map MULTIBAND parameter 1",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "multiband.threshold",
+          "family": "Multiband Compressor",
+          "effect_ids": [
+            154
+          ],
+          "columns": 37,
+          "parameter_id": 2,
+          "scale": {
+            "minimum": -60,
+            "maximum": 20,
+            "unit": "dB",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[52]; master map MULTIBAND parameter 2",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "multiband.level",
+          "family": "Multiband Compressor",
+          "effect_ids": [
+            154
+          ],
+          "columns": 37,
+          "parameter_id": 6,
+          "scale": {
+            "minimum": -20,
+            "maximum": 20,
+            "unit": "dB",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[54]; master map MULTIBAND parameter 6",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "multiband.mid_threshold",
+          "family": "Multiband Compressor",
+          "effect_ids": [
+            154
+          ],
+          "columns": 37,
+          "parameter_id": 9,
+          "scale": {
+            "minimum": -60,
+            "maximum": 20,
+            "unit": "dB",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[55]; master map MULTIBAND parameter 9",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "multiband.mid_level",
+          "family": "Multiband Compressor",
+          "effect_ids": [
+            154
+          ],
+          "columns": 37,
+          "parameter_id": 13,
+          "scale": {
+            "minimum": -20,
+            "maximum": 20,
+            "unit": "dB",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[57]; master map MULTIBAND parameter 13",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "multiband.high_threshold",
+          "family": "Multiband Compressor",
+          "effect_ids": [
+            154
+          ],
+          "columns": 37,
+          "parameter_id": 16,
+          "scale": {
+            "minimum": -60,
+            "maximum": 20,
+            "unit": "dB",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[58]; master map MULTIBAND parameter 16",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "multiband.high_level",
+          "family": "Multiband Compressor",
+          "effect_ids": [
+            154
+          ],
+          "columns": 37,
+          "parameter_id": 20,
+          "scale": {
+            "minimum": -20,
+            "maximum": 20,
+            "unit": "dB",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[60]; master map MULTIBAND parameter 20",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "multiband.level_master",
+          "family": "Multiband Compressor",
+          "effect_ids": [
+            154
+          ],
+          "columns": 37,
+          "parameter_id": 24,
+          "scale": {
+            "minimum": -80,
+            "maximum": 20,
+            "unit": "dB",
+            "taper": "linear",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[61]; master map MULTIBAND parameter 24",
+          "qualification": "upstream-cache-derived-inference"
+        },
+        {
+          "key": "multiband.attack",
+          "family": "Multiband Compressor",
+          "effect_ids": [
+            154
+          ],
+          "columns": 37,
+          "parameter_id": 4,
+          "scale": {
+            "minimum": 1,
+            "maximum": 100,
+            "unit": "ms",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[62]; master map MULTIBAND parameter 4",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "multiband.mid_attack",
+          "family": "Multiband Compressor",
+          "effect_ids": [
+            154
+          ],
+          "columns": 37,
+          "parameter_id": 11,
+          "scale": {
+            "minimum": 1,
+            "maximum": 100,
+            "unit": "ms",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[63]; master map MULTIBAND parameter 11",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "multiband.high_attack",
+          "family": "Multiband Compressor",
+          "effect_ids": [
+            154
+          ],
+          "columns": 37,
+          "parameter_id": 18,
+          "scale": {
+            "minimum": 1,
+            "maximum": 100,
+            "unit": "ms",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[64]; master map MULTIBAND parameter 18",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "multiband.release",
+          "family": "Multiband Compressor",
+          "effect_ids": [
+            154
+          ],
+          "columns": 37,
+          "parameter_id": 5,
+          "scale": {
+            "minimum": 10,
+            "maximum": 1000,
+            "unit": "ms",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[65]; master map MULTIBAND parameter 5",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "multiband.mid_release",
+          "family": "Multiband Compressor",
+          "effect_ids": [
+            154
+          ],
+          "columns": 37,
+          "parameter_id": 12,
+          "scale": {
+            "minimum": 10,
+            "maximum": 1000,
+            "unit": "ms",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[66]; master map MULTIBAND parameter 12",
+          "qualification": "upstream-reported-observation"
+        },
+        {
+          "key": "multiband.high_release",
+          "family": "Multiband Compressor",
+          "effect_ids": [
+            154
+          ],
+          "columns": 37,
+          "parameter_id": 19,
+          "scale": {
+            "minimum": 10,
+            "maximum": 1000,
+            "unit": "ms",
+            "taper": "log",
+            "raw_maximum": 65534
+          },
+          "source_id": "axe32-word-laws",
+          "source_locator": "laws[67]; master map MULTIBAND parameter 19",
+          "qualification": "upstream-reported-observation"
+        }
+      ],
+      "modifier_percent_fields": {
+        "start": 3,
+        "mid": 4,
+        "end": 5,
+        "slope": 6,
+        "off_value": 12,
+        "source1_scale": 21,
+        "source2_scale": 22
+      },
+      "modifier_normalized_fields": {
+        "attack": 7,
+        "scale": 13,
+        "offset": 14,
+        "release": 15
+      },
+      "modifier_raw_selectors": {
+        "damping_type": 24
+      }
+    }
+  ],
+  "qualification": "Source-derived saved-word laws and modifier word positions for the exact declared model/firmware and record shape. Modifier saved-normalized fractions are not display units; damping selector indices have no inferred labels. No toolkit hardware tests; upstream raw captures are not retained. No use of live SET float scales as saved-word laws.",
+  "sources": [
+    {
+      "source_id": "axe32-word-laws",
+      "path": "maps/param_word_laws.json",
+      "sha256": "a40877ea36920b853cdaec899e8fa173c94d91c224f331035fe04140bddf4b4f"
+    },
+    {
+      "source_id": "axe32-map",
+      "path": "maps/axefx_sysex_map.json",
+      "sha256": "97855184930ebd1c54f62955d388af4b01249205933b31c54ff2e77aad528bab"
+    },
+    {
+      "source_id": "axe32-modifiers",
+      "path": "ADVANCED_COMMANDS.md",
+      "sha256": "cbef4990e0d7b8c6a02028bc521df09952406abe6eb65e0fe74b3e1b4fa2b822"
+    }
+  ],
+  "attribution": {
+    "author": "Big Saurus",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_reference": "docs/big-saurus-license.txt",
+    "license_sha256": "601949b2b59698be1bfa594214483a4301578e69101709edf88da1d5dd263617",
+    "changes": "Selected factual laws and identities, normalized keys, deduplicated aliases, qualified model/firmware scope; upstream private narratives omitted."
+  }
+}

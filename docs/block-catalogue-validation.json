@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "release": "0.10.0",
+  "date": "2026-10-11",
+  "status": "offline-software-validation-passed",
+  "catalogue": "knowledge-base/catalog/block-identities.json",
+  "numeric_identities": 162,
+  "families": 41,
+  "models_checked": [
+    "FM9/512",
+    "FM3/512",
+    "Axe-Fx III/512",
+    "Axe-Fx III/1024"
+  ],
+  "source_evidence": [
+    "Axe-Fx III manufacturer MIDI revision 1.4 Appendix 1",
+    "Pinned three-model Gen-3 EFFECT_BASES/effectName implementation",
+    "Manufacturer Blocks Guide June 2023 model comparison and Input/Output sections"
+  ],
+  "software_scope": [
+    "Shared embedded JSON and deterministic resolver used by exporter, CLI and MCP",
+    "Model-qualified Reverb/Delay/Drive/Amp/Scene MIDI identities; aliases and per-model dated instance limits",
+    "FM9 Input USB distinction; manufacturer-only mappings remain unqualified for FM9/FM3",
+    "Unknown IDs and unmapped Dynamic Distortion remain explicit; empty cells and shunts are separate grid elements",
+    "Additive grid names preserve numeric IDs, positions, routes and every body byte",
+    "Numeric preservation checks remain independent of display metadata",
+    "Relocated real CLI/MCP and extracted Desktop package lookup without live access"
+  ],
+  "checks": {
+    "python_unit_tests": 129,
+    "python_skipped_tests": 0,
+    "dotnet_synthetic_checks": 132,
+    "cli_pipeline_groups": 5,
+    "relocated_mcp_model_groups": 4,
+    "extracted_desktop_python_configurations": 9,
+    "extracted_desktop_uv_configurations": 9,
+    "uv_version": "0.9.7",
+    "tools_discovered": 22,
+    "source_build_data_files": 48,
+    "adapter_check_files": 19,
+    "knowledge_validator": "passed; 35 capabilities, 85 sources; block identity/count/source consistency and portable links",
+    "distribution_source_files_checked": 163,
+    "official_mcpb_manifest_cli": "2.1.2 schema passed"
+  },
+  "midi_ports_opened": false,
+  "hardware_commands_sent": false,
+  "new_hardware_qualification": false,
+  "limits": [
+    "June 2023 instance limits are dated facts, not a firmware-specific availability catalogue.",
+    "Naming does not qualify block parameters, Reverb type decoding, DSP resources, insertion defaults or hardware writes.",
+    "The manufacturer numeric appendix covers Axe-Fx III; other models require independent mapping evidence.",
+    "Dynamic Distortion numeric IDs and additional firmware-introduced IDs remain unmapped.",
+    "No new device capture or independent Claude UI/model task was performed. Existing exports require a new decode to add names."
+  ]
+}

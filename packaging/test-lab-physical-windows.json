@@ -1,0 +1,91 @@
+{
+  "applicationId": "fractal-ai-toolkit",
+  "applicationName": "AI Toolkit for Fractal",
+  "testProfile": "physical-windows-fm9-read-only",
+  "runner": {
+    "project": "tools/Fractal.Lab/Fractal.Lab.csproj",
+    "destination": "bin/lab",
+    "executable": "bin/lab/Fractal.Lab"
+  },
+  "platforms": {
+    "win": {
+      "properties": [
+        "-p:TestLabProfile=PhysicalWindowsReadOnly"
+      ],
+      "tests": [
+        {
+          "project": "tests/Fractal.Checks/Fractal.Checks.csproj",
+          "destination": "bin/tests"
+        },
+        {
+          "project": "tools/Fractal.Fm9Checks/Fractal.Fm9Checks.csproj",
+          "destination": "bin/hardware"
+        }
+      ]
+    }
+  },
+  "offlinePolicy": {
+    "includedTestSources": [
+      "tests/Fractal.Checks/AudioRoutingChecks.cs",
+      "tests/Fractal.Checks/BatchAndMidiChecks.cs",
+      "tests/Fractal.Checks/BuiltinScaleChecks.cs",
+      "tests/Fractal.Checks/CalibrationModifierChecks.cs",
+      "tests/Fractal.Checks/CompoundMidiChecks.cs",
+      "tests/Fractal.Checks/EditReadChecks.cs",
+      "tests/Fractal.Checks/FakeEditorMidi.cs",
+      "tests/Fractal.Checks/Fixtures.cs",
+      "tests/Fractal.Checks/GridIsolationChecks.cs",
+      "tests/Fractal.Checks/InsertionFixture.cs",
+      "tests/Fractal.Checks/InventoryAnalysisChecks.cs",
+      "tests/Fractal.Checks/InventoryChecks.cs",
+      "tests/Fractal.Checks/LiveToolsChecks.cs",
+      "tests/Fractal.Checks/PathAndListenerChecks.cs",
+      "tests/Fractal.Checks/PerformanceControlChecks.cs",
+      "tests/Fractal.Checks/PresetEditChecks.cs",
+      "tests/Fractal.Checks/PresetOrganizationChecks.cs",
+      "tests/Fractal.Checks/PrivateParameterChecks.cs",
+      "tests/Fractal.Checks/Program.cs",
+      "tests/Fractal.Checks/RestoreFixture.cs",
+      "tests/Fractal.Checks/SceneMidiEditChecks.cs",
+      "tests/Fractal.Checks/SceneMidiEditFixture.cs",
+      "tests/Fractal.Checks/SceneMidiRecoveryChecks.cs",
+      "tests/Fractal.Checks/SelectiveUndoChecks.cs",
+      "tests/Fractal.Checks/SetlistSongChecks.cs",
+      "tests/Fractal.Checks/SharedMidiTransportChecks.cs",
+      "tests/Fractal.Checks/SpecialRoutingChecks.cs",
+      "tests/Fractal.Checks/TemplateLibraryChecks.cs",
+      "tests/Fractal.Checks/InventoryFileChecks.cs",
+      "tests/Fractal.Checks/RestoreDeadlineChecks.cs",
+      "tests/Fractal.Checks/WindowsInputSelectionChecks.cs"
+    ],
+    "excludedWorkflows": [
+      "NetworkNotificationChecks: includes UDP RTP-MIDI sessions",
+      "CoreMidiTransportChecks: includes native transport entry points and ownership probe",
+      "Physical device reads/writes, CLI runtime and Python/MCP checks"
+    ],
+    "midiAccess": "none",
+    "hardwareQualification": false,
+    "allScope": "Functional stages only; separate read-only FM9 Native stage in hardware-policy.json."
+  },
+  "hardwarePolicy": {
+    "midiAccess": "four-exact-fm9-read-queries",
+    "includedSources": [
+      "tools/Fractal.Fm9Checks/Program.cs",
+      "tools/Fractal.Fm9Checks/Fractal.Fm9Checks.csproj",
+      "tools/Fractal.Lab/PhysicalProgram.cs",
+      "dependencies/test-lab/Fm9ReadOnly.cs",
+      "dependencies/test-lab/Fm9ToolkitTransport.cs",
+      "packaging/fm9-read-only.json",
+      "dependencies/test-lab/fm9-query-provenance.json"
+    ],
+    "virtualPortsAllowed": false,
+    "networkMidiAllowed": false,
+    "desktopCoverage": false,
+    "scope": "Production transport interoperability, read-only FM9 identity/firmware/current state; no sending/routing qualification."
+  },
+  "staticFiles": {
+    "packaging/fm9-read-only.json": "fm9-read-only.json",
+    "dependencies/test-lab/fm9-query-provenance.json": "fm9-query-provenance.json"
+  },
+  "agentVersion": "0.2.5"
+}

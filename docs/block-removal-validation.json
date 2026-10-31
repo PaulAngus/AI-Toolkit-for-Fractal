@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "release": "0.12.0",
+  "date": "2026-10-11",
+  "status": "passed-within-recorded-scope",
+  "software_models": [
+    "FM9/512",
+    "FM3/512",
+    "Axe-Fx III/512",
+    "Axe-Fx III/1024"
+  ],
+  "software_scope": [
+    "isolated exact-instance removal",
+    "inverse insertion preservation",
+    "exact original-byte insertion undo",
+    "unsaved-work and changed-base refusal",
+    "one Clear and Save attempt",
+    "rejection/cancellation no replay",
+    "closed MCP preparation and exact host approval"
+  ],
+  "hardware": {
+    "model": "FM9",
+    "firmware": "12.00",
+    "execution_client": "real local MCP stdio client with contained runtime",
+    "approval_host": "trusted local host under explicit operator test authorization",
+    "targets": 1,
+    "scope": "one caller-selected isolated audio block family",
+    "ordinary_removal_review_validated": true,
+    "verified_insertion_undo_executed": true,
+    "clear_commands": 1,
+    "save_commands": 1,
+    "load_and_reload_commands": 2,
+    "full_preset_upload_frames": 0,
+    "complete_original_raw_body_equal_before_save": true,
+    "repeated_saved_and_reloaded_equal": true,
+    "complete_saved_inventory_before_and_after": 512,
+    "final_byte_differences": 0,
+    "other_saved_slots_unchanged": 511,
+    "automatic_retry": false,
+    "automatic_rollback": false,
+    "private_evidence_sha256": {
+      "artifact-001": "87c374dc8088849162fcb4f1d9c57571cbdc00008e04635781ede93e5c2db3a0",
+      "artifact-002": "9852ba569f667be3dd6f8b5630b0fdcb0855d454870016e448feb01cc3cc51e7",
+      "artifact-003": "2330411c9092582840c96121225cab4f313bc643c1712479de74266b50c4967f",
+      "artifact-004": "f0a8618a2b95d3f54d90d973defc0c54e2bff671452930444e2c5325fc886dfa"
+    }
+  },
+  "limits": [
+    "Connected or uncertain routing is refused",
+    "No automatic recovery after uncertain writes",
+    "Other block families and FM3/Axe-Fx III hardware require physical validation",
+    "Actual Claude conversational execution is qualified separately in claude_client_hardware; task prompts and exact approvals came from the trusted host"
+  ],
+  "software_python_tests": 138,
+  "software_dotnet_checks": 140,
+  "claude_client_hardware": {
+    "date": "2026-10-11",
+    "release": "0.12.0",
+    "model": "FM9",
+    "firmware": "12.00",
+    "execution_client": "Claude Desktop",
+    "approval_host": "trusted local host under explicit operator authorization",
+    "targets": 1,
+    "scope": "one caller-selected isolated audio block family",
+    "host_guided_task": true,
+    "ordinary_removal_executed": true,
+    "receipt_based_insertion_undo_executed": true,
+    "verified_operations": 4,
+    "start_calls_per_review": 1,
+    "clear_commands_per_removal": 1,
+    "save_commands_per_operation": 1,
+    "full_preset_upload_frames": 0,
+    "original_bytes_restored_by_both_removal_paths": true,
+    "repeated_saved_and_reloaded_equal": true,
+    "absent_block_no_op_observed": true,
+    "connected_block_planning_refusal_observed": true,
+    "independent_final_saved_slots_compared": 512,
+    "final_byte_differences": 0,
+    "other_saved_slots_unchanged": 511,
+    "automatic_retry": false,
+    "automatic_rollback": false,
+    "private_evidence_sha256": {
+      "artifact-001": "79ad5fa7bf89b3c1c697c28e9fa077309baaca7255a04ad4b911b15e8ae49ba9",
+      "artifact-002": "c5a80fa638e17eebe8fe404531180c7623563be503dca0b15396d787384fc597",
+      "artifact-003": "da9593b9a53365aefcb90c6068e74271f4f9fbcbcbf3c17ac22965eaf92f3d6f",
+      "artifact-004": "53a5d8be79ceb90c944e5b2f413f2d6e732326dc544e0272264df45c5ab9399d",
+      "artifact-005": "9005f152044ab034e59b8bb3b2dc375ff859902229d1948796202c9d336af7f3",
+      "artifact-006": "4949fd04d4498c68a49341f18ef4219106125e77e119e19e2d16d2786cba85d1",
+      "artifact-007": "20beb6edd17cbf46e3704d63aa569e1eb916659f79d0bc392db7a7bf68359902",
+      "artifact-008": "55b5ab268f7d418d5bdaa2ce71c818fc27585c862e4a89f91840da3ede32f1ae",
+      "artifact-009": "e2bd0eaa53f7158bd6db4222bbb8a31b0d0acf5acfaaed345e2afde723af4d00",
+      "artifact-010": "4cf6818164811e41b5a097a3157714c40626fc20fd99d22aa368d10ed0ebf896",
+      "artifact-011": "e2bd0eaa53f7158bd6db4222bbb8a31b0d0acf5acfaaed345e2afde723af4d00",
+      "artifact-012": "7912243bb1e382dc7732070ac2a74d2afb91e618a55ca7298debb4871f3ea062"
+    },
+    "limits": [
+      "Host supplied task prompts and exact local approvals; not unguided discovery or model self-approval",
+      "One isolated audio block family on FM9 12.00; other families and FM3/Axe-Fx III hardware remain unqualified",
+      "Per-tool client permissions were granted by the operator; final complete inventory comparison used the trusted host"
+    ]
+  }
+}

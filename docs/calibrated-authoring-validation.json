@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "release": "0.23.0",
+  "date": "2026-10-12",
+  "scope": "Synthetic FM9, FM3 and Axe-Fx III 512/1024; no hardware access",
+  "source_ids": [
+    "toolkit-calibrated-authoring",
+    "gen3-body"
+  ],
+  "coverage": [
+    "Complete capture integrity, exact single-word inference, unit/model/firmware/channel/context binding",
+    "Exact values, no interpolation, conflicting semantic labels and repeated no-ops",
+    "Witnessed Scene Ignore preserves other body bytes and saved scene assignments",
+    "Modifier source edits, complete template copies, explicit binding ownership and duplicate target refusal",
+    "Shared full-image execution, Save/Reload, independently constructed expected bytes and original-image undo",
+    "CLI calibration and compound execution review, relocated MCP witness artifacts and modifier template preparation",
+    "Listener checkpoint replacement while a Windows reader retains the preceding checkpoint; completed observations preserved on later input failure"
+  ],
+  "limits": [
+    "Caller-labelled samples are not automatically hardware-validated or physically calibrated",
+    "No new built-in wider physical scales or interpolation",
+    "Single-word parameter and Scene Ignore representations only; matching block context required",
+    "Modifier chain layout source-qualified; named curve units, source-name catalogues and other layouts remain open"
+  ],
+  "results": {
+    "status": "passed",
+    "python_tests": 158,
+    "dotnet_checks": 228,
+    "cli_pipeline": "passed across all four model/capacity definitions",
+    "relocated_mcp_pipeline": "passed across all four model/capacity definitions",
+    "knowledge_validation": "passed",
+    "distribution_privacy": "passed",
+    "protocol_release_hashes": "verified",
+    "hardware_tests_performed": false
+  },
+  "negative_evidence": {
+    "source_url": "https://raw.githubusercontent.com/TheAndrewStaker/mcp-midi-control/59047175cfc4f23e092931b54a7c54f2bffde3ea/packages/fractal-midi/scripts/axe-fx-iii/apply-calibration-overlay.ts",
+    "sha256": "821fc8e723f63ff792d6190aa5245a17a514e52ce5c8a755a66c6f89811e060b",
+    "authority": "open-implementation",
+    "finding": "The overlay assigns display hints from suffix conventions; it does not establish wider saved offsets or physically calibrated scales."
+  }
+}

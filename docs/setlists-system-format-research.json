@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-15",
+  "protocol_release": "0.38.0",
+  "scope": "Focused offline static format investigation; no runtime implementation or hardware qualification",
+  "evidence_kind": "manufacturer-binary-static-analysis-and-documentation",
+  "hardware_connections": 0,
+  "midi_transmissions": 0,
+  "actual_editor_exports_inspected": 0,
+  "complete_system_backups_inspected": 0,
+  "round_trip_tests": 0,
+  "firmware_context": "unknown; no device attached; editor versions are not firmware evidence",
+  "decision": {
+    "native_offline_planning": "existing support unchanged",
+    "editor_interchange": "deferred-pending-samples-and-complete-format-contract",
+    "system_read_write_restore": "no-go-incomplete-framing-layout-preservation-and-recovery"
+  },
+  "editor_artifacts": [
+    {
+      "editor": "Axe-Edit III",
+      "version": "1.14.34",
+      "binary_bytes": 32788944,
+      "binary_sha256": "c99118bdde39e29c1030aa62f145d2eb8718e00cd2333d6ed415a427a3a275f7",
+      "architecture": "x86_64",
+      "package_url": "https://www.fractalaudio.com/downloads/Axe-Edit-III/Axe-Edit-III-Mac-v1p14p34.dmg",
+      "package_bytes": 25493651,
+      "package_sha256": "f98688e4641305db23992018508cba33b4dd3e5ecfd00a95c64f4eb03a913732",
+      "firmware": "unknown",
+      "export_function": "0x100235620",
+      "locators": {
+        "All-Songs": "0x100237894",
+        "Setlists": "0x100239265",
+        "Song": "0x100237e61",
+        "Section": "0x100237f68",
+        "SongId": "0x1002396d0"
+      },
+      "binary_hash_scope": "complete universal macOS executable; only x86_64 slice analyzed"
+    },
+    {
+      "editor": "FM3-Edit",
+      "version": "1.07.17",
+      "binary_bytes": 30903920,
+      "binary_sha256": "0d512cc00fb57569b8200451373675db242f210f7c05799df635542eb117e2a2",
+      "architecture": "x86_64",
+      "package_url": "https://www.fractalaudio.com/downloads/FM3-Edit/FM3-Edit-Mac-v1p07p17.dmg",
+      "package_bytes": 24527549,
+      "package_sha256": "f9990b1e827d95edc6dd7b66136560616bce3f708e39e4ef83b6e51cbefe4e94",
+      "firmware": "unknown",
+      "export_function": "0x100227bb0",
+      "locators": {
+        "All-Songs": "0x100229e24",
+        "Setlists": "0x10022b7f5",
+        "Song": "0x10022a3f1",
+        "Section": "0x10022a4f8",
+        "SongId": "0x10022bc60"
+      },
+      "binary_hash_scope": "complete universal macOS executable; only x86_64 slice analyzed"
+    },
+    {
+      "editor": "FM9-Edit",
+      "version": "1.03.22",
+      "binary_bytes": 32562656,
+      "binary_sha256": "32b1a4ef954ce1963a1c117ddfadd178ecdac634f0b47bc1b70d6774bca9b103",
+      "architecture": "x86_64",
+      "package_url": "https://www.fractalaudio.com/downloads/FM9-Edit/FM9-Edit-Mac-v1p03p22.dmg",
+      "package_bytes": 24885170,
+      "package_sha256": "c7ac8a031c1002716f7ed56faf267aec35bcf36e547310183c59771f054822d1",
+      "firmware": "unknown",
+      "export_function": "0x100223e20",
+      "locators": {
+        "All-Songs": "0x100226094",
+        "Setlists": "0x100227a65",
+        "Song": "0x100226661",
+        "Section": "0x100226768",
+        "SongId": "0x100227ed0"
+      },
+      "binary_hash_scope": "complete universal macOS executable; only x86_64 slice analyzed"
+    }
+  ],
+  "findings": {
+    "extensions": [
+      ".fas-songs",
+      ".fas-setlist"
+    ],
+    "serialization": "XML construction and UTF-8 XML file writer traced statically; no generated file inspected",
+    "songs_root": "All-Songs",
+    "setlists_root": "Setlists",
+    "root_attributes": [
+      "version",
+      "deviceId",
+      "deviceMajor",
+      "deviceMinor"
+    ],
+    "exported_version_literal": "1",
+    "song_attributes": [
+      "id",
+      "name"
+    ],
+    "section_children": 6,
+    "section_attributes": [
+      "name",
+      "preset",
+      "scene"
+    ],
+    "set_attributes": [
+      "id",
+      "name"
+    ],
+    "set_position_children": 32,
+    "set_position_element": "SongId",
+    "set_position_attribute": "id",
+    "setlist_dependency_inference": "Reviewed setlist branch emits references without Song/Section definitions; do not assume self-contained dependencies",
+    "numeric_semantics": "unknown: raw ID origins, scene/preset offsets, NONE/DEFAULT and empty set sentinel",
+    "system_format": "unqualified: no complete sample, framing, payload, integrity, version or restore transaction"
+  },
+  "static_checks": [
+    {
+      "editor": "Axe-Edit III",
+      "result": "passed",
+      "checks": [
+        "both file extensions and root/metadata references in export function",
+        "six Section constructors",
+        "32-entry set loop",
+        "version literal 1 for both roots"
+      ]
+    },
+    {
+      "editor": "FM3-Edit",
+      "result": "passed",
+      "checks": [
+        "both file extensions and root/metadata references in export function",
+        "six Section constructors",
+        "32-entry set loop",
+        "version literal 1 for both roots"
+      ]
+    },
+    {
+      "editor": "FM9-Edit",
+      "result": "passed",
+      "checks": [
+        "both file extensions and root/metadata references in export function",
+        "six Section constructors",
+        "32-entry set loop",
+        "version literal 1 for both roots"
+      ]
+    }
+  ],
+  "system_documentation": {
+    "source_url": "https://support.fractalaudio.com/en-US/reset-system-parameters-289296",
+    "access": "Official indexed web text reviewed; direct byte retrieval returned HTTP 403; no original byte hash claimed",
+    "scope": "Manufacturer system-reset/backup guidance; no binary-format specification"
+  },
+  "limits": [
+    "Static analysis of x86_64 slices only; ARM64 and Windows were not analyzed",
+    "No source or executable redistributed; private research dependencies are not build/runtime dependencies",
+    "Matching editor structures do not establish model/firmware interchange or hardware compatibility",
+    "No codec, System request, write operation or restore recipe added",
+    "Prior synthetic planner checks are not new format validation",
+    "FM3 editor support message 5.04 does not supersede documented 6.00 minimum"
+  ],
+  "fm9_static_locators": {
+    "song_import_function": "0x100217b60",
+    "setlist_import_function": "0x1002153f0",
+    "xml_file_writer": "0x1003d1330",
+    "xml_stream_writer": "0x1003b7400",
+    "xml_declaration_reference": "0x1003b756e",
+    "utf8_fallback_reference": "0x1003b76d3",
+    "system_restore_warning_reference": "0x100007687",
+    "same_firmware_warning_reference": "0x1000076a8",
+    "address_basis": "unslid x86_64 virtual addresses within hashed FM9 executable, not wire addresses"
+  },
+  "private_evidence_sha256": {
+    "artifact-001": "54b475179a90f0b4f0e87f76daabd749fe527ce72abf6abd06e445ca5f31e7ad",
+    "artifact-002": "cbacd7d95c719cde40bebb62e6f3d60abcfb738701a5c25b0be2f392f800774c",
+    "artifact-003": "f1de79591c6bfc2f9f42d4a6b33c1e6f0560483e500bf64fb8c77b4f35abc50f",
+    "artifact-004": "de2f09c89c6f62daf55644fd3bdfba248a4868c6cefd7cbe0f37abacc0693a81"
+  },
+  "repository_checks": {
+    "knowledge_validation": "passed: 47 capabilities, 117 sources, portable links and scope",
+    "distribution_source_privacy": "passed: 282 public source files",
+    "protocol_release": "unchanged 0.38.0 verified: 118 source/build, 6 planner/entry, 19 adapter/check and 6 desktop packaging files",
+    "runtime_tests": "not rerun: no runtime, planner or adapter source changed"
+  }
+}
