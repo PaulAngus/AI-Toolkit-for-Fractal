@@ -177,7 +177,7 @@
     "scripts/check_cli_pipeline.py": "1d439c1a69a6cc6da963f1c984964e6fbc1928c7d3fbb255ab8b9f715d109571",
     "scripts/check_shared_midi.py": "06b86205662a17b48ef51dc70663eba4356b1150aeea267fb83fd1a623d11d4d",
     "scripts/prepare_shared_midi.py": "cb6e7cf8b6aaed9f8830886f354ac3d4323c227751406ebc3f3ddfd0cec00110",
-    "scripts/protocol_release.py": "fbef6d4e0996d6d18f3ee868fa654d3f9e7133eed8cea2e8e7b7a57a194cd202",
+    "scripts/protocol_release.py": "6013c50673023b7cacd2084ea31a329c28001d8a89408d14d6f888bb57443774",
     "scripts/validate_knowledge.py": "dd1190f8a61a2930018fa08b26bec2d9a1f0a7f23765a82f489ae54c6c382697",
     "src/Fractal.Cli/Fractal.Cli.csproj": "4c3678a2ebf41060d9ecea076408b76ddd9d15bdd6a549a04a47f387c62b45e5",
     "src/Fractal.Cli/Program.cs": "ad4097ee8cb690b5535519bbe7e8497c65504207f7b6a65949c6a07b08d74a9b",
@@ -368,7 +368,7 @@
     "scripts/check_mcp_pipeline.py": "fddafbf2754b11a71f469d70ccbd9d7ce6971115a52be8c4c44ad17213352ed9",
     "scripts/check_mcp_sdk.py": "215a99f690a895b7e5f5aa3329658a1ac6c109acd42c3e14482dcb2a66e2de1a",
     "scripts/fractal_mcp.py": "5731feba16fb845f77536519e529f5f05e0d04b050ee3771ad2b9f76179ebe34",
-    "scripts/package_mcp.py": "1dc61cba1eea2be015a3c3187de170857d513d46f82cc4c893c1525a6efb0082",
+    "scripts/package_mcp.py": "76e6a7a367cccf4c9ddf08c1d6d8ab401dcc5ef91e234c9119f8511672531a31",
     "scripts/query_amp.py": "f1b7e49c908a0dd6dc25065d7cf8d5449e70c1ebbc2e0c5ab9e49edc2c1d1886",
     "scripts/release-signing.entitlements.plist": "6e9f11f9fb3d5fe23c7b3eb5bcd317f7c5b90ef1704815afbe3171c8186fd1eb",
     "scripts/release_signing.py": "bbedec7ab0f396cf62d0acae7814a1f68d4d2fbbcfaac08362bded25e44ef710",
@@ -387,14 +387,14 @@
     "tests/test_distribution.py": "895e30e8df049e450f1e47a52d2e38348e6ac79ea0915cc67c32d78ea8d2e096",
     "tests/test_mcp.py": "8ce5423cad621d580cca754b97613b73932d3c097a37699f13cb6c84d73632af",
     "tests/test_midi_connections.py": "fbfc31cf6855588c4225c8baac8e7c0ef81cd95c0a19865cea6c10d698403bfb",
-    "tests/test_release_signing.py": "a28b7a38ddfe13a900414a0ad4e3b27ea90f7ffd5b48fcff2078bf7af9ac0dfa"
+    "tests/test_release_signing.py": "5d5a79cff3986fed162e1fbc309337f5d1cbe23dba063c2e33f3fa9c5411c3e1"
   },
   "contained_desktop_packaging_sha256": {
     "adapters/claude_desktop/manifest.json": "c5c5122175193bf6bcbb9faeb6f5669b954242193d85fcc0b6b0542418750088",
     "adapters/claude_desktop/pyproject.toml": "fd9884fcd40596d4feddbf4cc8e4d30bf09715cc08789fefcde478bbf901a8c0",
     "adapters/claude_desktop/server.py": "1e6231f538e97d2446207aee425fa566c52a2328d145e1d1e12da9031155b412",
     "scripts/check_claude_package.py": "8dbe7c779e7ec6c7ca43a318a5cba73b81c94fb6ac10902b93e6eeb482d25920",
-    "scripts/package_claude.py": "88420ccf07ef12fc4dfde751609b2452fb0e44e11644e4b1ff3ff41b6c128b40",
+    "scripts/package_claude.py": "424bcb95d67ce8c7a5e8f1fb920604028b250a58b121e6ff7181374d716289e1",
     "tests/test_claude_desktop.py": "c7c9671b66576126c0971483c5b8c6f51f9367d2adf9cb20b87d34efd5b7b98e"
   },
   "desktop_packaging_revision": 11,

@@ -39,6 +39,19 @@ def desktop_hashes():
     return {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(files)}
 
 
+def distribution_source_hashes(manifest):
+    expected = manifest['contained_source_sha256']
+    receipt = ROOT / 'runtime-distribution.json'
+    if not receipt.exists():
+        return expected
+    distribution = json.loads(receipt.read_text(encoding='utf-8'))
+    allowed = {name: digest for name, digest in expected.items()
+               if name.startswith('dependencies/') and name.endswith('.nupkg')}
+    if distribution.get('kind') != 'runtime' or distribution.get('omitted_build_inputs') != allowed:
+        raise ValueError('Runtime distribution may omit only the exact pinned build-only NuGet archives.')
+    return {name: digest for name, digest in expected.items() if name not in allowed}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--record", action="store_true", help="Deliberately update local release hashes after reviewed changes")
@@ -54,7 +67,7 @@ def main():
         manifest["contained_adapter_sha256"] = adapters
         manifest['contained_desktop_packaging_sha256'] = desktop
         MANIFEST.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")
-    elif manifest.get("contained_source_sha256") != hashes:
+    elif distribution_source_hashes(manifest) != hashes:
         raise SystemExit("Protocol release hashes differ; review changes and explicitly record a new source snapshot.")
     elif manifest.get("contained_planner_sha256") != planners:
         raise SystemExit("Planner release hashes differ; review changes and explicitly record the contained planners.")

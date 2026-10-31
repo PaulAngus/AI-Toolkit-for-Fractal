@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Build a relocatable complete local MCP bundle from this repository alone."""
 import argparse
+import hashlib
+import json
 import shutil
 import subprocess
 from pathlib import Path
@@ -10,7 +12,7 @@ from release_signing import add_signing_arguments, sign_runtime
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def package(destination, *, windows_certificate=None, mac_identity=None, runtime=None):
+def package(destination, *, windows_certificate=None, mac_identity=None, runtime=None, include_build_feed=True):
     check_directory(ROOT, source=True)
     destination = destination.resolve()
     if destination.exists():
@@ -34,6 +36,15 @@ def package(destination, *, windows_certificate=None, mac_identity=None, runtime
         shutil.copytree(ROOT / folder, destination / folder, ignore=shutil.ignore_patterns('__pycache__', '*.pyc', 'bin', 'obj'))
     for name in PUBLIC_FILES:
         shutil.copyfile(ROOT / name, destination / name)
+    if not include_build_feed:
+        omitted = {}
+        for archive in sorted((destination / 'dependencies').rglob('*.nupkg')):
+            omitted[archive.relative_to(destination).as_posix()] = hashlib.sha256(archive.read_bytes()).hexdigest()
+            archive.unlink()
+        (destination / 'runtime-distribution.json').write_text(json.dumps({
+            'kind': 'runtime', 'omitted_build_inputs': omitted,
+            'source': 'Use the matching complete source archive or repository for offline builds. Original dependency packages are preserved there unchanged.'
+        }, indent=2) + '\n', encoding='utf-8')
     sign_runtime(destination, windows_certificate=windows_certificate, mac_identity=mac_identity)
     check_directory(destination)
     print(f'Contained MCP bundle created: {destination}')
@@ -44,9 +55,10 @@ if __name__ == '__main__':
     parser.add_argument('--destination', type=Path, required=True)
     add_signing_arguments(parser)
     parser.add_argument('--runtime', choices=('win-x64', 'osx-arm64', 'osx-x64'))
+    parser.add_argument('--runtime-only', action='store_true', help='Exclude build-only NuGet archives; distribute complete source separately')
     try:
         args = parser.parse_args()
         package(args.destination, windows_certificate=args.windows_certificate, mac_identity=args.mac_identity,
-                runtime=args.runtime)
+                runtime=args.runtime, include_build_feed=not args.runtime_only)
     except (ValueError, OSError, subprocess.CalledProcessError) as error:
         parser.exit(2, f'error: {error}\n')

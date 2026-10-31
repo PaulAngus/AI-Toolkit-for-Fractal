@@ -22,7 +22,8 @@ def build(destination, *, windows_certificate=None, mac_identity=None, notary_pr
     # Build into a temporary directory, never pack the working tree or private inputs.
     with tempfile.TemporaryDirectory(prefix='fractal-claude-build-') as temporary:
         bundle = Path(temporary) / 'bundle'
-        package(bundle, windows_certificate=windows_certificate, mac_identity=mac_identity, runtime=runtime)
+        package(bundle, windows_certificate=windows_certificate, mac_identity=mac_identity, runtime=runtime,
+                include_build_feed=False)
         shutil.copyfile(ROOT / 'adapters/claude_desktop/manifest.json', bundle / 'manifest.json')
         shutil.copyfile(ROOT / 'adapters/claude_desktop/pyproject.toml', bundle / 'pyproject.toml')
         files = sorted(path for path in bundle.rglob('*') if path.is_file())

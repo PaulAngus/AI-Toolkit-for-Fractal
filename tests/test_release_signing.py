@@ -1,6 +1,7 @@
 """Unit-only refusal checks for release signing; no keys, tools or devices used."""
 import sys
 import tempfile
+import json
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -8,6 +9,7 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from release_signing import sign_runtime
 from package_claude import build
+import protocol_release
 
 
 class ReleaseSigningTests(unittest.TestCase):
@@ -42,3 +44,16 @@ class ReleaseSigningTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'explicitly selected'):
                 build(Path('unused.mcpb'), notary_profile='example-profile')
             package.assert_not_called()
+
+    def test_runtime_distribution_omits_only_exact_build_archives(self):
+        expected = {'dependencies/midi/pinned.nupkg': 'archive-hash', 'src/core.cs': 'source-hash'}
+        with tempfile.TemporaryDirectory() as temporary, patch.object(protocol_release, 'ROOT', Path(temporary)):
+            receipt = Path(temporary) / 'runtime-distribution.json'
+            receipt.write_text(json.dumps({'kind': 'runtime', 'omitted_build_inputs': {
+                'dependencies/midi/pinned.nupkg': 'archive-hash'}}))
+            self.assertEqual(protocol_release.distribution_source_hashes({'contained_source_sha256': expected}),
+                             {'src/core.cs': 'source-hash'})
+            for omissions in ({'src/core.cs': 'source-hash'}, {'dependencies/midi/pinned.nupkg': 'changed'}, {}):
+                receipt.write_text(json.dumps({'kind': 'runtime', 'omitted_build_inputs': omissions}))
+                with self.assertRaisesRegex(ValueError, 'exact pinned'):
+                    protocol_release.distribution_source_hashes({'contained_source_sha256': expected})
