@@ -371,7 +371,7 @@
     "scripts/package_mcp.py": "1dc61cba1eea2be015a3c3187de170857d513d46f82cc4c893c1525a6efb0082",
     "scripts/query_amp.py": "f1b7e49c908a0dd6dc25065d7cf8d5449e70c1ebbc2e0c5ab9e49edc2c1d1886",
     "scripts/release-signing.entitlements.plist": "6e9f11f9fb3d5fe23c7b3eb5bcd317f7c5b90ef1704815afbe3171c8186fd1eb",
-    "scripts/release_signing.py": "38b25fa0d5b253e007b22bb1552ad1e4798225a1e24bd22e243356f83dfa9d9e",
+    "scripts/release_signing.py": "bbedec7ab0f396cf62d0acae7814a1f68d4d2fbbcfaac08362bded25e44ef710",
     "scripts/search_knowledge.py": "b996bd141a8b0cce7cfc60950d9e0d0d0afcba19157e42d75e9bf3e04a9ec076",
     "scripts/Sign-WindowsRuntime.ps1": "9bddb8e843fc3b4a1ebd5c104e13a0fa23c49c9686d1ef6790a87bb88b6af73c",
     "scripts/validate_distribution.py": "7474fb4e9d4b7e7be8220a2d23aa0c0940703e33e988f6997e9b629d0a8f32c1",

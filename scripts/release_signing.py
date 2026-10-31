@@ -41,10 +41,13 @@ def sign_runtime(bundle, *, windows_certificate=None, mac_identity=None):
                                      check=True, capture_output=True, text=True).stderr
             if 'Authority=' + mac_identity not in details or 'Timestamp=' not in details:
                 raise ValueError('Expected timestamped Developer ID signature was not found.')
+            architectures = subprocess.run(['lipo', '-archs', str(path)], check=True,
+                                            capture_output=True, text=True).stdout.split()
             files.append({'path': path.relative_to(bundle).as_posix(),
-                          'sha256': hashlib.sha256(path.read_bytes()).hexdigest()})
+                          'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+                          'architectures': architectures})
         (bundle / 'release-signing.json').write_text(json.dumps({
-            'platform': 'macOS', 'architecture': platform.machine(), 'identity': mac_identity,
+            'platform': 'macOS', 'signing_host_architecture': platform.machine(), 'identity': mac_identity,
             'hardened_runtime': True, 'timestamped': True, 'files': files,
             'scope': 'Signature verification only; no application or hardware acceptance.'}, indent=2) + '\n',
             encoding='utf-8')
