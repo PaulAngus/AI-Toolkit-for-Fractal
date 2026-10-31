@@ -275,7 +275,7 @@
       "Per-tool client permissions were granted by the operator; final complete inventory comparison used the trusted host"
     ]
   },
-  "packaged_extension_version": "0.12.1",
-  "packaged_toolkit_release": "0.38.1",
+  "packaged_extension_version": "0.9.0",
+  "packaged_toolkit_release": "0.9.0",
   "packaged_release_scope": "Source packaging version only. Retained client and hardware evidence keeps its original extension/toolkit version scope."
 }

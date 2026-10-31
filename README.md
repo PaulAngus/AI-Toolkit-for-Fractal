@@ -1,6 +1,6 @@
 # AI Toolkit for Fractal
 
-Current source release: [0.9.0 — late beta](docs/releases/0.9.0.md).
+Current source release: [0.9.0 â€” late beta](docs/releases/0.9.0.md).
 
 <img src="assets/branding/logo.png" alt="AI Toolkit for Fractal logo: an open toolkit with an effects routing grid" width="360">
 
@@ -78,6 +78,8 @@ The example is synthetic. Scene MIDI plans use the general block operation when 
 ## Evidence and limits
 
 All three model paths and both Axe-Fx III capacities have synthetic regression and CLI pipeline checks. **FM9 firmware 12.00 has historical physical read-only validation**, covering saved slots, repeat/state checks and timeout/cancellation recovery. See the [hardware report](docs/hardware-validation.md). FM3 and Axe-Fx III remain physically untested. Historical write evidence and retained failures are recorded separately for each operation; see [device support](docs/device-support.md) and [evidence](docs/evidence.md). These records retain their original dates, versions and hashes and do not qualify the new 0.9.0 beta.
+
+Signed native distribution instructions: [release packaging](docs/github-releases.md).
 
 ## AI clients and maintenance
 

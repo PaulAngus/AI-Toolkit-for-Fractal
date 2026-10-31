@@ -28,8 +28,8 @@ def planner_hashes():
 
 def adapter_hashes():
     files = list((ROOT / 'src/fractal_mcp').glob('*.py'))
-    files += [ROOT / 'scripts' / name for name in ('fractal_mcp.py', 'package_mcp.py', 'check_mcp_pipeline.py', 'check_mcp_sdk.py', 'search_knowledge.py', 'query_amp.py', 'validate_distribution.py')]
-    files += [ROOT / 'tests/test_mcp.py', ROOT / 'tests/test_midi_connections.py', ROOT / 'tests/test_device_settings.py', ROOT / 'tests/test_distribution.py']
+    files += [ROOT / 'scripts' / name for name in ('fractal_mcp.py', 'package_mcp.py', 'check_mcp_pipeline.py', 'check_mcp_sdk.py', 'search_knowledge.py', 'query_amp.py', 'validate_distribution.py', 'release_signing.py', 'Sign-WindowsRuntime.ps1', 'release-signing.entitlements.plist')]
+    files += [ROOT / 'tests/test_mcp.py', ROOT / 'tests/test_midi_connections.py', ROOT / 'tests/test_device_settings.py', ROOT / 'tests/test_distribution.py', ROOT / 'tests/test_release_signing.py']
     return {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(files)}
 
 

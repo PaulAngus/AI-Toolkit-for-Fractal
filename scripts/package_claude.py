@@ -9,9 +9,12 @@ import subprocess
 import tempfile
 import zipfile
 from package_mcp import package, ROOT
+from release_signing import add_signing_arguments, notarize_archive
 
 
-def build(destination):
+def build(destination, *, windows_certificate=None, mac_identity=None, notary_profile=None, runtime=None):
+    if notary_profile and not mac_identity:
+        raise ValueError('Notarization requires an explicitly selected Developer ID identity.')
     destination = Path(destination).resolve()
     if destination.exists() or destination.with_suffix('.mcpb.sha256').exists() or destination.suffix != '.mcpb':
         raise ValueError('Choose a new .mcpb output file; existing packages are never replaced.')
@@ -19,7 +22,7 @@ def build(destination):
     # Build into a temporary directory, never pack the working tree or private inputs.
     with tempfile.TemporaryDirectory(prefix='fractal-claude-build-') as temporary:
         bundle = Path(temporary) / 'bundle'
-        package(bundle)
+        package(bundle, windows_certificate=windows_certificate, mac_identity=mac_identity, runtime=runtime)
         shutil.copyfile(ROOT / 'adapters/claude_desktop/manifest.json', bundle / 'manifest.json')
         shutil.copyfile(ROOT / 'adapters/claude_desktop/pyproject.toml', bundle / 'pyproject.toml')
         files = sorted(path for path in bundle.rglob('*') if path.is_file())
@@ -40,13 +43,20 @@ def build(destination):
                 raise ValueError('Package archive integrity failed.')
     digest = hashlib.sha256(destination.read_bytes()).hexdigest()
     destination.with_suffix('.mcpb.sha256').write_text(f'{digest}  {destination.name}\n', encoding='utf-8')
+    if notary_profile:
+        notarize_archive(destination, notary_profile)
     print(f'Claude Desktop package created: {destination} ({destination.stat().st_size / 1024 / 1024:.1f} MiB)')
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--destination', type=Path, required=True)
+    add_signing_arguments(parser)
+    parser.add_argument('--runtime', choices=('win-x64', 'osx-arm64', 'osx-x64'))
+    parser.add_argument('--notary-profile', help='Existing notarytool keychain profile on the signing Mac')
     try:
-        build(parser.parse_args().destination)
+        args = parser.parse_args()
+        build(args.destination, windows_certificate=args.windows_certificate,
+              mac_identity=args.mac_identity, notary_profile=args.notary_profile, runtime=args.runtime)
     except (ValueError, OSError, subprocess.CalledProcessError) as error:
         parser.exit(2, f'error: {error}\n')
